@@ -1,0 +1,95 @@
+{% if cookiecutter.use_docker== 'y' %}
+docker:
+  docker_pull:
+    - quay.io/biocontainers/fastqc:0.11.8--1
+    - quay.io/biocontainers/trimmomatic:0.39--1
+    - quay.io/biocontainers/star:2.7.1a--0
+    - quay.io/biocontainers/samtools:1.9--h91753b0_8
+    - quay.io/biocontainers/rseqc:3.0.0--py_3
+    - ubuntu:18.04
+  docker_build:
+    sra-toolkit:
+      tag: latest
+      dockerfile: https://gitlab.com/r78v10a07/cwl-workflow/raw/master/tools/sra-toolkit/Dockerfile
+    tpmcalculator:
+      tag: latest
+      dockerfile: https://raw.githubusercontent.com/ncbi/TPMCalculator/master/Dockerfile
+    r-3.5_ubuntu-18.04:
+      tag: latest
+      dockerfile: https://gitlab.com/r78v10a07/cwl-workflow/raw/master/tools/R/Dockerfile_R-3.6_ubuntu-18.04
+    igvtools_ubuntu-18.04:
+      tag: latest
+      dockerfile: https://gitlab.com/r78v10a07/cwl-workflow/raw/master/tools/IGV/Dockerfile
+  {% else %}
+tools:
+  - SRA-Tools:
+      command: fastq-dump
+      version: '2.9.1'
+      option: --version
+      out: stdout
+  - Fastqc:
+      command: fastqc
+      version: 'v0.11.8'
+      option: --version
+      out: stdout
+  - Trimmomatic:
+      command: trimmomatic
+      version: '0.39'
+      option: -version
+      out: stdout
+  - STAR:
+      command: STAR
+      version: '2.7.1a'
+      option: --version
+      out: stdout
+  - Samtools:
+      command: samtools
+      version: '1.9'
+      option: --version
+      out: stdout
+  - TPMCalculator:
+      command: TPMCalculator
+      version: '0.0.3'
+      option: -version
+      out: stdout
+  - RSeQC:
+      command: bam_stat.py
+      version: '3.0.0'
+      option: --version
+      out: stdout
+  - igvtools:
+      command: igvtools
+      version: '2.5.3'
+      out: stdout
+  - R:
+      command: R
+      version: '3.6.0'
+      option: --version
+      out: stdout
+  - Deseq2:
+      command: Rscript
+      output: '[1] TRUE'
+      option:
+        - -e
+        - "'DESeq2' %in% rownames(installed.packages())"
+      out: stdout
+  - EdgeR:
+      command: Rscript
+      output: '[1] TRUE'
+      option:
+        - -e
+        - "'edgeR' %in% rownames(installed.packages())"
+      out: stdout
+  - ggplot2:
+      command: Rscript
+      output: '[1] TRUE'
+      option:
+        - -e
+        - "'ggplot2' %in% rownames(installed.packages())"
+      out: stdout
+  - Python3.7:
+      command: python3.7
+      version: '3.7'
+      option: --version
+      out: stdout
+{% endif %}
