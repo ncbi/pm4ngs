@@ -18,13 +18,13 @@ Constraints
 Installation
 ------------
 
+First, install Cookiecutter and other basic Python packages. 
+
+    $ pip install -r https://raw.githubusercontent.com/ncbi/cookiecutter-jupyter-ngs/master/requirements.txt
+
 Let's pretend you want to create a RNA-Seq project called "rnaseq-sra-single" to analyze samples 
 included in the NCBI BioProject [PRJNA339968](https://www.ncbi.nlm.nih.gov/bioproject/339968).
 These are single-end samples from  FACS-purified monocytes in human.
-
-First, install Cookiecutter. 
-
-    $ pip install cookiecutter
 
 Now run it against this repo:
 
@@ -39,6 +39,8 @@ You'll be prompted for some values.
     is_data_in_SRA: "y"
     ngs_data_type: "RNA-Seq"
     sequencing_technology: "single-end"
+    create_demo: "y"
+    number_spots: "2000000"
     organism: "human"
     genome_dir: "/gfs/data/genomes/igenomes/Homo_sapiens/UCSC/hg38"
     genome_name: "hg38"
