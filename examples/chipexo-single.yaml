@@ -2,7 +2,7 @@ default_context:
     author_name: "Roberto Vera Alvarez"
     user_email: "veraalva@ncbi.nlm.nih.gov"
     project_name: "chipexo-single"
-    dataset_name: "PRJNA339968"
+    dataset_name: "PRJNA238004"
     is_data_in_SRA: "n"
     ngs_data_type: "ChIP-exo"
     sequencing_technology: "single-end"

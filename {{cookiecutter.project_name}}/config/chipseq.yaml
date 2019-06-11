@@ -8,7 +8,6 @@ docker:
     - quay.io/biocontainers/phantompeakqualtools:1.2--1
     - quay.io/biocontainers/samtools:1.9--h91753b0_8
     - quay.io/biocontainers/rseqc:3.0.0--py_3
-    - quay.io/biocontainers/igvtools:2.3.93--0
     - ubuntu:18.04
   docker_build:
     sra-toolkit:
@@ -20,6 +19,9 @@ docker:
     r-3.5_ubuntu-18.04:
       tag: latest
       dockerfile: https://gitlab.com/r78v10a07/cwl-workflow/raw/master/tools/R/Dockerfile_R-3.6_ubuntu-18.04
+    igvtools_ubuntu-18.04:
+      tag: latest
+      dockerfile: https://gitlab.com/r78v10a07/cwl-workflow/raw/master/tools/IGV/Dockerfile
 {% else %}
 tools:
   - SRA-Tools:
@@ -81,9 +83,9 @@ tools:
         - -e
         - "'ggplot2' %in% rownames(installed.packages())"
       out: stdout
-  - Python3.7:
-      command: python3.7
-      version: '3.7'
+  - Python3.6:
+      command: python3
+      version: '3.6'
       option: --version
       out: stdout
 {% endif %}
