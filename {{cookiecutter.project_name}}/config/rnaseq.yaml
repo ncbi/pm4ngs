@@ -87,9 +87,9 @@ tools:
         - -e
         - "'ggplot2' %in% rownames(installed.packages())"
       out: stdout
-  - Python3.7:
-      command: python3.7
-      version: '3.7'
+  - Python3.6:
+      command: python3
+      version: '3.6'
       option: --version
       out: stdout
 {% endif %}
