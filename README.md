@@ -28,7 +28,7 @@ These are single-end samples from  FACS-purified monocytes in human.
 
 Now run it against this repo:
 
-    $ cookiecutter https://github.com/ncbi/cookiecutter-jupyter-rnaseq
+    $ cookiecutter https://github.com/ncbi/cookiecutter-jupyter-rnaseq.git
     
 You'll be prompted for some values. 
 
