@@ -24,7 +24,10 @@ def check_dependencies_path(config):
         tool, value = tool.popitem()
         tool_path = distutils.spawn.find_executable(value['command'])
         if not tool_path:
-            print('\nERROR: {0} version: {1} not available.'.format(tool, value['version']))
+            if 'version' in value:
+                print('\nERROR: {0} version: {1} not available.'.format(tool, value['version']))
+            else:
+                print('\nERROR: {0} not available.'.format(tool))
             sys.exit(-1)
         else:
             if 'out' in value:

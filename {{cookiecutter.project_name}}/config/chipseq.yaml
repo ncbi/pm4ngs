@@ -26,7 +26,7 @@ docker:
 tools:
   - SRA-Tools:
       command: fastq-dump
-      version: '2.9.1'
+      version: '2.9.6'
       option: --version
       out: stdout
   - Fastqc:
@@ -40,9 +40,9 @@ tools:
       option: -version
       out: stdout
   - BWA:
-      command: BWA
+      command: bwa
       version: '0.7.17'
-      out: stdout
+      out: stderr
   - Samtools:
       command: samtools
       version: '1.9'
@@ -82,10 +82,5 @@ tools:
       option:
         - -e
         - "'ggplot2' %in% rownames(installed.packages())"
-      out: stdout
-  - Python3.6:
-      command: python3
-      version: '3.6'
-      option: --version
       out: stdout
 {% endif %}
