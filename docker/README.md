@@ -10,7 +10,7 @@ Image build
 Download from this folder the Dockerfile for the pipeline you're going to use. The examples are for the 
 Dockerfile-RNASeq-DGA pipeline.
 
-    docker build -t jupyter-rnaseq-pipeline -f Dockerfile-RNASeq-DGA .
+    docker build -t jupyter-rnaseq-pipeline https://raw.githubusercontent.com/ncbi/cookiecutter-jupyter-ngs/master/docker/Dockerfile-RNASeq-DGA
     
 Initialization of the data structure
 ------------------------------------
