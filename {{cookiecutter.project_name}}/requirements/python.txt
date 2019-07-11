@@ -12,4 +12,4 @@ cwl-runner~=1.0
 cwltool~=1.0.20190228155703
 jupyter~=1.0.0
 jupyterngsplugin~=0.0.7a3
-goenrichment~=0.0.8a3
+goenrichment~=0.0.9a3

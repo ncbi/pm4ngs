@@ -2,3 +2,4 @@ cookiecutter~=1.6.0
 PyYAML~=5.1
 virtualenv~=16.6.0
 docker~=4.0.1
+GitPython~=2.1.11
