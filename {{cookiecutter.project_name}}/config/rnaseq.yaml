@@ -6,20 +6,14 @@ docker:
     - quay.io/biocontainers/star:2.7.1a--0
     - quay.io/biocontainers/samtools:1.9--h91753b0_8
     - quay.io/biocontainers/rseqc:3.0.0--py_3
+    - quay.io/biocontainers/tpmcalculator:0.0.3--hdbb99b9_0
+    - quay.io/biocontainers/igvtools:2.5.3--0
+    - quay.io/biocontainers/sra-tools:2.9.6--hf484d3e_0
     - ubuntu:18.04
   docker_build:
-    sra-toolkit:
-      tag: latest
-      dockerfile: https://gitlab.com/r78v10a07/cwl-workflow/raw/master/tools/sra-toolkit/Dockerfile
-    tpmcalculator:
-      tag: latest
-      dockerfile: https://raw.githubusercontent.com/ncbi/TPMCalculator/master/Dockerfile
     r-3.5_ubuntu-18.04:
       tag: latest
       dockerfile: https://gitlab.com/r78v10a07/cwl-workflow/raw/master/tools/R/Dockerfile_R-3.6_ubuntu-18.04
-    igvtools_ubuntu-18.04:
-      tag: latest
-      dockerfile: https://gitlab.com/r78v10a07/cwl-workflow/raw/master/tools/IGV/Dockerfile
   {% else %}
 tools:
   - SRA-Tools:
@@ -63,7 +57,7 @@ tools:
       out: stdout
   - R:
       command: R
-      version: '3.6.0'
+      version: '3.5.1'
       option: --version
       out: stdout
   - Deseq2:

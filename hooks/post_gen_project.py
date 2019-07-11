@@ -7,10 +7,13 @@ import virtualenv
 import subprocess
 import distutils.spawn
 
+from git import Repo
+
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
 NGS_DATA_TYPE = '{{ cookiecutter.ngs_data_type }}'
 CREATE_VIRTUALENV = '{{ cookiecutter.create_virtualenv }}'
 PULL_IMAGES = '{{ cookiecutter.pull_images }}'
+CWL_WORKFLOW_REPO = '{{ cookiecutter.cwl_workflow_repo }}'
 
 
 def check_dependencies_path(config):
@@ -24,7 +27,10 @@ def check_dependencies_path(config):
         tool, value = tool.popitem()
         tool_path = distutils.spawn.find_executable(value['command'])
         if not tool_path:
-            print('\nERROR: {0} version: {1} not available.'.format(tool, value['version']))
+            if 'version' in value:
+                print('\nERROR: {0} version: {1} not available.'.format(tool, value['version']))
+            else:
+                print('\nERROR: {0} not available.'.format(tool))
             sys.exit(-1)
         else:
             if 'out' in value:
@@ -166,6 +172,17 @@ def rename_notebook(src, dest):
         os.remove(src)
 
 
+def clone_git_repo():
+    """
+    Clone the git repo from the cookiecutter.cwl_workflow_repo to the bin directory
+    :return:
+    """
+    BASE_NAME = os.path.basename(CWL_WORKFLOW_REPO)
+    print('Cloning Git repo: {0} to {1}'.format(CWL_WORKFLOW_REPO,
+                                                os.path.join(PROJECT_DIRECTORY, 'bin', BASE_NAME)))
+    Repo.clone_from(CWL_WORKFLOW_REPO, os.path.join(PROJECT_DIRECTORY, 'bin', BASE_NAME))
+
+
 if __name__ == '__main__':
     notebook_04_dest = None
     notebook_05_dest = None
@@ -203,3 +220,6 @@ if __name__ == '__main__':
 
     if CREATE_VIRTUALENV == 'y':
         create_virtualenv()
+
+    if 'github.com' in CWL_WORKFLOW_REPO:
+        clone_git_repo()
