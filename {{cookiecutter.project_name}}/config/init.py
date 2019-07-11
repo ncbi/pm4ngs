@@ -110,7 +110,7 @@ if not DOCKER:
 ###############################################################
 
 
-CWLURL = '{{ cookiecutter.cwl_workflow_repo }}'
+CWLURL = {% if 'https://github.com/' in cookiecutter.cwl_workflow_repo %}os.path.join(BIN, os.path.basename('{{ cookiecutter.cwl_workflow_repo }}')){% else %}'{{ cookiecutter.cwl_workflow_repo }}'{% endif %}
 CWLTOOLS = os.path.join(CWLURL, 'tools')
 CWLWORKFLOWS = os.path.join(CWLURL, 'workflows')
 

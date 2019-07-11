@@ -1,13 +1,14 @@
 import re
 import sys
-
+from cookiecutter.main import cookiecutter
 
 PROJECT_REGEX = r'^[\-_a-zA-Z0-9]+$'
 
-project_name = '{{ cookiecutter.project_name }}'
+PROJECT_NAME = '{{ cookiecutter.project_name }}'
 
-if not re.match(PROJECT_REGEX, project_name):
-    print('ERROR: %s is not a valid PROJECT name!' % project_name)
+if not re.match(PROJECT_REGEX, PROJECT_NAME):
+    print('ERROR: %s is not a valid PROJECT name!' % PROJECT_NAME)
 
     # exits with status 1 to indicate failure
     sys.exit(1)
+
