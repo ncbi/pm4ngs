@@ -177,9 +177,10 @@ def clone_git_repo():
     Clone the git repo from the cookiecutter.cwl_workflow_repo to the bin directory
     :return:
     """
+    BASE_NAME = os.path.basename(CWL_WORKFLOW_REPO)
     print('Cloning Git repo: {0} to {1}'.format(CWL_WORKFLOW_REPO,
-                                                os.path.join(PROJECT_DIRECTORY, 'bin')))
-    Repo.clone_from(CWL_WORKFLOW_REPO, os.path.join(PROJECT_DIRECTORY, 'bin'))
+                                                os.path.join(PROJECT_DIRECTORY, 'bin', BASE_NAME)))
+    Repo.clone_from(CWL_WORKFLOW_REPO, os.path.join(PROJECT_DIRECTORY, 'bin', BASE_NAME))
 
 
 if __name__ == '__main__':

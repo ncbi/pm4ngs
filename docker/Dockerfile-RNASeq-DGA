@@ -46,6 +46,7 @@ RUN /opt/conda/bin/conda install --quiet --yes \
 # Add user ubuntu with no password, add to sudo group
 RUN adduser --disabled-password --gecos '' ubuntu
 RUN chmod a+rwx /home/ubuntu/
+RUN mkdir /home/ubuntu/bin
 RUN locale -a
 ENV LANGUAGE=en_US.UTF-8
 ENV LC_ALL=en_US.UTF-8
@@ -55,17 +56,19 @@ ENV URL=https://github.com/ncbi/cookiecutter-jupyter-ngs
 ENV COOKIECUTTER_JUPYTER_NGS=/home/ubuntu/cookiecutter-jupyter-ngs
 
 RUN cd /home/ubuntu/ && \
-        git clone $URL && \
+        git clone --single-branch --branch develop $URL && \
 	    pip install -r $COOKIECUTTER_JUPYTER_NGS/requirements.txt && \
 	    pip install -r $COOKIECUTTER_JUPYTER_NGS/\{\{cookiecutter.project_name\}\}/requirements/python.txt
 
 RUN chown -R ubuntu /home/ubuntu
 USER ubuntu
+ENV PATH="/home/ubuntu/bin:${PATH}"
 ENV HOME=/home/ubuntu
 WORKDIR /data
 RUN sh -c 'echo "will cite" | parallel --citation'
 
-ENV init_cmd="cookiecutter --no-input --overwrite-if-exists --config-file config.yaml $COOKIECUTTER_JUPYTER_NGS"
+RUN echo "cd /data ; cookiecutter --no-input --overwrite-if-exists --config-file config.yaml $COOKIECUTTER_JUPYTER_NGS" > /home/ubuntu/bin/init.sh
+RUN chmod a+x /home/ubuntu/bin/init.sh
 
 EXPOSE 8888:8888
 
