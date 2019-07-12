@@ -16,7 +16,8 @@ MAINTAINER Roberto Vera Alvarez <veraalva@ncbi.nlm.nih.gov>
 USER root
 
 RUN apt-get update && \
-    apt-get install -y apt-utils wget bzip2 sudo gcc make git parallel nodejs locales-all && \
+    apt-get install -y apt-utils wget bzip2 sudo gcc make git parallel \
+    nodejs locales-all imagemagick && \
     apt-get clean && \
     apt-get purge && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
@@ -31,7 +32,7 @@ RUN conda config --add channels defaults && \
 
 # Adding Bioconda packages
 RUN /opt/conda/bin/conda install --quiet --yes --file \
-    https://raw.githubusercontent.com/ncbi/cwl-ngs-workflows-cbb/master/requirements/conda-rnaseq.txt
+    https://raw.githubusercontent.com/ncbi/cwl-ngs-workflows-cbb/develop/requirements/conda-rnaseq.txt
 
 # Add user ubuntu with no password, add to sudo group
 RUN adduser --disabled-password --gecos '' ubuntu
@@ -47,7 +48,7 @@ ENV COOKIECUTTER_JUPYTER_NGS=/home/ubuntu/cookiecutter-jupyter-ngs
 
 RUN cd /home/ubuntu/ && \
         git clone --single-branch --branch develop $URL && \
-	    pip install -r $COOKIECUTTER_JUPYTER_NGS/requirements.txt && \
+        pip install -r $COOKIECUTTER_JUPYTER_NGS/requirements.txt && \
 	    pip install -r $COOKIECUTTER_JUPYTER_NGS/\{\{cookiecutter.project_name\}\}/requirements/python.txt
 
 RUN chown -R ubuntu /home/ubuntu
