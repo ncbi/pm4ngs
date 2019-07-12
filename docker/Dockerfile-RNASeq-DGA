@@ -30,8 +30,7 @@ RUN conda config --add channels defaults && \
     conda config --add channels conda-forge
 
 # Adding Bioconda packages
-RUN /opt/conda/bin/conda install python=3.6
-RUN /opt/conda/bin/conda install --quiet --yes \
+RUN /opt/conda/bin/conda install --quiet --yes --file \
     https://raw.githubusercontent.com/ncbi/cwl-ngs-workflows-cbb/master/requirements/conda-rnaseq.txt
 
 # Add user ubuntu with no password, add to sudo group
