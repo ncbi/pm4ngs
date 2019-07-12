@@ -32,16 +32,7 @@ RUN conda config --add channels defaults && \
 # Adding Bioconda packages
 RUN /opt/conda/bin/conda install python=3.6
 RUN /opt/conda/bin/conda install --quiet --yes \
-    sra-tools=2.9* \
-    fastqc=0.11* \
-    trimmomatic=0.39* \
-    star=2.7* \
-    samtools=1.9* \
-    tpmcalculator=0.0* \
-    igvtools=2.5* \
-    rseqc=3.0* \
-    bioconductor-deseq2=1.22* \
-    bioconductor-edger=3.26*
+    https://raw.githubusercontent.com/ncbi/cwl-ngs-workflows-cbb/master/requirements/conda-rnaseq.txt
 
 # Add user ubuntu with no password, add to sudo group
 RUN adduser --disabled-password --gecos '' ubuntu

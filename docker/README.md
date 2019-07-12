@@ -15,7 +15,7 @@ Dockerfile-RNASeq-DGA pipeline.
 Initialization of the data structure
 ------------------------------------
 
-The container working directory is **/data**. Therefore, youshould mount the host directory with your data as a volume
+The container working directory is **/data**. Therefore, you should mount the host directory with your data as a volume
 pointing to the **/data** directory.
 
 For initializing the project structure, the container expect to find a file named **config.yaml** in that folder
