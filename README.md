@@ -77,6 +77,7 @@ You'll be prompted for some values.
     fdr: "0.05"
     use_docker: "y"
     pull_images: "y"
+    use_conda: "n"
     cwl_runner: "cwl-runner"
     cwl_workflow_repo: "https://gitlab.com/r78v10a07/cwl-workflow/raw/master"
     create_virtualenv: "y"
