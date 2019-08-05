@@ -244,8 +244,7 @@ The final file structure should be:
     │       │   ├── SRR4053818Log.final.out
     │       │   ├── SRR4053818_sorted.bam
     │       │   ├── SRR4053818_sorted.bam.bai
-    │       │   ├── commands
-    │       │   └── commands~
+    │       │   └── commands
     │       ├── dga
     │       │   ├── classical_vs_nonclassical_deseq2_dga.log
     │       │   ├── classical_vs_nonclassical_edgeR_dga.log
