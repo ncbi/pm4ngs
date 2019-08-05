@@ -6,14 +6,30 @@ Powered by [Cookiecutter](https://github.com/audreyr/cookiecutter),
 
 Features
 ---------
-* Works with Python 3.6+
-* Jupyter Notebook as interface for workflow execution
-* Jupyter Notebook for Data management
-* Automatic report project
+* NGS data integration, management and analysis based on Jupyter notebook, CWL workflows and cookiecutter project templates
+* Easy installation and use with a minimum command line interaction.
+* Data analysis CWL workflows executed from the Jupyter notebook with automatic failing detection and validated with published data
+* CWL workflows and Jupyter Notebooks ready for cloud computing
+* Project reports and dynamic content creation after data processing using CWL workflows
+* Optional use of Docker/Biocontainers or Conda/Bioconda for Bioinformatics tool installation and management
+
+Pipelines
+---------
+
+* Differential Gene expression from RNA-Seq data
+* Differential Binding events from ChIP-Seq data
+* Identification and annotation of binding motif from ChIP-exo data
+
+Pipelines under development
+---------------------------
+
+* Chromatin state discovery with ChromHMM from ChIP-Seq data
+* Differential Binding events from ATAC-Seq data
+* Differential Gene expression from RNA-Seq data using as input NCBI SRA IDs
 
 Constraints
 -----------
-* Designed for running  in a single server. Modify it if HPC or cloud systems will be used
+* Designed for running  in a single server.
 
 Installation
 ------------
