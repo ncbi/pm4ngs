@@ -79,7 +79,7 @@ You'll be prompted for some values.
     pull_images: "y"
     use_conda: "n"
     cwl_runner: "cwl-runner"
-    cwl_workflow_repo: "https://gitlab.com/r78v10a07/cwl-workflow/raw/master"
+    cwl_workflow_repo: "https://github.com/ncbi/cwl-ngs-workflows-cbb"
     create_virtualenv: "y"
     use_gnu_parallel: "y"
     max_number_threads: "16"
