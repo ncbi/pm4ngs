@@ -7,6 +7,8 @@ This is a work in progress!
    :maxdepth: 2
    :caption: Contents:
 
+   configuration
+
 
 Indices and tables
 ==================
