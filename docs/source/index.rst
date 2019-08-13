@@ -18,16 +18,18 @@ Features
 * Project reports and dynamic content creation after data processing using CWL workflows
 * Optional use of Docker/Biocontainers or Conda/Bioconda for Bioinformatics tool installation and management
 
+Available data analysis workflow
+--------------------------------
 
 .. toctree::
    :maxdepth: 1
-   :caption: Available data analysis workflow:
 
    diff_gene_exp_rnaseq
 
+Extra
+-----
 .. toctree::
    :maxdepth: 2
-   :caption: Extra:
 
    configuration
 
