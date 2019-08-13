@@ -208,9 +208,6 @@ def create_conda_env(conda_env):
     conda_dir = os.path.join(PROJECT_DIRECTORY, 'bin', 'conda')
     print('Installing Conda env: {0} to {1}'.format(conda_env, conda_dir))
     run(['conda', 'env', 'create', '-f', conda_env, '--prefix=' + conda_dir])
-    # run(['conda', 'init', 'bash'])
-    # run(['env', '-i', 'bash', '-c', '"source ' + os.path.join(conda_dir, 'etc', 'profile.d', 'conda.sh') + '"'])
-    # run(['source', 'activate', 'chipexo'])
 
 
 if __name__ == '__main__':
