@@ -71,3 +71,105 @@ For using the **cookiecutter-jupyter-ngs** to generate a project structure, all 
 should be available on the machine.
 
 If the user has **docker pull** permission the template project will pull all docker images automatically.
+
+Creating the project structure
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Execute cookiecutter with the **cwl-ngs-workflows-cbb** repo:
+
+.. code-block:: bash
+
+    cookiecutter https://github.com/ncbi/cookiecutter-jupyter-rnaseq.git
+
+You'll be prompted for some values.
+
+.. code-block:: yaml
+
+    author_name: "Roberto Vera Alvarez"
+    user_email: "veraalva@ncbi.nlm.nih.gov"
+    project_name: "rnaseq-sra-single"
+    dataset_name: "PRJNA339968"
+    is_data_in_SRA: "y"
+    ngs_data_type: "RNA-Seq"
+    sequencing_technology: "single-end"
+    create_demo: "y"
+    number_spots: "2000000"
+    organism: "human"
+    genome_dir: "/gfs/data/genomes/igenomes/Homo_sapiens/UCSC/hg38"
+    genome_name: "hg38"
+    aligner_index_dir: "/gfs/data/genomes/igenomes/Homo_sapiens/UCSC/hg38/STAR"
+    genome_fasta: "/gfs/data/genomes/igenomes/Homo_sapiens/UCSC/hg38/genome.fa"
+    genome_gtf: "/gfs/data/genomes/igenomes/Homo_sapiens/UCSC/hg38/genes.gtf"
+    genome_gff: "/gfs/data/genomes/igenomes/Homo_sapiens/UCSC/hg38/genes.gff"
+    genome_gff3: "/gfs/data/genomes/igenomes/Homo_sapiens/UCSC/hg38/genes.gff3"
+    genome_bed: "/gfs/data/genomes/igenomes/Homo_sapiens/UCSC/hg38/genes.bed"
+    genome_mappable_size: "hg38"
+    genome_blacklist: "/gfs/data/genomes/igenomes/Homo_sapiens/UCSC/hg38/hg38-blacklist.bed"
+    fold_change: "2.0"
+    fdr: "0.05"
+    use_docker: "y"
+    pull_images: "y"
+    use_conda: "n"
+    cwl_runner: "cwl-runner"
+    cwl_workflow_repo: "https://github.com/ncbi/cwl-ngs-workflows-cbb"
+    create_virtualenv: "y"
+    use_gnu_parallel: "y"
+    max_number_threads: "16"
+
+Then a project folder will be created for you following this structure. I'm including here all files created after
+processing the samples.
+
+.. code-block:: text
+
+    rnaseq-sra-single
+    ├── LICENSE
+    ├── README.md
+    ├── bin
+    ├── config
+    │   └── init.py
+    ├── data
+    │   └── PRJNA339968
+    |       └── factors.txt
+    ├── index.html
+    ├── notebooks
+    │   ├── 00 - Project Report.ipynb
+    │   ├── 01 - Pre-processing QC.ipynb
+    │   ├── 02 - Samples trimming.ipynb
+    │   ├── 03 - Alignments.ipynb
+    │   ├── 04 - Quantification.ipynb
+    │   ├── 05 - DGA.ipynb
+    │   └── 06 - GO enrichment.ipynb
+    ├── requirements
+    │   └── python.txt
+    ├── results
+    │   └── PRJNA339968
+    ├── src
+    ├── tmp
+    └── venv
+
+Then, copy a manually created **factors.txt** to the folder **data/PRJNA339968**.
+
+The "factors.txt" file is the file where the initial data files and metadata are specified.
+It should have the columns:
+
++----------------+------------+--------------+-----------+
+| id             | SampleID   | condition    | replicate |
++================+============+==============+===========+
+| classical01    | SRR4053795 | classical    | 1         |
++----------------+------------+--------------+-----------+
+| classical01    | SRR4053796 | classical    | 1         |
++----------------+------------+--------------+-----------+
+| nonclassical01 | SRR4053802 | nonclassical | 1         |
++----------------+------------+--------------+-----------+
+| nonclassical01 | SRR4053803 | nonclassical | 2         |
++----------------+------------+--------------+-----------+
+
+
+If the project option **is_data_in_SRA** is set to **y** (Yes) the **01 - Pre-processing QC.ipynb** will use the
+**SampleID** to download the files from the NCBI SRA database using fastq-dump. If the data is **single-end**
+you will see one file per sample **SRR4053795.fastq.gz**. However, if the data is paired-end you will see two
+files per samples **SRR4053795_1.fastq.gz** and **SRR4053795_2.fastq.gz**
+
+If the project option **is_data_in_SRA** is set to **n** (No) you should place your **fastq** files in the
+**data/PRJNA339968** (this folder will have the value of the **dataset_name** specified during project creation)
+folder using the **SampleID** column as the prefix of your sample leaving out the **.fastq.gz**.
