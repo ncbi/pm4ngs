@@ -12,3 +12,4 @@ dependencies:
   - cwltool=1.0.20190228155703
   - pyyaml=5.1.1
   - virtualenv=16.7.2
+  - sphinx=2.1.2
