@@ -1,5 +1,8 @@
-Cookiecutter based Jupyter Notebook Templates for NGS data analysis
+cookiecutter-jupyter-ngs
 ===================================================================
+
+Cookiecutter based Jupyter Notebook Templates for NGS data analysis
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Powered by Cookiecutter_, `Jupyter Notebook`_, CWL_, Docker_, Conda_.
 
