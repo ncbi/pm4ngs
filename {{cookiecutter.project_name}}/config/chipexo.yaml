@@ -3,18 +3,16 @@ docker:
   docker_pull:
     - quay.io/biocontainers/fastqc:0.11.8--1
     - quay.io/biocontainers/trimmomatic:0.39--1
-    - quay.io/biocontainers/star:2.7.1a--0
+    - quay.io/biocontainers/bwa:0.7.17--h84994c4_5
+    - quay.io/biocontainers/bedtools:2.28.0--hdf88d34_0
+    - quay.io/biocontainers/phantompeakqualtools:1.2--1
     - quay.io/biocontainers/samtools:1.9--h91753b0_8
     - quay.io/biocontainers/rseqc:3.0.0--py_3
-    - quay.io/biocontainers/igvtools:2.3.93--0
+    - quay.io/biocontainers/sra-tools:2.9.6--hf484d3e_0
+    - quay.io/biocontainers/igvtools:2.5.3--0
+    - quay.io/biocontainers/mace:1.2--py27h99da42f_1
     - ubuntu:18.04
   docker_build:
-    sra-toolkit:
-      tag: latest
-      dockerfile: https://gitlab.com/r78v10a07/cwl-workflow/raw/master/tools/sra-toolkit/Dockerfile
-    tpmcalculator:
-      tag: latest
-      dockerfile: https://raw.githubusercontent.com/ncbi/TPMCalculator/master/Dockerfile
     r-3.5_ubuntu-18.04:
       tag: latest
       dockerfile: https://gitlab.com/r78v10a07/cwl-workflow/raw/master/tools/R/Dockerfile_R-3.6_ubuntu-18.04
@@ -22,7 +20,7 @@ docker:
 tools:
   - SRA-Tools:
       command: fastq-dump
-      version: '2.9.1'
+      version: '2.9.6'
       option: --version
       out: stdout
   - Fastqc:
@@ -35,59 +33,31 @@ tools:
       version: '0.39'
       option: -version
       out: stdout
-  - STAR:
-      command: STAR
-      version: '2.7.1a'
-      option: --version
-      out: stdout
+  - BWA:
+      command: bwa
+      version: '0.7.17'
+      out: stderr
   - Samtools:
       command: samtools
       version: '1.9'
       option: --version
       out: stdout
-  - TPMCalculator:
-      command: TPMCalculator
-      version: '0.0.3'
-      option: -version
-      out: stdout
-  - RSeQC:
-      command: bam_stat.py
-      version: '3.0.0'
+  - BEDtools:
+      command: bedtools
+      version: '2.28.0'
       option: --version
       out: stdout
-  - igvtools:
-      command: igvtools
-      version: '2.3.93'
+  - Phantompeakqualtools:
+      command: run_spp.R
+  - Homer:
+      command: homer
+  - MACE:
+      command: mace.py
+      version: 'Usage: mace.py'
       out: stdout
   - R:
       command: R
-      version: '3.6.0'
-      option: --version
-      out: stdout
-  - Deseq2:
-      command: Rscript
-      output: '[1] TRUE'
-      option:
-        - -e
-        - "'DESeq2' %in% rownames(installed.packages())"
-      out: stdout
-  - EdgeR:
-      command: Rscript
-      output: '[1] TRUE'
-      option:
-        - -e
-        - "'edgeR' %in% rownames(installed.packages())"
-      out: stdout
-  - ggplot2:
-      command: Rscript
-      output: '[1] TRUE'
-      option:
-        - -e
-        - "'ggplot2' %in% rownames(installed.packages())"
-      out: stdout
-  - Python3.7:
-      command: python3.7
-      version: '3.7'
+      version: '3.5.1'
       option: --version
       out: stdout
 {% endif %}

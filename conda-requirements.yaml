@@ -1,0 +1,14 @@
+name: templates
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - cookiecutter=1.6.0
+  - docker-py=4.0.2
+  - gitpython=2.1.12
+  - python=3.7.3
+  - cwl_runner=1.0
+  - cwltool=1.0.20190228155703
+  - pyyaml=5.1.1
+  - virtualenv=16.7.2

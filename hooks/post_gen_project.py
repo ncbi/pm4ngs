@@ -6,7 +6,7 @@ import docker
 import virtualenv
 import subprocess
 import distutils.spawn
-
+from subprocess import run
 from git import Repo
 
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
@@ -14,6 +14,7 @@ NGS_DATA_TYPE = '{{ cookiecutter.ngs_data_type }}'
 CREATE_VIRTUALENV = '{{ cookiecutter.create_virtualenv }}'
 PULL_IMAGES = '{{ cookiecutter.pull_images }}'
 CWL_WORKFLOW_REPO = '{{ cookiecutter.cwl_workflow_repo }}'
+USE_CONDA = '{{ cookiecutter.use_conda }}'
 
 
 def check_dependencies_path(config):
@@ -25,7 +26,11 @@ def check_dependencies_path(config):
         print('.', end='')
         sys.stdout.flush()
         tool, value = tool.popitem()
-        tool_path = distutils.spawn.find_executable(value['command'])
+        if USE_CONDA == 'y':
+            conda_dir = os.path.join(PROJECT_DIRECTORY, 'bin', 'conda', 'bin')
+            tool_path = os.path.join(conda_dir, value['command'])
+        else:
+            tool_path = distutils.spawn.find_executable(value['command'])
         if not tool_path:
             if 'version' in value:
                 print('\nERROR: {0} version: {1} not available.'.format(tool, value['version']))
@@ -34,7 +39,7 @@ def check_dependencies_path(config):
             sys.exit(-1)
         else:
             if 'out' in value:
-                commands = [value['command']]
+                commands = [tool_path]
                 if 'option' in value:
                     if type(value['option']) == str:
                         commands.append(value['option'])
@@ -183,6 +188,31 @@ def clone_git_repo():
     Repo.clone_from(CWL_WORKFLOW_REPO, os.path.join(PROJECT_DIRECTORY, 'bin', BASE_NAME))
 
 
+def create_conda_env(conda_env):
+    """
+    Create a Conda environment from a conda env file
+    :param conda_env: Conda env file in the CWL repo
+    """
+    if 'https://github.com/' in CWL_WORKFLOW_REPO:
+        BASE_NAME = os.path.basename(CWL_WORKFLOW_REPO)
+        conda_env = os.path.join(PROJECT_DIRECTORY, 'bin', BASE_NAME, 'requirements', conda_env)
+        conda_jupyter_env = os.path.join(PROJECT_DIRECTORY, 'bin', BASE_NAME, 'requirements', 'conda-jupyter.yaml')
+    else:
+        conda_env = os.path.join(CWL_WORKFLOW_REPO, 'requirements', conda_env)
+        conda_jupyter_env = os.path.join(CWL_WORKFLOW_REPO, 'requirements', 'conda-jupyter.yaml')
+
+    conda_dir = os.path.join(PROJECT_DIRECTORY, 'bin', 'conda_jupyter')
+    print('Installing Conda env: {0} to {1}'.format(conda_jupyter_env, conda_dir))
+    run(['conda', 'env', 'create', '-f', conda_jupyter_env, '--prefix=' + conda_dir])
+
+    conda_dir = os.path.join(PROJECT_DIRECTORY, 'bin', 'conda')
+    print('Installing Conda env: {0} to {1}'.format(conda_env, conda_dir))
+    run(['conda', 'env', 'create', '-f', conda_env, '--prefix=' + conda_dir])
+    # run(['conda', 'init', 'bash'])
+    # run(['env', '-i', 'bash', '-c', '"source ' + os.path.join(conda_dir, 'etc', 'profile.d', 'conda.sh') + '"'])
+    # run(['source', 'activate', 'chipexo'])
+
+
 if __name__ == '__main__':
     notebook_04_dest = None
     notebook_05_dest = None
@@ -190,17 +220,30 @@ if __name__ == '__main__':
 
     if NGS_DATA_TYPE == 'RNA-Seq':
         config_path = os.path.join(PROJECT_DIRECTORY, 'config', 'rnaseq.yaml')
+        conda_env = 'conda-rnaseq.yaml'
         notebook_04_dest = '04 - Quantification'
         notebook_05_dest = '05 - DGA'
         notebook_06_dest = '06 - GO enrichment'
     elif NGS_DATA_TYPE == 'ChIP-Seq':
         config_path = os.path.join(PROJECT_DIRECTORY, 'config', 'chipseq.yaml')
+        conda_env = 'conda-chipseq.yaml'
         notebook_04_dest = '04 - Peak Calling'
     elif NGS_DATA_TYPE == 'ChIP-exo':
         config_path = os.path.join(PROJECT_DIRECTORY, 'config', 'chipexo.yaml')
+        conda_env = 'conda-chipexo.yaml'
         notebook_04_dest = '04 - Peak Calling'
+        notebook_05_dest = '05 - MEME Motif'
 
     if config_path:
+        if 'github.com' in CWL_WORKFLOW_REPO:
+            clone_git_repo()
+
+        if USE_CONDA == 'n':
+            if CREATE_VIRTUALENV == 'y':
+                create_virtualenv()
+        elif USE_CONDA == 'y':
+            create_conda_env(conda_env)
+
         print('Checking {0} workflow dependencies '.format(NGS_DATA_TYPE), end='')
         sys.stdout.flush()
         check_dependencies(config_path)
@@ -210,16 +253,10 @@ if __name__ == '__main__':
                       for f in files if f.endswith('.yaml')]
         for y in yaml_files:
             os.remove(os.path.join(config_path, y))
+
+        rename_notebook('04', notebook_04_dest)
+        rename_notebook('05', notebook_05_dest)
+        rename_notebook('06', notebook_06_dest)
     else:
         print('No config_path file for NGS data type {0}'.format(NGS_DATA_TYPE))
         sys.exit(-1)
-
-    rename_notebook('04', notebook_04_dest)
-    rename_notebook('05', notebook_05_dest)
-    rename_notebook('06', notebook_06_dest)
-
-    if CREATE_VIRTUALENV == 'y':
-        create_virtualenv()
-
-    if 'github.com' in CWL_WORKFLOW_REPO:
-        clone_git_repo()
