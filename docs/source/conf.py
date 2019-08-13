@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'cookiecutter-jupyter-ngs'
-copyright = '2019, National Center for Biotechnology Information, NLM/NIH.'
+copyright = '2019, National Center for Biotechnology Information, NLM/NIH'
 author = 'Roberto Vera Alvarez'
 
 # The full version, including alpha/beta/rc tags
