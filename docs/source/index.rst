@@ -1,19 +1,19 @@
 cookiecutter-jupyter-ngs
 ===================================================================
 
-Cookiecutter based Jupyter Notebook Templates for NGS data analysis
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Cookiecutter based Jupyter Notebook Templates for NGS data analysis.
 
 Powered by Cookiecutter_, `Jupyter Notebook`_, CWL_, Docker_, Conda_.
 
 Reference
----------
++++++++++
 
 Vera Alvarez R, Pongor LS, Mariño-Ramírez L and Landsman D. `Containerized open-source framework for NGS data analysis
 and management`_ [version 1; not peer reviewed]. F1000Research 2019, 8(ISCB Comm J):1229 (poster) (doi: 10.7490/f1000research.1117155.1)
 
 Features
----------
+++++++++
+
 * NGS data integration, management and analysis based on Jupyter notebook, CWL workflows and cookiecutter project templates
 * Easy installation and use with a minimum command line interaction.
 * Data analysis CWL workflows executed from the Jupyter notebook with automatic failing detection and validated with published data
