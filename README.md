@@ -4,16 +4,37 @@ Cookiecutter Jupyter Notebook Template for NGS data analysis
 Powered by [Cookiecutter](https://github.com/audreyr/cookiecutter), 
 [Jupyter Notebook](https://jupyter.org/) and [CWL](https://www.commonwl.org/).
 
+Reference
+---------
+
+Vera Alvarez R, Pongor LS, Mariño-Ramírez L and Landsman D. [Containerized open-source framework for NGS data analysis and management](https://f1000research.com/posters/8-1229) [version 1; not peer reviewed]. F1000Research 2019, 8(ISCB Comm J):1229 (poster) (doi: 10.7490/f1000research.1117155.1)
+
 Features
 ---------
-* Works with Python 3.6+
-* Jupyter Notebook as interface for workflow execution
-* Jupyter Notebook for Data management
-* Automatic report project
+* NGS data integration, management and analysis based on Jupyter notebook, CWL workflows and cookiecutter project templates
+* Easy installation and use with a minimum command line interaction.
+* Data analysis CWL workflows executed from the Jupyter notebook with automatic failing detection and validated with published data
+* CWL workflows and Jupyter Notebooks ready for cloud computing
+* Project reports and dynamic content creation after data processing using CWL workflows
+* Optional use of Docker/Biocontainers or Conda/Bioconda for Bioinformatics tool installation and management
+
+Pipelines
+---------
+
+* Differential Gene expression from RNA-Seq data
+* Differential Binding events from ChIP-Seq data
+* Identification and annotation of binding motif from ChIP-exo data
+
+Pipelines under development
+---------------------------
+
+* Chromatin state discovery with ChromHMM from ChIP-Seq data
+* Differential Binding events from ATAC-Seq data
+* Differential Gene expression from RNA-Seq data using as input NCBI SRA IDs
 
 Constraints
 -----------
-* Designed for running  in a single server. Modify it if HPC or cloud systems will be used
+* Designed for running  in a single server.
 
 Installation
 ------------
@@ -56,8 +77,9 @@ You'll be prompted for some values.
     fdr: "0.05"
     use_docker: "y"
     pull_images: "y"
+    use_conda: "n"
     cwl_runner: "cwl-runner"
-    cwl_workflow_repo: "https://gitlab.com/r78v10a07/cwl-workflow/raw/master"
+    cwl_workflow_repo: "https://github.com/ncbi/cwl-ngs-workflows-cbb"
     create_virtualenv: "y"
     use_gnu_parallel: "y"
     max_number_threads: "16"
@@ -222,8 +244,7 @@ The final file structure should be:
     │       │   ├── SRR4053818Log.final.out
     │       │   ├── SRR4053818_sorted.bam
     │       │   ├── SRR4053818_sorted.bam.bai
-    │       │   ├── commands
-    │       │   └── commands~
+    │       │   └── commands
     │       ├── dga
     │       │   ├── classical_vs_nonclassical_deseq2_dga.log
     │       │   ├── classical_vs_nonclassical_edgeR_dga.log
