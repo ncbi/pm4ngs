@@ -19,10 +19,10 @@ Features
 * Optional use of Docker/Biocontainers or Conda/Bioconda for Bioinformatics tool installation and management
 
 
-Available data analysis workflows
+Available data analysis workflow
 ---------------------------------
 
-* `Differential Gene expression from RNA-Seq data`_
+* :ref:`Differential Gene expression from RNA-Seq data`
 
 .. toctree::
    :maxdepth: 2
@@ -37,4 +37,4 @@ Available data analysis workflows
 .. _Docker: https://www.docker.com
 .. _Conda: https://github.com/conda/conda
 .. _Containerized open-source framework for NGS data analysis and management: https://f1000research.com/posters/8-1229
-.. _Differential Gene expression from RNA-Seq data: diff_gene_exp_rnaseq
+.. _Differential Gene expression from RNA-Seq data:
