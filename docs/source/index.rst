@@ -3,7 +3,7 @@ cookiecutter-jupyter-ngs
 
 Cookiecutter based Jupyter Notebook Templates for NGS data analysis.
 
-Powered by Cookiecutter_, `Jupyter Notebook`_, CWL_, Docker_, Conda_.
+Powered by Cookiecutter_, `Jupyter Notebook`_, CWL_, Docker_, Conda_ and BioConda_.
 
 Reference
 ---------
@@ -42,4 +42,5 @@ Extra
 .. _CWL: https://www.commonwl.org/
 .. _Docker: https://www.docker.com
 .. _Conda: https://github.com/conda/conda
+.. _BioConda: https://bioconda.github.io/
 .. _Containerized open-source framework for NGS data analysis and management: https://f1000research.com/posters/8-1229
