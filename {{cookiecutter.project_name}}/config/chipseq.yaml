@@ -8,20 +8,17 @@ docker:
     - quay.io/biocontainers/phantompeakqualtools:1.2--1
     - quay.io/biocontainers/samtools:1.9--h91753b0_8
     - quay.io/biocontainers/rseqc:3.0.0--py_3
+    - quay.io/biocontainers/sra-tools:2.9.6--hf484d3e_0
+    - quay.io/biocontainers/igvtools:2.5.3--0
+    - quay.io/biocontainers/macs2:2.1.2--py27r351h14c3975_1
     - ubuntu:18.04
   docker_build:
-    sra-toolkit:
-      tag: latest
-      dockerfile: https://gitlab.com/r78v10a07/cwl-workflow/raw/master/tools/sra-toolkit/Dockerfile
     homer:
       tag: latest
       dockerfile: https://gitlab.com/r78v10a07/cwl-workflow/raw/master/tools/homer/Dockerfile-template
     r-3.5_ubuntu-18.04:
       tag: latest
       dockerfile: https://gitlab.com/r78v10a07/cwl-workflow/raw/master/tools/R/Dockerfile_R-3.6_ubuntu-18.04
-    igvtools_ubuntu-18.04:
-      tag: latest
-      dockerfile: https://gitlab.com/r78v10a07/cwl-workflow/raw/master/tools/IGV/Dockerfile
 {% else %}
 tools:
   - SRA-Tools:
@@ -57,10 +54,22 @@ tools:
       command: run_spp.R
   - Homer:
       command: homer
+  - MACS2:
+      command: macs2
+      version: '2.1.2'
+      option: --version
+      out: stderr
   - R:
       command: R
-      version: '3.6.0'
+      version: '3.5.1'
       option: --version
+      out: stdout
+  - DiffBind:
+      command: Rscript
+      output: '[1] TRUE'
+      option:
+        - -e
+        - "'DiffBind' %in% rownames(installed.packages())"
       out: stdout
   - Deseq2:
       command: Rscript

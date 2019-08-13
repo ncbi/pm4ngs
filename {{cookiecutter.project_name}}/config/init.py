@@ -64,6 +64,7 @@ GENOME_GTF = '{{ cookiecutter.genome_gtf }}'
 GENOME_GFF = '{{ cookiecutter.genome_gff }}'
 GENOME_GFF3 = '{{ cookiecutter.genome_gff3 }}'
 GENOME_BED = '{{ cookiecutter.genome_bed }}'
+GENOME_CHROMSIZES = '{{ cookiecutter.genome_chromsizes }}'
 GENOME_MAPPABLE_SIZE = '{{ cookiecutter.genome_mappable_size }}'
 GENOME_BLACKLIST = os.path.join(GENOME, 'mm9-blacklist.bed')
 
