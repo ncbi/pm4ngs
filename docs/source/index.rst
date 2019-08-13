@@ -37,4 +37,3 @@ Available data analysis workflow
 .. _Docker: https://www.docker.com
 .. _Conda: https://github.com/conda/conda
 .. _Containerized open-source framework for NGS data analysis and management: https://f1000research.com/posters/8-1229
-.. _Differential Gene expression from RNA-Seq data:
