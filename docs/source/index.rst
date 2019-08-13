@@ -19,14 +19,15 @@ Features
 * Optional use of Docker/Biocontainers or Conda/Bioconda for Bioinformatics tool installation and management
 
 
-Available data analysis workflow
----------------------------------
+.. toctree::
+   :maxdepth: 1
+   :caption: Available data analysis workflow:
 
-* :ref:`Differential Gene expression from RNA-Seq data`
+   diff_gene_exp_rnaseq
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Extra:
 
    configuration
 
