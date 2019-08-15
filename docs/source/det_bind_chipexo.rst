@@ -1,7 +1,10 @@
 Detection of binding events from ChIP-exo data
 ==============================================
 
-Read :doc:`here <installation>` the notes to have the **cookiecutter** available in you shell.
+.. note::  Read :doc:`here <installation>` the notes to have the **cookiecutter** available in you shell.
+
+A samples description file named: **factors.txt** must be created with all samples file name and metadata. The format
+of this file is described :doc:`here <factors_file>`.
 
 ChIP-exo workflow with Conda/Bioconda
 -------------------------------------
@@ -95,6 +98,8 @@ This process should create a project structure like this:
 
     10 directories, 11 files
 
+Now you should copied the **factors.txt** file to the folder: **data/PRJNA238004**.
+
 After this process, **cookiecutter** should have created create two virtual environment for this workflow.
 
 The first one is for running the Jupyter notebooks which require Python 3.6+ and it is named: **jupyter**. It can be
@@ -118,6 +123,17 @@ You can verify the environments running this command:
     perseo:~>
 
 Please, note that the Conda prefix **/gfs/conda** will be different in you host.
+
+.. warning::
+    As today 08/15/2019, out workflow depends on the Python package: `jupyterngsplugin`_ which is not included in
+    Bioconda yet. We are working on it. Therefore, you will need to install this package manually as:
+
+    .. code-block:: bash
+
+        perseo:~> conda activate jupyter
+        perseo:~> pip install jupyterngsplugin
+
+.. _jupyterngsplugin: https://pypi.org/project/jupyterngsplugin/
 
 ChIP-exo workflow usage with Conda/Bioconda
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -146,6 +162,9 @@ If the workflow is deployed in a remote machine using SSH access the correct way
 
 In this case the option **--ip='0.0.0.0'** will server the Jupyter notebook on all network interfaces and you can access
 them from your desktop browser using the port returned by the Jupyter server.
+
+Finally, you should navegate in your browser to the **notebooks** folder and start executing all notebooks by their
+order leaving the **00 - Project Report.ipynb** to the end.
 
 ChIP-exo workflow with Docker
 -----------------------------
@@ -241,7 +260,9 @@ This process should create a project structure like this:
 
     11 directories, 11 files
 
-After this process, **cookiecutter** should have pulled all docker images required by the project.
+Now you should copied the **factors.txt** file to the folder: **data/PRJNA238004**.
+
+After this process, **cookiecutter** should have pulled all docker images require   bb bv           d by the project.
 
 ChIP-exo workflow usage with Docker
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -267,3 +288,5 @@ If the workflow is deployed in a remote machine using SSH access the correct way
 In this case the option **--ip='0.0.0.0'** will server the Jupyter notebook on all network interfaces and you can access
 them from your desktop browser using the port returned by the Jupyter server.
 
+Finally, you should navegate in your browser to the **notebooks** folder and start executing all notebooks by their
+order leaving the **00 - Project Report.ipynb** to the end.

@@ -52,6 +52,8 @@ parameters:
     * **is_data_in_SRA**: If the data is in the SRA set this to **y**. A CWL workflow to download the data from the SRA
       database to the folder **data/{{dataset_name}}** and execute FastQC on it will be included in the
       **01 - Pre-processing QC.ipynb** notebook.
+
+      If this option is set to **n**, the fastq files should be copied to the folder **data/{{dataset_name}}/**
     * **ngs_data_type**: Select one of the available technologies to process:
         1. RNA-Seq
         2. ChIP-Seq
