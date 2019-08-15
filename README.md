@@ -19,49 +19,10 @@ Features
 * Project reports and dynamic content creation after data processing using CWL workflows
 * Optional use of Docker/Biocontainers or Conda/Bioconda for Bioinformatics tool installation and management
 
-Pipelines
----------
+Documentation
+-------------
 
-* Differential Gene expression from RNA-Seq data
-* Differential Binding events from ChIP-Seq data
-* Identification and annotation of binding motif from ChIP-exo data
-
-Pipelines under development
----------------------------
-
-* Chromatin state discovery with ChromHMM from ChIP-Seq data
-* Differential Binding events from ATAC-Seq data
-* Differential Gene expression from RNA-Seq data using as input NCBI SRA IDs
-
-Constraints
------------
-* Designed for running  in a single server.
-
-Installation
-------------
-
-### Conda and Bioconda
-
-### Python virtual environment 
-
-First, install Cookiecutter and other basic Python packages. 
-
-    $ pip install -r https://raw.githubusercontent.com/ncbi/cookiecutter-jupyter-ngs/master/requirements.txt
-
-
-Usage
------
-    
-Go inside the project folders and activate virtual environment:
-
-    source venv/bin/activate
-    
-Start the jupyter notebook server
-
-    jupyter notebook
-    
-Start executing the Jupyter notebook from the number `01-` in a sequential way. Once everything is done run the
-`00 - Project Report` for the creation of the final report page with tables and figures.
+Go to https://cookiecutter-jupyter-ngs.readthedocs.io for more detail information.
     
 Public Domain notice
 ====================
