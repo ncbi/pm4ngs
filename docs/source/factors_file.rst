@@ -31,7 +31,7 @@ It should have the columns:
 
       For paired-end data the files **SRR4053795_1.fastq.gz** and **SRR4053795_2.fastq.gz** must exist.
 
-      The data files should be copied to the folder **data/DATASET/**.
+      The data files should be copied to the folder **data/{{dataset_name}}/**.
     * **condition**: Conditions to analyze or group the samples.
 
       For RNASeq projects the differential gene expression will be generated comparing these conditions. If there are
