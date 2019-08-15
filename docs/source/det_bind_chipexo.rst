@@ -18,7 +18,7 @@ First step is to activate the  **templates** environment:
 
 .. code-block:: bash
 
-    perseo:~> conda activate templates
+    localhost:~> conda activate templates
 
 Then, a YAML file (for this example I will call this file: **chipexo-fur.yaml**) with your project detail should
 be created.
@@ -64,15 +64,15 @@ following output.
 
 .. code-block:: bash
 
-    perseo:~> cookiecutter --no-input --config-file chipexo-fur.yaml https://github.com/ncbi/cookiecutter-jupyter-ngs.git
+    localhost:~> cookiecutter --no-input --config-file chipexo-fur.yaml https://github.com/ncbi/cookiecutter-jupyter-ngs.git
     Checking ChIP-exo workflow dependencies .......... Done
-    perseo:~>
+    localhost:~>
 
 This process should create a project structure like this:
 
 .. code-block:: bash
 
-    perseo:~> tree chipexo-fur
+    localhost:~> tree chipexo-fur
     chipexo-fur
     ├── bin
     ├── config
@@ -112,7 +112,7 @@ You can verify the environments running this command:
 
 .. code-block:: bash
 
-    perseo:~> conda env list
+    localhost:~> conda env list
     # conda environments:
     #
     base                  *  /gfs/conda
@@ -120,7 +120,7 @@ You can verify the environments running this command:
     jupyter                  /gfs/conda/envs/jupyter
     tempates                 /gfs/conda/envs/templates
 
-    perseo:~>
+    localhost:~>
 
 Please, note that the Conda prefix **/gfs/conda** will be different in you host.
 
@@ -130,8 +130,8 @@ Please, note that the Conda prefix **/gfs/conda** will be different in you host.
 
     .. code-block:: bash
 
-        perseo:~> conda activate jupyter
-        perseo:~> pip install jupyterngsplugin
+        localhost:~> conda activate jupyter
+        localhost:~> pip install jupyterngsplugin
 
 .. _jupyterngsplugin: https://pypi.org/project/jupyterngsplugin/
 
@@ -142,8 +142,8 @@ For start using the workflow you need to activate the conda environments **chipe
 
 .. code-block:: bash
 
-    perseo:~> conda activate chipexo
-    perseo:~> conda activate --stack jupyter
+    localhost:~> conda activate chipexo
+    localhost:~> conda activate --stack jupyter
 
 Note the **--stack** option to have both environment working at the same time. Also, the order is important, **chipexo**
 should be activated before **jupyter**.
@@ -152,13 +152,13 @@ Then, you can start the jupyter notebooks.
 
 .. code-block:: bash
 
-    perseo:~> jupyter notebook
+    localhost:~> jupyter notebook
 
 If the workflow is deployed in a remote machine using SSH access the correct way to start the notebooks is:
 
 .. code-block:: bash
 
-    perseo:~> jupyter notebook --no-browser --ip='0.0.0.0'
+    localhost:~> jupyter notebook --no-browser --ip='0.0.0.0'
 
 In this case the option **--ip='0.0.0.0'** will server the Jupyter notebook on all network interfaces and you can access
 them from your desktop browser using the port returned by the Jupyter server.
@@ -179,7 +179,7 @@ First step is to activate the Python virtual environment.
 
 .. code-block:: bash
 
-    perseo:~> source venv-templates/bin/activate
+    localhost:~> source venv-templates/bin/activate
 
 Then, a YAML file (for this example I will call this file: **chipexo-fur.yaml**) with your project detail should
 be created.
@@ -225,15 +225,15 @@ following output.
 
 .. code-block:: bash
 
-    perseo:~> cookiecutter --no-input --config-file chipexo-fur.yaml https://github.com/ncbi/cookiecutter-jupyter-ngs.git
+    localhost:~> cookiecutter --no-input --config-file chipexo-fur.yaml https://github.com/ncbi/cookiecutter-jupyter-ngs.git
     Checking ChIP-exo workflow dependencies .......... Done
-    perseo:~>
+    localhost:~>
 
 This process should create a project structure like this:
 
 .. code-block:: bash
 
-    perseo:~> tree chipexo-fur
+    localhost:~> tree chipexo-fur
     chipexo-fur
     ├── bin
     ├── config
@@ -271,19 +271,19 @@ For start using the workflow you need to activate the Python environment inside 
 
 .. code-block:: bash
 
-    perseo:~> source venv/bin/activate
+    localhost:~> source venv/bin/activate
 
 Then, you can start the jupyter notebooks now.
 
 .. code-block:: bash
 
-    perseo:~> jupyter notebook
+    localhost:~> jupyter notebook
 
 If the workflow is deployed in a remote machine using SSH access the correct way to start the notebooks is:
 
 .. code-block:: bash
 
-    perseo:~> jupyter notebook --no-browser --ip='0.0.0.0'
+    localhost:~> jupyter notebook --no-browser --ip='0.0.0.0'
 
 In this case the option **--ip='0.0.0.0'** will server the Jupyter notebook on all network interfaces and you can access
 them from your desktop browser using the port returned by the Jupyter server.

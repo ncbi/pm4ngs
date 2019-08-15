@@ -8,9 +8,9 @@ Install Cookiecutter and other basic Python packages using the **requirements.tx
 
 .. code-block:: bash
 
-    perseo:~> virtualenv venv-templates
-    perseo:~> source venv-templates/bin/activate
-    perseo:~> pip install -r https://raw.githubusercontent.com/ncbi/cookiecutter-jupyter-ngs/master/requirements.txt
+    localhost:~> virtualenv venv-templates
+    localhost:~> source venv-templates/bin/activate
+    localhost:~> pip install -r https://raw.githubusercontent.com/ncbi/cookiecutter-jupyter-ngs/master/requirements.txt
 
 
 Project Templates with Conda/BioConda
@@ -20,27 +20,27 @@ Conda_ should be already installed and configured.
 
 .. code-block:: bash
 
-    perseo:~> wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
-    perseo:~> sh Miniconda3-latest-MacOSX-x86_64.sh
+    localhost:~> wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
+    localhost:~> sh Miniconda3-latest-MacOSX-x86_64.sh
 
 A Conda virtual environment will be created with name **templates** using these instructions:
 
 .. code-block:: bash
 
-    perseo:~> wget https://raw.githubusercontent.com/ncbi/cookiecutter-jupyter-ngs/master/conda-requirements.yaml
-    perseo:~> conda env create -f conda-requirements.yaml
+    localhost:~> wget https://raw.githubusercontent.com/ncbi/cookiecutter-jupyter-ngs/master/conda-requirements.yaml
+    localhost:~> conda env create -f conda-requirements.yaml
 
 If Conda is installed with prefix **/gfs/conda** you should see the available environments like in this block:
 
 .. code-block:: bash
 
-    perseo:~> conda env list
+    localhost:~> conda env list
     # conda environments:
     #
     base                     /gfs/conda
     templates             *  /gfs/conda/envs/templates
 
-    perseo:~>
+    localhost:~>
 
 .. _Conda: https://github.com/conda/conda
 
