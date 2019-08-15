@@ -3,6 +3,9 @@ Detection of binding events from ChIP-exo data
 
 .. note::  Read :doc:`here <installation>` the notes to have the **cookiecutter** available in you shell.
 
+Sample description file: factors.txt
+------------------------------------
+
 A samples description file named: **factors.txt** must be created with all samples file name and metadata. The format
 of this file is described :doc:`here <factors_file>`.
 
