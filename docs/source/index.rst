@@ -56,7 +56,7 @@ This software is a "United States Government Work" under the terms of the United
 Copyright Act. It was written as part of the authors' official duties as United States
 Government employees and thus cannot be copyrighted. This software is freely available
 to the public for use. The National Library of Medicine and the U.S. Government have not
- placed any restriction on its use or reproduction.
+placed any restriction on its use or reproduction.
 
 Although all reasonable efforts have been taken to ensure the accuracy and reliability
 of the software and data, the NLM and the U.S. Government do not and cannot warrant the
