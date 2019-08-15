@@ -3,6 +3,9 @@ Detection of binding events from ChIP-exo data
 
 Read :doc:`here <installation>` the notes to have the **cookiecutter** available in you shell.
 
+Additionally, you should prepare the samples description file (**factors.txt**) as described
+:doc:`here <factors_file>`.
+
 ChIP-exo workflow with Conda/Bioconda
 -------------------------------------
 
@@ -94,6 +97,8 @@ This process should create a project structure like this:
     └── tmp
 
     10 directories, 11 files
+
+Now you should copied the **factors.txt** file to the folder: **data/PRJNA238004**.
 
 After this process, **cookiecutter** should have created create two virtual environment for this workflow.
 
@@ -241,7 +246,9 @@ This process should create a project structure like this:
 
     11 directories, 11 files
 
-After this process, **cookiecutter** should have pulled all docker images required by the project.
+Now you should copied the **factors.txt** file to the folder: **data/PRJNA238004**.
+
+After this process, **cookiecutter** should have pulled all docker images require   bb bv           d by the project.
 
 ChIP-exo workflow usage with Docker
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
