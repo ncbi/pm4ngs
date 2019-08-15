@@ -21,20 +21,13 @@ Features
 * Project reports and dynamic content creation after data processing using CWL workflows
 * Optional use of Docker/Biocontainers or Conda/Bioconda for Bioinformatics tool installation and management
 
-Available data analysis workflow
---------------------------------
-
-.. toctree::
-   :maxdepth: 1
-
-   diff_gene_exp_rnaseq
-
 Extra
 -----
 .. toctree::
    :maxdepth: 2
 
    installation
+   cookiecutter_json
 
 
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
@@ -44,3 +37,12 @@ Extra
 .. _Conda: https://github.com/conda/conda
 .. _BioConda: https://bioconda.github.io/
 .. _Containerized open-source framework for NGS data analysis and management: https://f1000research.com/posters/8-1229
+
+Available data analysis workflow
+--------------------------------
+
+.. toctree::
+   :maxdepth: 1
+
+   diff_gene_exp_rnaseq
+   det_bind_chipexo

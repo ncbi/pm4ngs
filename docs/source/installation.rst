@@ -1,51 +1,51 @@
 Installation
 =============
 
-Python virtual environment
---------------------------
+Project Templates with Python virtual environment
+-------------------------------------------------
 
 Install Cookiecutter and other basic Python packages using the **requirements.txt** file.
 
 .. code-block:: bash
 
-    virtualenv venv
-    source venv/bin/activate
-    pip install -r https://raw.githubusercontent.com/ncbi/cookiecutter-jupyter-ngs/master/requirements.txt
+    perseo:~> virtualenv venv-templates
+    perseo:~> source venv-templates/bin/activate
+    perseo:~> pip install -r https://raw.githubusercontent.com/ncbi/cookiecutter-jupyter-ngs/master/requirements.txt
 
 
-Conda virtual environment
--------------------------
+Project Templates with Conda/BioConda
+-------------------------------------
 
 Conda_ should be already installed and configured.
 
 .. code-block:: bash
 
-    wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
-    sh Miniconda3-latest-MacOSX-x86_64.sh
+    perseo:~> wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
+    perseo:~> sh Miniconda3-latest-MacOSX-x86_64.sh
 
 A Conda virtual environment will be created with name **templates** using these instructions:
 
 .. code-block:: bash
 
-    wget https://raw.githubusercontent.com/ncbi/cookiecutter-jupyter-ngs/master/conda-requirements.yaml
-    conda env create -f conda-requirements.yaml
+    perseo:~> wget https://raw.githubusercontent.com/ncbi/cookiecutter-jupyter-ngs/master/conda-requirements.yaml
+    perseo:~> conda env create -f conda-requirements.yaml
 
-If Conda is installed with prefix `/home/user/conda` you should see the available environments like in this block:
+If Conda is installed with prefix **/gfs/conda/conda** you should see the available environments like in this block:
 
 .. code-block:: bash
 
-    perseo:/home/user> conda env list
+    perseo:~> conda env list
     # conda environments:
     #
-    base                     /home/user/conda
-    templates             *  /home/user/conda/envs/templates
+    base                     /gfs/conda
+    templates             *  /gfs/conda/envs/templates
 
-    perseo:/home/user>
+    perseo:~>
 
 .. _Conda: https://github.com/conda/conda
 
-Using the template project manager
-----------------------------------
+Using the Template Project
+--------------------------
 
 This project template uses the workflow defined in the project cwl-ngs-workflows-cbb_. Depending on the execution
 environment selected: **docker**, **conda** or **programs in the path** the project template will check the
@@ -157,7 +157,7 @@ It should have the columns:
 +================+============+==============+===========+
 | classical01    | SRR4053795 | classical    | 1         |
 +----------------+------------+--------------+-----------+
-| classical01    | SRR4053796 | classical    | 1         |
+| classical01    | SRR4053796 | classical    | 2         |
 +----------------+------------+--------------+-----------+
 | nonclassical01 | SRR4053802 | nonclassical | 1         |
 +----------------+------------+--------------+-----------+

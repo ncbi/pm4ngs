@@ -33,6 +33,7 @@ release = '0.0.1'
 extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.githubpages',
+    'sphinx.ext.intersphinx',
     'sphinx.ext.autosectionlabel',
 ]
 
