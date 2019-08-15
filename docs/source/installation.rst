@@ -30,7 +30,7 @@ A Conda virtual environment will be created with name **templates** using these 
     perseo:~> wget https://raw.githubusercontent.com/ncbi/cookiecutter-jupyter-ngs/master/conda-requirements.yaml
     perseo:~> conda env create -f conda-requirements.yaml
 
-If Conda is installed with prefix **/gfs/conda/conda** you should see the available environments like in this block:
+If Conda is installed with prefix **/gfs/conda** you should see the available environments like in this block:
 
 .. code-block:: bash
 
