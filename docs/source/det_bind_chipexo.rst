@@ -1,10 +1,10 @@
 Detection of binding events from ChIP-exo data
 ==============================================
 
-Read :doc:`here <installation>` the notes to have the **cookiecutter** available in you shell.
+.. note::  Read :doc:`here <installation>` the notes to have the **cookiecutter** available in you shell.
 
-Additionally, you should prepare the samples description file (**factors.txt**) as described
-:doc:`here <factors_file>`.
+A samples description file named: **factors.txt** must be created with all samples file name and metadata. The format
+of this file is described :doc:`here <factors_file>`.
 
 ChIP-exo workflow with Conda/Bioconda
 -------------------------------------
@@ -124,6 +124,17 @@ You can verify the environments running this command:
 
 Please, note that the Conda prefix **/gfs/conda** will be different in you host.
 
+.. warning::
+    As today 08/15/2019, out workflow depends on the Python package: `jupyterngsplugin`_ which is not included in
+    Bioconda yet. We are working on it. Therefore, you will need to install this package manually as:
+
+    .. code-block:: bash
+
+        perseo:~> conda activate jupyter
+        perseo:~> pip install jupyterngsplugin
+
+.. _jupyterngsplugin: https://pypi.org/project/jupyterngsplugin/
+
 ChIP-exo workflow usage with Conda/Bioconda
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -151,6 +162,9 @@ If the workflow is deployed in a remote machine using SSH access the correct way
 
 In this case the option **--ip='0.0.0.0'** will server the Jupyter notebook on all network interfaces and you can access
 them from your desktop browser using the port returned by the Jupyter server.
+
+Finally, you should navegate in your browser to the **notebooks** folder and start executing all notebooks by their
+order leaving the **00 - Project Report.ipynb** to the end.
 
 ChIP-exo workflow with Docker
 -----------------------------
@@ -274,3 +288,5 @@ If the workflow is deployed in a remote machine using SSH access the correct way
 In this case the option **--ip='0.0.0.0'** will server the Jupyter notebook on all network interfaces and you can access
 them from your desktop browser using the port returned by the Jupyter server.
 
+Finally, you should navegate in your browser to the **notebooks** folder and start executing all notebooks by their
+order leaving the **00 - Project Report.ipynb** to the end.
