@@ -48,7 +48,7 @@ Available data analysis workflow
    diff_gene_exp_rnaseq
    det_bind_chipexo
 
-Public Domain notice
+Public Domain Notice
 ====================
 
 National Center for Biotechnology Information.
