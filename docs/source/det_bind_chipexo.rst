@@ -1,7 +1,11 @@
 Detection of binding events from ChIP-exo data
 ==============================================
 
-.. note::  Read :doc:`here <installation>` the notes to have the **cookiecutter** available in you shell.
+.. warning::  Read the :doc:`Background Information </background_information>` before proceeding with these steps
+
+.. warning::
+   Read the :doc:`Project Templates Installation <installation>` notes to have the **cookiecutter** available
+   in you shell depending on the execution environment you will be using.
 
 Sample description file: factors.txt
 ------------------------------------
@@ -55,7 +59,7 @@ be created.
         pull_images: "n"
         use_conda: "y"
         cwl_runner: "cwl-runner"
-        cwl_workflow_repo: "/gfs/veraalva/Work/Developer/Python/cwl-ngs-workflows-cbb"
+        cwl_workflow_repo: "https://github.com/ncbi/cwl-ngs-workflows-cbb"
         create_virtualenv: "n"
         use_gnu_parallel: "y"
         max_number_threads: "16"
@@ -216,7 +220,7 @@ be created.
         pull_images: "y"
         use_conda: "n"
         cwl_runner: "cwl-runner"
-        cwl_workflow_repo: "/gfs/veraalva/Work/Developer/Python/cwl-ngs-workflows-cbb"
+        cwl_workflow_repo: "https://github.com/ncbi/cwl-ngs-workflows-cbb"
         create_virtualenv: "y"
         use_gnu_parallel: "y"
         max_number_threads: "16"

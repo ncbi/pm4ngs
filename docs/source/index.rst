@@ -44,6 +44,7 @@ Available data analysis workflow
 .. toctree::
    :maxdepth: 1
 
+   background_information
    diff_gene_exp_rnaseq
    det_bind_chipexo
 
