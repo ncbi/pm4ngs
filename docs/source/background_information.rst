@@ -51,6 +51,9 @@ The tree shows the organizational structure that will be created for a project. 
 
     {{project_name}}
     ├── bin
+    │   ├── bioconda (If using Conda this folder include a conda envs for all bioinfo tools)
+    │   ├── cwl-ngs-workflows-cbb (CWL workflow repo cloned here)
+    │   └── jupyter  (If using Conda this folder include a conda envs for Jupyter notebooks)
     ├── config
     │   └── init.py
     ├── data

@@ -82,6 +82,9 @@ This process should create a project organizational structure like this:
     localhost:~> tree chipexo-fur
     chipexo-fur
     ├── bin
+    │   ├── bioconda (This directory include a conda envs for all bioinfo tools)
+    │   ├── cwl-ngs-workflows-cbb (CWL workflow repo cloned here)
+    │   └── jupyter  (This directory include a conda envs for Jupyter notebooks)
     ├── config
     │   └── init.py
     ├── data
@@ -113,7 +116,7 @@ The first one is for running the Jupyter notebooks which require Python 3.6+ and
 manually installed as described in :doc:`here <jupyter_env>`.
 
 The second environment is be used to install all Bioinformatics tools required by the workflow and it will be named:
-**chipexo**.
+**bioconda**.
 
 You can verify the environments running this command:
 
@@ -123,13 +126,15 @@ You can verify the environments running this command:
     # conda environments:
     #
     base                  *  /gfs/conda
-    chipexo                  /gfs/conda/envs/chipexo
-    jupyter                  /gfs/conda/envs/jupyter
     tempates                 /gfs/conda/envs/templates
+                             /home/veraalva/chipexo-fur/bin/bioconda
+                             /home/veraalva/chipexo-fur/bin/jupyter
 
     localhost:~>
 
-Please, note that the Conda prefix **/gfs/conda** will be different in you host.
+Please, note that the Conda prefix **/gfs/conda** will be different in you host. Also, note that the **bioconda** and
+**jupyter** envs are inside the **bin** directory of your project keeping them static inside the project organizational
+structure.
 
 .. warning::
     As today 08/15/2019, out workflow depends on the Python package: `jupyterngsplugin`_ which is not included in
@@ -137,7 +142,9 @@ Please, note that the Conda prefix **/gfs/conda** will be different in you host.
 
     .. code-block:: bash
 
-        localhost:~> conda activate jupyter
+        localhost:~> conda activate /home/veraalva/chipexo-fur/bin/jupyter
+        localhost:~> which pip
+        /home/veraalva/chipexo-fur/bin/jupyter/bin/pip
         localhost:~> pip install jupyterngsplugin
 
 .. _jupyterngsplugin: https://pypi.org/project/jupyterngsplugin/
@@ -145,15 +152,27 @@ Please, note that the Conda prefix **/gfs/conda** will be different in you host.
 ChIP-exo workflow usage with Conda/Bioconda
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-For start using the workflow you need to activate the conda environments **chipexo** and **jupyter**.
+For start using the workflow you need to activate the conda environments **bioconda** and **jupyter**.
 
 .. code-block:: bash
 
-    localhost:~> conda activate chipexo
-    localhost:~> conda activate --stack jupyter
+    localhost:~> conda activate /home/veraalva/chipexo-fur/bin/bioconda
+    localhost:~> conda activate --stack /home/veraalva/chipexo-fur/bin/jupyter
 
-Note the **--stack** option to have both environment working at the same time. Also, the order is important, **chipexo**
+Note the **--stack** option to have both environment working at the same time. Also, the order is important, **bioconda**
 should be activated before **jupyter**.
+
+Test the conda envs:
+
+.. code-block:: bash
+
+    localhost:~> which fastqc
+    /home/veraalva/chipexo-fur/bin/bioconda/bin/fastqc
+    localhost:~> which jupyter
+    /home/veraalva/chipexo-fur/bin/jupyter/bin/jupyter
+
+Note that the **fastqc** tools is installed in the **bioconda** env and the **jupyter** command is installed in the
+**jupyter** env.
 
 Then, you can start the jupyter notebooks.
 
@@ -297,3 +316,29 @@ them from your desktop browser using the port returned by the Jupyter server.
 
 Finally, you should navigate in your browser to the **notebooks** directory and start executing all notebooks by their
 order leaving the **00 - Project Report.ipynb** to the end.
+
+Jupyter Notebook Server
+-----------------------
+
+Top-level directories from the Jupyter server viewed in a web browser
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: img/top-level-structure.png
+    :width: 800px
+    :align: center
+    :alt: Top-level directories from the Jupyter server viewed in a web browser
+
+Notebook generated fro the Chip-exo data analysis
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: img/chipexo-notebooks.png
+    :width: 800px
+    :align: center
+    :alt: Notebook generated fro the Chip-exo data analysis
+
+Creating BWA indexes
+--------------------
+
+Creating BED files from GTF
+---------------------------
+
