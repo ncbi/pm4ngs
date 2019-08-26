@@ -336,9 +336,62 @@ Notebook generated fro the Chip-exo data analysis
     :align: center
     :alt: Notebook generated fro the Chip-exo data analysis
 
+Extra file requirements
+-----------------------
+
 Creating BWA indexes
---------------------
+^^^^^^^^^^^^^^^^^^^^
+
+This workflow uses BWA for sequence alignment. The BWA index creating is not included in the workflow, that's why we
+are including an small section here to describe how the BWA indexes can be created.
+
+The **genome.fa** file should be copied to the genome directory.
+
+.. code-block:: bash
+
+    localhost:~> conda activate /home/veraalva/chipexo-fur/bin/bioconda
+    localhost:~> conda activate --stack /home/veraalva/chipexo-fur/bin/jupyter
+    localhost:~> cd chipexo-fur/data/genome
+    localhost:~> mkdir BWA
+    localhost:~> cd BWA
+    localhost:~> cwl-runner --no-container ../../../bin/cwl-ngs-workflows-cbb/tools/BWA/bwa-index.cwl --sequences genome.fa
+    localhost:~> cd ..
+    localhost:~> tree
+    .
+    ├── BWA
+    │   ├── genome.fa
+    │   ├── genome.fa.amb
+    │   ├── genome.fa.ann
+    │   ├── genome.fa.bwt
+    │   ├── genome.fa.pac
+    │   └── genome.fa.sa
+    └── genome.fa
+
+    1 directory, 7 files
+
+Here all files inside the directory **BWA** are created by the workflow.
 
 Creating BED files from GTF
----------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+For generating a BED file from a GTF.
+
+The **genes.gtf** file should be copied to the genome directory.
+
+.. code-block:: bash
+
+    localhost:~> conda activate /home/veraalva/chipexo-fur/bin/bioconda
+    localhost:~> conda activate --stack /home/veraalva/chipexo-fur/bin/jupyter
+    localhost:~> cd chipexo-fur/data/genome
+    localhost:~> cwl-runner --no-container ../../bin/cwl-ngs-workflows-cbb/workflows/UCSC/gtftobed.cwl --gtf genes.gtf
+    localhost:~> tree
+    tree
+    .
+    ├── genes.bed
+    ├── genes.genePred
+    ├── genes.gtf
+    └── genome.fa
+
+    0 directory, 4 files
+
+Here the files **genes.bed** and **genes.genePred** are created from the workflow.
