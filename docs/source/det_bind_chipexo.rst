@@ -351,7 +351,9 @@ The **genome.fa** file should be copied to the genome directory.
 
     localhost:~> conda activate /home/veraalva/chipexo-fur/bin/bioconda
     localhost:~> conda activate --stack /home/veraalva/chipexo-fur/bin/jupyter
-    localhost:~> cd chipexo-fur/data/genome
+    localhost:~> cd chipexo-fur/data
+    localhost:~> mkdir genome
+    localhost:~> cd genome
     localhost:~> mkdir BWA
     localhost:~> cd BWA
     localhost:~> cwl-runner --no-container ../../../bin/cwl-ngs-workflows-cbb/tools/BWA/bwa-index.cwl --sequences genome.fa
@@ -382,7 +384,9 @@ The **genes.gtf** file should be copied to the genome directory.
 
     localhost:~> conda activate /home/veraalva/chipexo-fur/bin/bioconda
     localhost:~> conda activate --stack /home/veraalva/chipexo-fur/bin/jupyter
-    localhost:~> cd chipexo-fur/data/genome
+    localhost:~> cd chipexo-fur/data
+    localhost:~> mkdir genome
+    localhost:~> cd genome
     localhost:~> cwl-runner --no-container ../../bin/cwl-ngs-workflows-cbb/workflows/UCSC/gtftobed.cwl --gtf genes.gtf
     localhost:~> tree
     tree
