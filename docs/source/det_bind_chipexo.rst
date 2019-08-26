@@ -392,6 +392,6 @@ The **genes.gtf** file should be copied to the genome directory.
     ├── genes.gtf
     └── genome.fa
 
-    1 directory, 10 files
+    0 directory, 4 files
 
 Here the files **genes.bed** and **genes.genePred** are created from the workflow.
