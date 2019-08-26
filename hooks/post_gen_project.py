@@ -201,11 +201,11 @@ def create_conda_env(conda_env):
         conda_env = os.path.join(CWL_WORKFLOW_REPO, 'requirements', conda_env)
         conda_jupyter_env = os.path.join(CWL_WORKFLOW_REPO, 'requirements', 'conda-jupyter.yaml')
 
-    conda_dir = os.path.join(PROJECT_DIRECTORY, 'bin', 'conda_jupyter')
+    conda_dir = os.path.join(PROJECT_DIRECTORY, 'bin', 'jupyter')
     print('Installing Conda env: {0} to {1}'.format(conda_jupyter_env, conda_dir))
     run(['conda', 'env', 'create', '-f', conda_jupyter_env, '--prefix=' + conda_dir])
 
-    conda_dir = os.path.join(PROJECT_DIRECTORY, 'bin', 'conda')
+    conda_dir = os.path.join(PROJECT_DIRECTORY, 'bin', 'bioconda')
     print('Installing Conda env: {0} to {1}'.format(conda_env, conda_dir))
     run(['conda', 'env', 'create', '-f', conda_env, '--prefix=' + conda_dir])
 
