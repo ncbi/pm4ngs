@@ -75,7 +75,7 @@ following output.
     Checking ChIP-exo workflow dependencies .......... Done
     localhost:~>
 
-This process should create a project structure like this:
+This process should create a project organizational structure like this:
 
 .. code-block:: bash
 
@@ -236,7 +236,7 @@ following output.
     Checking ChIP-exo workflow dependencies .......... Done
     localhost:~>
 
-This process should create a project structure like this:
+This process should create a project organizational structure like this:
 
 .. code-block:: bash
 
@@ -267,9 +267,9 @@ This process should create a project structure like this:
 
     11 directories, 11 files
 
-Now you should copied the **factors.txt** file to the folder: **data/PRJNA238004**.
+Now you should copied the **factors.txt** file to the directory: **data/PRJNA238004**.
 
-After this process, **cookiecutter** should have pulled all docker images require   bb bv           d by the project.
+After this process, **cookiecutter** should have pulled all docker images require by the project.
 
 ChIP-exo workflow usage with Docker
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -295,5 +295,5 @@ If the workflow is deployed in a remote machine using SSH access the correct way
 In this case the option **--ip='0.0.0.0'** will server the Jupyter notebook on all network interfaces and you can access
 them from your desktop browser using the port returned by the Jupyter server.
 
-Finally, you should navegate in your browser to the **notebooks** folder and start executing all notebooks by their
+Finally, you should navigate in your browser to the **notebooks** directory and start executing all notebooks by their
 order leaving the **00 - Project Report.ipynb** to the end.
