@@ -1,9 +1,30 @@
 cookiecutter-jupyter-ngs
 ===================================================================
 
-Cookiecutter based Jupyter Notebook Templates for NGS data analysis.
+`cookiecutter-jupyter-ngs`_ is designed to generate a standard organizational structure for Next-generation Sequencing
+data analysis including a directory structure for the project, Jupyter notebooks for data management and CWL workflows
+for pipeline execution.
 
-Powered by Cookiecutter_, `Jupyter Notebook`_, CWL_, Docker_, Conda_ and BioConda_.
+Our work was inspired for a paper published by Prof. William Noble in 2009:
+`A Quick Guide to Organizing Computational Biology Projects`_. We strongly
+recommend reading this paper for a better understanding of the guiding principles of this project.
+
+The projects are composed of three main parts. The first one is the **project organizational structure** which
+define a standard files and directories for the project. The second part are **Jupyter Notebooks** as user
+interfaces for data management and visualization. The third part are the **CWL workflows** that execute the data
+analysis.
+
+**cookiecutter-jupyter-ngs** source code includes the templates used by **cookiecutter** to generate the project
+organizational structure and the Jupyter notebooks. The CWL workflows are defined in a separate GitHub project named:
+`cwl-ngs-workflows-cbb`_.
+
+All type of projects generated from these templates follow the same design principles explained in the
+:doc:`Background Information </background_information>`.
+
+.. _cookiecutter-jupyter-ngs: https://github.com/ncbi/cookiecutter-jupyter-ngs
+.. _A Quick Guide to Organizing Computational Biology Projects: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424
+.. _GNU Parallel: https://www.gnu.org/software/parallel/
+.. _cwl-ngs-workflows-cbb: https://github.com/ncbi/cwl-ngs-workflows-cbb
 
 Reference
 ---------
@@ -21,6 +42,15 @@ Features
 * Project reports and dynamic content creation after data processing using CWL workflows
 * Optional use of Docker/Biocontainers or Conda/Bioconda for Bioinformatics tool installation and management
 
+Available data analysis workflows
+---------------------------------
+
+.. toctree::
+   :maxdepth: 1
+
+   diff_gene_exp_rnaseq
+   det_bind_chipexo
+
 Extra
 -----
 .. toctree::
@@ -37,16 +67,6 @@ Extra
 .. _Conda: https://github.com/conda/conda
 .. _BioConda: https://bioconda.github.io/
 .. _Containerized open-source framework for NGS data analysis and management: https://f1000research.com/posters/8-1229
-
-Available data analysis workflow
---------------------------------
-
-.. toctree::
-   :maxdepth: 1
-
-   background_information
-   diff_gene_exp_rnaseq
-   det_bind_chipexo
 
 Public Domain Notice
 ====================
