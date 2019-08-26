@@ -27,7 +27,7 @@ def check_dependencies_path(config):
         sys.stdout.flush()
         tool, value = tool.popitem()
         if USE_CONDA == 'y':
-            conda_dir = os.path.join(PROJECT_DIRECTORY, 'bin', 'conda', 'bin')
+            conda_dir = os.path.join(PROJECT_DIRECTORY, 'bin', 'bioconda', 'bin')
             tool_path = os.path.join(conda_dir, value['command'])
         else:
             tool_path = distutils.spawn.find_executable(value['command'])
