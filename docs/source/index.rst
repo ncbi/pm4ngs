@@ -48,16 +48,16 @@ Available data analysis workflows
 .. toctree::
    :maxdepth: 1
 
-   diff_gene_exp_rnaseq
-   det_bind_chipexo
+   /workflows/diff_gene_exp_rnaseq
+   /workflows/det_bind_chipexo
 
 Extra
 -----
 .. toctree::
    :maxdepth: 2
 
-   installation
-   cookiecutter_json
+   /envs/installation
+   /extra/cookiecutter_json
 
 
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
