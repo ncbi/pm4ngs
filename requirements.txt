@@ -4,3 +4,5 @@ virtualenv~=16.7.2
 docker~=4.0.1
 GitPython~=2.1.11
 sphinx~=2.1.2
+cwltool~=1.0.20190815141648
+cwl-runner~=1.0
