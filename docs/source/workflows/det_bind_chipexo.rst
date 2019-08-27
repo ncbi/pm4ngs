@@ -138,19 +138,6 @@ Please, note that the Conda prefix **/gfs/conda** will be different in you host.
 **jupyter** envs are inside the **bin** directory of your project keeping them static inside the project organizational
 structure.
 
-.. warning::
-    As today 08/15/2019, out workflow depends on the Python package: `jupyterngsplugin`_ which is not included in
-    Bioconda yet. We are working on it. Therefore, you will need to install this package manually as:
-
-    .. code-block:: bash
-
-        localhost:~> conda activate /home/veraalva/chipexo-fur/bin/jupyter
-        localhost:~> which pip
-        /home/veraalva/chipexo-fur/bin/jupyter/bin/pip
-        localhost:~> pip install jupyterngsplugin
-
-.. _jupyterngsplugin: https://pypi.org/project/jupyterngsplugin/
-
 ChIP-exo workflow usage with Conda/Bioconda
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -345,6 +332,11 @@ CWL workflows
 .. include:: /cwl/chip-seq-alignment.rst
 .. include:: /cwl/peak-caller-MACE.rst
 .. include:: /cwl/meme-motif.rst
+
+Test Project
+------------
+
+A test project is available (read-only) at https://ftp.ncbi.nlm.nih.gov/pub/cookiecutter-jupyter-ngs/examples/chipexo-fur
 
 Extra file requirements
 -----------------------
