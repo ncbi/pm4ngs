@@ -4,20 +4,20 @@ Detection of binding events from ChIP-exo data
 .. warning::  Read the :doc:`Background Information </background_information>` before proceeding with these steps
 
 .. warning::
-   Read the :doc:`Project Templates Installation <installation>` notes to have the **cookiecutter** available
+   Read the :doc:`Project Templates Installation </envs/installation>` notes to have the **cookiecutter** available
    in you shell depending on the execution environment you will be using.
 
 Sample description file: factors.txt
 ------------------------------------
 
 A samples description file named: **factors.txt** must be created with all samples file name and metadata. The format
-of this file is described :doc:`here <factors_file>`.
+of this file is described :doc:`here </extra/factors_file>`.
+
+Installation
+------------
 
 ChIP-exo workflow with Conda/Bioconda
--------------------------------------
-
-ChIP-exo workflow project structure with Conda/Bioconda
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The ChIP-exo project structure is created using the conda environment named **templates**.
 
@@ -64,7 +64,7 @@ be created.
         use_gnu_parallel: "y"
         max_number_threads: "16"
 
-A full description of this parameters are :doc:`here <cookiecutter_json>`.
+A full description of this parameters are :doc:`here </extra/cookiecutter_json>`.
 
 After the **chipexo-fur.yaml** is created the project structure should be created using this command obtaining the
 following output.
@@ -113,7 +113,7 @@ Now you should copied the **factors.txt** file to the folder: **data/PRJNA238004
 After this process, **cookiecutter** should have created create two virtual environment for this workflow.
 
 The first one is for running the Jupyter notebooks which require Python 3.6+ and it is named: **jupyter**. It can be
-manually installed as described in :doc:`here <jupyter_env>`.
+manually installed as described in :doc:`here </envs/jupyter_env>`.
 
 The second environment is be used to install all Bioinformatics tools required by the workflow and it will be named:
 **bioconda**.
@@ -193,13 +193,10 @@ Finally, you should navegate in your browser to the **notebooks** folder and sta
 order leaving the **00 - Project Report.ipynb** to the end.
 
 ChIP-exo workflow with Docker
------------------------------
-
-ChIP-exo workflow project structure with Docker
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In this case, the ChIP-exo project structure is created using the Python virtual environment as described
-:doc:`here <installation>`
+:doc:`here </envs/installation>`
 
 First step is to activate the Python virtual environment.
 
@@ -244,7 +241,7 @@ be created.
         use_gnu_parallel: "y"
         max_number_threads: "16"
 
-A full description of this parameters are :doc:`here <cookiecutter_json>`.
+A full description of this parameters are :doc:`here </extra/cookiecutter_json>`.
 
 After the **chipexo-fur.yaml** is created the project structure should be created using this command obtaining the
 following output.
@@ -323,7 +320,7 @@ Jupyter Notebook Server
 Top-level directories from the Jupyter server viewed in a web browser
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: img/top-level-structure.png
+.. image:: /img/top-level-structure.png
     :width: 800px
     :align: center
     :alt: Top-level directories from the Jupyter server viewed in a web browser
@@ -331,10 +328,19 @@ Top-level directories from the Jupyter server viewed in a web browser
 Notebook generated fro the Chip-exo data analysis
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: img/chipexo-notebooks.png
+.. image:: /img/chipexo-notebooks.png
     :width: 800px
     :align: center
     :alt: Notebook generated fro the Chip-exo data analysis
+
+CWL workflows
+-------------
+
+.. include:: /cwl/sra_workflow.rst
+.. include:: /cwl/trimmomatic.rst
+.. include:: /cwl/chip-seq-alignment.rst
+.. include:: /cwl/peak-caller-MACE.rst
+.. include:: /cwl/meme-motif.rst
 
 Extra file requirements
 -----------------------

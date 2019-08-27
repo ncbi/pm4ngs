@@ -41,6 +41,7 @@ parameters:
         "max_number_threads": "16"
     }
 
+
 .. topic:: Parameters
 
     * **author_name**: Project author name
@@ -94,6 +95,7 @@ parameters:
       in a folder **venv**.
     * **use_gnu_parallel**: Use `GNU Parallel`_ for parallel execution of the jobs.
     * **max_number_threads**: Number of threads available in the host
+
 
 .. _hg19.chrom.sizes: http://hgdownload.cse.ucsc.edu/goldenPath/hg19/bigZips/hg19.chrom.sizes
 .. _GNU Parallel: https://www.gnu.org/software/parallel/

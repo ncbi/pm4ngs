@@ -4,7 +4,7 @@ Differential Gene expression from RNA-Seq data
 .. warning::  Read the :doc:`Background Information </background_information>` before proceeding with these steps
 
 .. warning::
-   Read the :doc:`Project Templates Installation <installation>` notes to have the **cookiecutter** available
+   Read the :doc:`Project Templates Installation </extra/installation>` notes to have the **cookiecutter** available
    in you shell depending on the execution environment you will be using.
 
 Sample description file: factors.txt
