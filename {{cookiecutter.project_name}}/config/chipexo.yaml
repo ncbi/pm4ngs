@@ -15,7 +15,7 @@ docker:
   docker_build:
     r-3.5_ubuntu-18.04:
       tag: latest
-      dockerfile: https://gitlab.com/r78v10a07/cwl-workflow/raw/master/tools/R/Dockerfile_R-3.6_ubuntu-18.04
+      dockerfile: https://raw.githubusercontent.com/ncbi/cwl-ngs-workflows-cbb/master/tools/R/Dockerfile_R-3.6_ubuntu-18.04
 {% else %}
 tools:
   - SRA-Tools:
