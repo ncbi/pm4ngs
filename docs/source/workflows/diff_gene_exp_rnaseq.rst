@@ -364,8 +364,8 @@ Test Project
 
 A test project is available (read-only) at https://ftp.ncbi.nlm.nih.gov/pub/cookiecutter-jupyter-ngs/examples/rnaseq-sra-paired
 
-Extra file requirements
------------------------
+Extra requirements
+------------------
 
 Creating STAR indexes
 ^^^^^^^^^^^^^^^^^^^^^
@@ -387,7 +387,7 @@ The **genome.fa** and **genes.gtf** files should be copied to the genome directo
     localhost:~> cwl-runner --no-container ../../../bin/cwl-ngs-workflows-cbb/tools/STAR/star-index.cwl --runThreadN 16 --genomeDir . --genomeFastaFiles ../genome.fa  --sjdbGTFfile ../genes.gtf
     localhost:~> cd ..
     localhost:~> tree
-        .
+    .
     ├── genes.gtf
     ├── genome.fa
     └── STAR
@@ -428,7 +428,6 @@ The **genes.gtf** file should be copied to the genome directory.
     localhost:~> cd genome
     localhost:~> cwl-runner --no-container ../../bin/cwl-ngs-workflows-cbb/workflows/UCSC/gtftobed.cwl --gtf genes.gtf
     localhost:~> tree
-    tree
     .
     ├── genes.bed
     ├── genes.genePred
