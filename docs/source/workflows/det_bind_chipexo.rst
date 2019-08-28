@@ -344,7 +344,7 @@ Extra file requirements
 Creating BWA indexes
 ^^^^^^^^^^^^^^^^^^^^
 
-This workflow uses BWA for sequence alignment. The BWA index creating is not included in the workflow, that's why we
+This workflow uses BWA for sequence alignment. The BWA index creation is not included in the workflow, that's why we
 are including an small section here to describe how the BWA indexes can be created.
 
 The **genome.fa** file should be copied to the genome directory.

@@ -11,7 +11,7 @@ report. Finally, `Phantompeakqualtools`_ is used to generate quality control rep
 
 .. topic:: Inputs
 
-    * **genome_index**: Aligner index folder
+    * **genome_index**: Aligner indexes directory.
       Type: Directory. Required. Variable ALIGNER_INDEX in the Jupyter Notebooks.
     * **genome_prefix**: Prefix of the aligner indexes. Generally, it is the name of the genome FASTA file.
       It can be used as os.path.basename(GENOME_FASTA) in the Jupyter Notebooks.
@@ -29,19 +29,18 @@ report. Finally, `Phantompeakqualtools`_ is used to generate quality control rep
 
 .. topic:: Outputs
 
-    * **bam_flagstat_out**: SAMtools flagstats for unfiltered BAM file. Type: File
-    * **bam_stats_out**: SAMtools stats for unfiltered BAM file. Type: File
-    * **final_bam_flagstat_out**: SAMtools flagstats for filtered BAM file. Type: File
-
-    * **bed_file_out**:: Aligned reads in BED format. Type: File
-    * **final_bam_out**: Final BAM file filtered and sorted. Type: File
-    * **bam_index_out**: BAM index file. Type: File
-    * **pbc_out**: Library complexity report. Type: File
-    * **phantompeakqualtools_output_out**: Phantompeakqualtools main output. Type: File
-    * **phantompeakqualtools_output_savp**: Phantompeakqualtools SAVP output. Type: File
-    * **subsample_pseudoreplicate_gzip_out**: Subsample pseudoreplicates tagAlign gzipped. Type: File[]
-    * **subsample_tagalign_out**: Subsample tagAlign gzipped. Type: File[]
-    * **subsample_subsample_out**: Subsample shuffled tagAlign gzipped. Type: File[]
+    * **bam_flagstat_out**: SAMtools flagstats for unfiltered BAM file. Type: File.
+    * **bam_stats_out**: SAMtools stats for unfiltered BAM file. Type: File.
+    * **final_bam_flagstat_out**: SAMtools flagstats for filtered BAM file. Type: File.
+    * **bed_file_out**:: Aligned reads in BED format. Type: File.
+    * **final_bam_out**: Final BAM file filtered and sorted. Type: File.
+    * **bam_index_out**: BAM index file. Type: File.
+    * **pbc_out**: Library complexity report. Type: File.
+    * **phantompeakqualtools_output_out**: Phantompeakqualtools main output. Type: File.
+    * **phantompeakqualtools_output_savp**: Phantompeakqualtools SAVP output. Type: File.
+    * **subsample_pseudoreplicate_gzip_out**: Subsample pseudoreplicates tagAlign gzipped. Type: File[].
+    * **subsample_tagalign_out**: Subsample tagAlign gzipped. Type: File[].
+    * **subsample_subsample_out**: Subsample shuffled tagAlign gzipped. Type: File[].
 
 .. _BWA: http://bio-bwa.sourceforge.net/
 .. _SAMtools: http://www.htslib.org/
