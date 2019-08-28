@@ -336,3 +336,106 @@ Jupyter Notebook Server
 Top-level directories from the Jupyter server viewed in a web browser
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. image:: /img/top-level-structure.png
+    :width: 800px
+    :align: center
+    :alt: Top-level directories from the Jupyter server viewed in a web browser
+
+Notebook generated fro the Chip-exo data analysis
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: /img/rnaseq-notebooks.png
+    :width: 800px
+    :align: center
+    :alt: Notebook generated fro the RNA-Seq data analysis
+
+CWL workflows
+-------------
+
+.. include:: /cwl/sra_workflow.rst
+.. include:: /cwl/trimmomatic.rst
+.. include:: /cwl/rnaseq-star-aligner-workflow.rst
+.. include:: /cwl/rnaseq-tpmcalculator-qc-workflow.rst
+.. include:: /cwl/rnaseq-dga-workflow.rst
+.. include:: /cwl/rnaseq-GO-enrichment-workflow.rst
+
+Test Project
+------------
+
+A test project is available (read-only) at https://ftp.ncbi.nlm.nih.gov/pub/cookiecutter-jupyter-ngs/examples/rnaseq-sra-paired
+
+Extra file requirements
+-----------------------
+
+Creating STAR indexes
+^^^^^^^^^^^^^^^^^^^^^
+
+This workflow uses STAR for sequence alignment. The STAR index creation is not included in the workflow, that's why we
+are including an small section here to describe how the STAR indexes can be created.
+
+The **genome.fa** and **genes.gtf** files should be copied to the genome directory.
+
+.. code-block:: bash
+
+    localhost:~> conda activate /home/veraalva/rnaseq-sra-paired/bin/bioconda
+    localhost:~> conda activate --stack /home/veraalva/rnaseq-sra-paired/bin/jupyter
+    localhost:~> cd rnaseq-sra-paired/data
+    localhost:~> mkdir genome
+    localhost:~> cd genome
+    localhost:~> mkdir STAR
+    localhost:~> cd STAR
+    localhost:~> cwl-runner --no-container ../../../bin/cwl-ngs-workflows-cbb/tools/STAR/star-index.cwl --runThreadN 16 --genomeDir . --genomeFastaFiles ../genome.fa  --sjdbGTFfile ../genes.gtf
+    localhost:~> cd ..
+    localhost:~> tree
+        .
+    ├── genes.gtf
+    ├── genome.fa
+    └── STAR
+        ├── chrLength.txt
+        ├── chrNameLength.txt
+        ├── chrName.txt
+        ├── chrStart.txt
+        ├── exonGeTrInfo.tab
+        ├── exonInfo.tab
+        ├── geneInfo.tab
+        ├── Genome
+        ├── genomeParameters.txt
+        ├── Log.out
+        ├── SA
+        ├── SAindex
+        ├── sjdbInfo.txt
+        ├── sjdbList.fromGTF.out.tab
+        ├── sjdbList.out.tab
+        └── transcriptInfo.tab
+
+    1 directory, 18 files
+
+Here all files inside the directory **STAR** are created by the workflow.
+
+Creating BED files from GTF
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+For generating a BED file from a GTF.
+
+The **genes.gtf** file should be copied to the genome directory.
+
+.. code-block:: bash
+
+    localhost:~> conda activate /home/veraalva/rnaseq-sra-paired/bin/bioconda
+    localhost:~> conda activate --stack /home/veraalva/rnaseq-sra-paired/bin/jupyter
+    localhost:~> cd rnaseq-sra-paired/data
+    localhost:~> mkdir genome
+    localhost:~> cd genome
+    localhost:~> cwl-runner --no-container ../../bin/cwl-ngs-workflows-cbb/workflows/UCSC/gtftobed.cwl --gtf genes.gtf
+    localhost:~> tree
+    tree
+    .
+    ├── genes.bed
+    ├── genes.genePred
+    ├── genes.gtf
+    └── genome.fa
+
+    0 directory, 4 files
+
+Here the files **genes.bed** and **genes.genePred** are created from the workflow.
+
