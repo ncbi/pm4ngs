@@ -1,9 +1,11 @@
 Samples description file
-========================
+------------------------
 
-A TSV file named **factors.txt** is the main file for the projects and workflow. The initial sample names, file name
-prefixes and metadata are specified on it. This file is the base of the workflow and should be copied to the
-folder **data/{{dataset_name}}** just after creating the project structure.
+A TSV file named **factors.txt** is the main file for the projects and workflow. This file should be created before
+any project creation. It is the base of the workflow and should be copied to the folder **data/{{dataset_name}}**
+just after creating the project structure.
+
+The initial sample names, file name prefixes and metadata are specified on it.
 
 It should have the following columns:
 
