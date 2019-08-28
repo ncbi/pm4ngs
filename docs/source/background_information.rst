@@ -1,36 +1,6 @@
 Background Information
 ======================
 
-Introduction
-------------
-
-**cookiecutter-jupyter-ngs** is designed to generate a standard organizational structure for Next-generation Sequencing
-data analysis including a directory structure for the project, Jupyter notebooks for data management and CWL workflows
-for pipeline execution.
-
-All type of projects generated from these templates follow the same design principles explained in this document.
-
-Our work was inspired for a paper published by Prof. William Noble in 2009:
-`A Quick Guide to Organizing Computational Biology Projects`_. We strongly
-recommend reading this paper for a better understanding of the guiding principles of this project.
-
-Currently, the projects are designed to be executed in a single server with multiple cores for simplicity. We are
-working to extend the templates to execute the workflows in HPC or cloud systems. `GNU Parallel`_ is used to run
-multiple workflows at the same time using all available cores in the server.
-
-The projects are composed of three main parts. The first one is the **project organizational structure** which
-define a standard files and directories for the project. The second part are **Jupyter Notebooks** as user
-interfaces for data management and visualization. The third part are the **CWL workflows** that execute the data
-analysis.
-
-**cookiecutter-jupyter-ngs** source code includes the templates used by **cookiecutter** to generate the project
-organizational structure and the Jupyter notebooks. The CWL workflows are defined in a separate GitHub project named:
-`cwl-ngs-workflows-cbb`_.
-
-.. _A Quick Guide to Organizing Computational Biology Projects: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424
-.. _GNU Parallel: https://www.gnu.org/software/parallel/
-.. _cwl-ngs-workflows-cbb: https://github.com/ncbi/cwl-ngs-workflows-cbb
-
 Project organizational structure
 --------------------------------
 

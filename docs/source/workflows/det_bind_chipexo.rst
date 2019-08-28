@@ -338,8 +338,8 @@ Test Project
 
 A test project is available (read-only) at https://ftp.ncbi.nlm.nih.gov/pub/cookiecutter-jupyter-ngs/examples/chipexo-fur
 
-Extra file requirements
------------------------
+Extra requirements
+------------------
 
 Creating BWA indexes
 ^^^^^^^^^^^^^^^^^^^^
@@ -391,7 +391,6 @@ The **genes.gtf** file should be copied to the genome directory.
     localhost:~> cd genome
     localhost:~> cwl-runner --no-container ../../bin/cwl-ngs-workflows-cbb/workflows/UCSC/gtftobed.cwl --gtf genes.gtf
     localhost:~> tree
-    tree
     .
     ├── genes.bed
     ├── genes.genePred
