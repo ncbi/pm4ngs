@@ -46,7 +46,7 @@ Available data analysis workflows
 ---------------------------------
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    /workflows/diff_gene_exp_rnaseq
    /workflows/det_bind_chipexo
@@ -54,7 +54,7 @@ Available data analysis workflows
 Extra
 -----
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    /envs/installation
    /extra/cookiecutter_json
