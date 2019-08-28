@@ -7,11 +7,7 @@ Detection of binding events from ChIP-exo data
    Read the :doc:`Project Templates Installation </envs/installation>` notes to have the **cookiecutter** available
    in you shell depending on the execution environment you will be using.
 
-Sample description file: factors.txt
-------------------------------------
-
-A samples description file named: **factors.txt** must be created with all samples file name and metadata. The format
-of this file is described :doc:`here </extra/factors_file>`.
+.. include:: /extra/factors_file.rst
 
 Installation
 ------------
