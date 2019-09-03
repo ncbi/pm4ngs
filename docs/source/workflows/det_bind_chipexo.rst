@@ -396,3 +396,6 @@ The **genes.gtf** file should be copied to the genome directory.
     0 directory, 4 files
 
 Here the files **genes.bed** and **genes.genePred** are created from the workflow.
+
+Downloading MEME databases
+^^^^^^^^^^^^^^^^^^^^^^^^^^

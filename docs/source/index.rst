@@ -44,6 +44,7 @@ Links to available data analysis workflows
    :maxdepth: 2
 
    /workflows/diff_gene_exp_rnaseq
+   /workflows/diff_bind_event_chipseq
    /workflows/det_bind_chipexo
 
 Extra links

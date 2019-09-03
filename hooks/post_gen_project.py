@@ -225,6 +225,7 @@ if __name__ == '__main__':
         config_path = os.path.join(PROJECT_DIRECTORY, 'config', 'chipseq.yaml')
         conda_env = 'conda-chipseq.yaml'
         notebook_04_dest = '04 - Peak Calling'
+        notebook_05_dest = '05 - Differential binding analysis'
     elif NGS_DATA_TYPE == 'ChIP-exo':
         config_path = os.path.join(PROJECT_DIRECTORY, 'config', 'chipexo.yaml')
         conda_env = 'conda-chipexo.yaml'
