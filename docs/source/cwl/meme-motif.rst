@@ -67,3 +67,5 @@ The downloaded files should be uncompressed in a directory **data/meme**. The fi
         └── YEAST
 
     19 directories
+
+See also an example in our test project: https://ftp.ncbi.nlm.nih.gov/pub/cookiecutter-jupyter-ngs/examples/chipexo-fur/data/
