@@ -238,9 +238,9 @@ following output.
 .. code-block:: bash
 
     localhost:~> cookiecutter --no-input --config-file rnaseq-sra-paired.yaml https://github.com/ncbi/cookiecutter-jupyter-ngs.git
-    Cloning Git repo: https://github.com/ncbi/cwl-ngs-workflows-cbb to /home/veraalva/workplace/cookiecutter/rnaseq-sra-paired/bin/cwl-ngs-workflows-cbb
+    Cloning Git repo: https://github.com/ncbi/cwl-ngs-workflows-cbb to /home/veraalva/rnaseq-sra-paired/bin/cwl-ngs-workflows-cbb
     Creating a Python3.7 virtualenv
-    Installing packages in: /home/veraalva/workplace/cookiecutter/rnaseq-sra-paired/venv using file /home/veraalva/workplace/cookiecutter/rnaseq-sra-paired/requirements/python.txt
+    Installing packages in: /home/veraalva/rnaseq-sra-paired/venv using file /home/veraalva/rnaseq-sra-paired/requirements/python.txt
     Checking RNA-Seq workflow dependencies .
         Pulling image: quay.io/biocontainers/fastqc:0.11.8--1 . Done .
         Pulling image: quay.io/biocontainers/trimmomatic:0.39--1 . Done .

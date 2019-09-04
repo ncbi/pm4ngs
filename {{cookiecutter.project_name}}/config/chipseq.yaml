@@ -5,17 +5,16 @@ docker:
     - quay.io/biocontainers/trimmomatic:0.39--1
     - quay.io/biocontainers/bwa:0.7.17--h84994c4_5
     - quay.io/biocontainers/bedtools:2.28.0--hdf88d34_0
+    - quay.io/biocontainers/bcftools:1.9--h5c2b69b_5
     - quay.io/biocontainers/phantompeakqualtools:1.2--1
     - quay.io/biocontainers/samtools:1.9--h91753b0_8
     - quay.io/biocontainers/rseqc:3.0.0--py_3
     - quay.io/biocontainers/sra-tools:2.9.6--hf484d3e_0
     - quay.io/biocontainers/igvtools:2.5.3--0
     - quay.io/biocontainers/macs2:2.1.2--py27r351h14c3975_1
+    - quay.io/biocontainers/homer:4.10--pl526hc9558a2_0
     - ubuntu:18.04
   docker_build:
-    homer:
-      tag: latest
-      dockerfile: https://raw.githubusercontent.com/ncbi/cwl-ngs-workflows-cbb/master/tools/homer/Dockerfile-template
     r-3.5_ubuntu-18.04:
       tag: latest
       dockerfile: https://raw.githubusercontent.com/ncbi/cwl-ngs-workflows-cbb/master/tools/R/Dockerfile_R-3.6_ubuntu-18.04
