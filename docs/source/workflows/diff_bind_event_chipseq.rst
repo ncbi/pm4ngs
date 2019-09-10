@@ -357,6 +357,7 @@ CWL workflows
 .. include:: /cwl/trimmomatic.rst
 .. include:: /cwl/chip-seq-alignment.rst
 .. include:: /cwl/peak-caller-MACS2.rst
+.. include:: /cwl/differential_binding-DiffBind.rst
 
 Test Project
 ------------
