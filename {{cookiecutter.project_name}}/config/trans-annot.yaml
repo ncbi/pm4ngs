@@ -1,0 +1,18 @@
+{% if cookiecutter.use_docker== 'y' %}
+docker:
+  docker_pull:
+    - quay.io/biocontainers/blast:2.9.0--pl526h979a64d_3
+{% else %}
+tools:
+  - Blast:
+      command: blastx
+      version: '2.9.0'
+      option: -h
+      out: stdout
+  - TransDecoder:
+      command: TransDecoder.LongOrfs
+      version: '5.5.0'
+      option: --version
+      out: stdout
+
+{% endif %}

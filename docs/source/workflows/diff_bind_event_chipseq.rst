@@ -334,6 +334,35 @@ order leaving the **00 - Project Report.ipynb** to the end.
 Jupyter Notebook Server
 -----------------------
 
+Top-level directories from the Jupyter server viewed in a web browser
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: /img/top-level-structure.png
+    :width: 800px
+    :align: center
+    :alt: Top-level directories from the Jupyter server viewed in a web browser
+
+Notebook generated fro the ChIP-Seq data analysis
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: /img/chipseq-notebooks.png
+    :width: 800px
+    :align: center
+    :alt: Notebook generated fro the ChIP-Seq data analysis
+
+CWL workflows
+-------------
+
+.. include:: /cwl/sra_workflow.rst
+.. include:: /cwl/trimmomatic.rst
+.. include:: /cwl/chip-seq-alignment.rst
+.. include:: /cwl/peak-caller-MACS2.rst
+.. include:: /cwl/differential_binding-DiffBind.rst
+
+Test Project
+------------
+
+A test project is available (read-only) at https://ftp.ncbi.nlm.nih.gov/pub/cookiecutter-jupyter-ngs/examples/chipseq-hmgn1
 
 Extra requirements
 ------------------

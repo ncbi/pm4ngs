@@ -26,12 +26,15 @@ from jupyterngsplugin.utils.errors import check_errors_from_logs
 #
 ###############################################################
 
+{% if cookiecutter.fold_change is defined %}
 # log2(FoldChange)
 fc = {{ cookiecutter.fold_change }}
+{% endif %}
 
+{% if cookiecutter.fdr  is defined %}
 # max FDR (adjusted P-Value)
 fdr = {{ cookiecutter.fdr }}
-
+{% endif %}
 ###############################################################
 #
 #    Project global paths
@@ -47,6 +50,7 @@ NOTEBOOKS = os.path.join(WORKDIR,'notebooks')
 SRC = os.path.join(WORKDIR,'src')
 TMP = os.path.join(WORKDIR,'tmp')
 
+{% if cookiecutter.genome_dir is defined %}
 ###############################################################
 #
 #    Update genome files and indexes path
@@ -66,7 +70,8 @@ GENOME_GFF3 = '{{ cookiecutter.genome_gff3 }}'
 GENOME_BED = '{{ cookiecutter.genome_bed }}'
 GENOME_CHROMSIZES = '{{ cookiecutter.genome_chromsizes }}'
 GENOME_MAPPABLE_SIZE = '{{ cookiecutter.genome_mappable_size }}'
-GENOME_BLACKLIST = os.path.join(GENOME, 'mm9-blacklist.bed')
+GENOME_BLACKLIST = '{{ cookiecutter.genome_blacklist }}'
+{% endif %}
 
 ###############################################################
 #
@@ -80,8 +85,11 @@ GENOME_BLACKLIST = os.path.join(GENOME, 'mm9-blacklist.bed')
 ###############################################################
 
 DATASET = '{{ cookiecutter.dataset_name }}'
+{% if cookiecutter.create_demo is defined %}
 IS_DEMO = True if '{{ cookiecutter.is_data_in_SRA }}' == 'y' and '{{ cookiecutter.create_demo }}' == 'y' else False
-
+{% else %}
+IS_DEMO = False
+{% endif %}
 ###############################################################
 #
 #    Docker configuration

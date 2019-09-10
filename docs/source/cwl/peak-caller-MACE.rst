@@ -18,7 +18,7 @@ script available `here`_. `BAMscale`_ is used for the quantification of the resu
       Type: string. Required.
     * **genome_gtf**:
       Genome GTF file. Variable GENOME_GTF in the Jupyter Notebooks.
-      Type: int. Required.
+      Type: File. Required.
     * **tss_size**: Number of bp to use for TSS definition. We recommend use 1000.
       Type: int. Required.
 

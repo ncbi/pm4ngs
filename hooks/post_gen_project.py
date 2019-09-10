@@ -202,15 +202,20 @@ def create_conda_env(conda_env):
         conda_jupyter_env = os.path.join(CWL_WORKFLOW_REPO, 'requirements', 'conda-jupyter.yaml')
 
     conda_dir = os.path.join(PROJECT_DIRECTORY, 'bin', 'jupyter')
-    print('Installing Conda env: {0} to {1}'.format(conda_jupyter_env, conda_dir))
-    run(['conda', 'env', 'create', '-f', conda_jupyter_env, '--prefix=' + conda_dir])
+    if not os.path.exists(conda_dir):
+        print('Installing Conda env: {0} to {1}'.format(conda_jupyter_env, conda_dir))
+        run(['conda', 'env', 'create', '-f', conda_jupyter_env, '--prefix=' + conda_dir])
 
     conda_dir = os.path.join(PROJECT_DIRECTORY, 'bin', 'bioconda')
-    print('Installing Conda env: {0} to {1}'.format(conda_env, conda_dir))
-    run(['conda', 'env', 'create', '-f', conda_env, '--prefix=' + conda_dir])
+    if not os.path.exists(conda_dir):
+        print('Installing Conda env: {0} to {1}'.format(conda_env, conda_dir))
+        run(['conda', 'env', 'create', '-f', conda_env, '--prefix=' + conda_dir])
 
 
 if __name__ == '__main__':
+    notebook_01_dest = None
+    notebook_02_dest = None
+    notebook_03_dest = None
     notebook_04_dest = None
     notebook_05_dest = None
     notebook_06_dest = None
@@ -218,19 +223,31 @@ if __name__ == '__main__':
     if NGS_DATA_TYPE == 'RNA-Seq':
         config_path = os.path.join(PROJECT_DIRECTORY, 'config', 'rnaseq.yaml')
         conda_env = 'conda-rnaseq.yaml'
+        notebook_01_dest = '01 - Pre-processing QC'
+        notebook_02_dest = '02 - Samples trimming'
+        notebook_03_dest = '03 - Alignments'
         notebook_04_dest = '04 - Quantification'
         notebook_05_dest = '05 - DGA'
         notebook_06_dest = '06 - GO enrichment'
     elif NGS_DATA_TYPE == 'ChIP-Seq':
         config_path = os.path.join(PROJECT_DIRECTORY, 'config', 'chipseq.yaml')
         conda_env = 'conda-chipseq.yaml'
+        notebook_01_dest = '01 - Pre-processing QC'
+        notebook_02_dest = '02 - Samples trimming'
+        notebook_03_dest = '03 - Alignments'
         notebook_04_dest = '04 - Peak Calling'
         notebook_05_dest = '05 - Differential binding analysis'
     elif NGS_DATA_TYPE == 'ChIP-exo':
         config_path = os.path.join(PROJECT_DIRECTORY, 'config', 'chipexo.yaml')
         conda_env = 'conda-chipexo.yaml'
+        notebook_01_dest = '01 - Pre-processing QC'
+        notebook_02_dest = '02 - Samples trimming'
+        notebook_03_dest = '03 - Alignments'
         notebook_04_dest = '04 - Peak Calling'
         notebook_05_dest = '05 - MEME Motif'
+    elif NGS_DATA_TYPE == 'Transcript-Annotation':
+        config_path = os.path.join(PROJECT_DIRECTORY, 'config', 'trans-annot.yaml')
+        conda_env = 'conda-trans-annot.yaml'
 
     if config_path:
         if 'github.com' in CWL_WORKFLOW_REPO:
@@ -252,6 +269,9 @@ if __name__ == '__main__':
         for y in yaml_files:
             os.remove(os.path.join(config_path, y))
 
+        rename_notebook('01', notebook_01_dest)
+        rename_notebook('02', notebook_02_dest)
+        rename_notebook('03', notebook_03_dest)
         rename_notebook('04', notebook_04_dest)
         rename_notebook('05', notebook_05_dest)
         rename_notebook('06', notebook_06_dest)
