@@ -7,7 +7,7 @@ default_context:
   ngs_data_type: "RNA-Seq"
   sequencing_technology: "paired-end"
   create_demo: "y"
-  number_spots: "1000000"
+  number_spots: "2000000"
   organism: "human"
   genome_dir: "/gfs/data/genomes/igenomes/Homo_sapiens/UCSC/hg38"
   genome_name: "hg38"
