@@ -123,4 +123,4 @@ CWLURL = {% if 'https://github.com/' in cookiecutter.cwl_workflow_repo %}os.path
 CWLTOOLS = os.path.join(CWLURL, 'tools')
 CWLWORKFLOWS = os.path.join(CWLURL, 'workflows')
 
-CWLRUNNER = CWLRUNNER + ' --rm-tmpdir --tmp-outdir-prefix=' + TMP + '/ --tmpdir-prefix=' + TMP + '/ '
+CWLRUNNER = CWLRUNNER + ' --on-error continue --rm-tmpdir --tmp-outdir-prefix=' + TMP + '/ --tmpdir-prefix=' + TMP + '/ '
