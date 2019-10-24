@@ -17,7 +17,7 @@ default_context:
   genome_gff: "{{ cookiecutter.genome_dir}}/genes.gff"
   genome_gff3: "{{ cookiecutter.genome_dir}}/genes.gff3"
   genome_bed: "{{ cookiecutter.genome_dir}}/genes.bed"
-  genome_chromsizes: "{{ cookiecutter.genome_dir}}/chrom.sizes"
+  genome_chromsizes: "{{ cookiecutter.genome_dir}}/hg38.chrom.sizes"
   genome_mappable_size: "hg38"
   genome_blacklist: "{{ cookiecutter.genome_dir}}/hg38-blacklist.bed"
   fold_change: "2.0"
