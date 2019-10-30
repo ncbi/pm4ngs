@@ -39,6 +39,7 @@ The downloaded files should be uncompressed in a directory **data/meme**. The fi
 
     localhost:~> cd data
     localhost:~> mkdir meme
+    localhost:~> cd meme
     localhost:~> wget http://meme-suite.org/meme-software/Databases/motifs/motif_databases.12.18.tgz
     localhost:~> wget http://meme-suite.org/meme-software/Databases/gomo/gomo_databases.3.2.tgz
     localhost:~> tar xzf motif_databases.12.18.tgz

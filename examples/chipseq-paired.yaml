@@ -11,7 +11,7 @@ default_context:
   organism: "mouse"
   genome_dir: "/panfs/pan1.be-md.ncbi.nlm.nih.gov/alt_splicing/resources/genomes/UCSC/Mus_musculus/mm9"
   genome_name: "mm9"
-  aligner_index_dir: "{{ cookiecutter.genome_dir}}/BWA"
+  aligner_index_dir: "/panfs/pan1.be-md.ncbi.nlm.nih.gov/alt_splicing/resources/indexes/BWA-0.7.17/"
   genome_fasta: "{{ cookiecutter.genome_dir}}/genome.fa"
   genome_gtf: "{{ cookiecutter.genome_dir}}/genes.gtf"
   genome_gff: "{{ cookiecutter.genome_dir}}/genes.gff"
