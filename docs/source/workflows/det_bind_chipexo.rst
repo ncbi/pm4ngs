@@ -23,7 +23,7 @@ First step is to activate the  **templates** environment:
 
     localhost:~> conda activate templates
 
-Then, a YAML file (for this example I will call this file: **chipexo-fur.yaml**) with your project detail should
+Then, a YAML file (for this example I will call this file: **chipexo-single.yaml**) with your project detail should
 be created.
 
 .. code-block:: yaml
@@ -32,12 +32,12 @@ be created.
     default_context:
         author_name: "Roberto Vera Alvarez"
         user_email: "veraalva@ncbi.nlm.nih.gov"
-        project_name: "chipexo-fur"
-        dataset_name: "PRJNA238004"
+        project_name: "chipexo-single"
+        dataset_name: "PRJNA338159"
         is_data_in_SRA: "y"
         ngs_data_type: "ChIP-exo"
         sequencing_technology: "single-end"
-        create_demo: "y"
+        create_demo: "n"
         number_spots: "1000000"
         organism: "human"
         genome_dir: "/gfs/data/genomes/NCBI/Escherichia_coli/K-12/MG1655/"
@@ -64,12 +64,12 @@ be created.
 
 A full description of this parameters are :doc:`here </extra/cookiecutter_json>`.
 
-After the **chipexo-fur.yaml** is created the project structure should be created using this command obtaining the
+After the **chipexo-single.yaml** is created the project structure should be created using this command obtaining the
 following output.
 
 .. code-block:: bash
 
-    localhost:~> cookiecutter --no-input --config-file chipexo-fur.yaml https://github.com/ncbi/cookiecutter-jupyter-ngs.git
+    localhost:~> cookiecutter --no-input --config-file chipexo-single.yaml https://github.com/ncbi/cookiecutter-jupyter-ngs.git
     Checking ChIP-exo workflow dependencies .......... Done
     localhost:~>
 
@@ -77,8 +77,8 @@ This process should create a project organizational structure like this:
 
 .. code-block:: bash
 
-    localhost:~> tree chipexo-fur
-    chipexo-fur
+    localhost:~> tree chipexo-single
+    chipexo-single
     ├── bin
     │   ├── bioconda (This directory include a conda envs for all bioinfo tools)
     │   ├── cwl-ngs-workflows-cbb (CWL workflow repo cloned here)
@@ -86,7 +86,7 @@ This process should create a project organizational structure like this:
     ├── config
     │   └── init.py
     ├── data
-    │   └── PRJNA238004
+    │   └── PRJNA338159
     ├── index.html
     ├── LICENSE
     ├── notebooks
@@ -100,13 +100,13 @@ This process should create a project organizational structure like this:
     ├── requirements
     │   └── python.txt
     ├── results
-    │   └── PRJNA238004
+    │   └── PRJNA338159
     ├── src
     └── tmp
 
     10 directories, 11 files
 
-Now you should copied the **factors.txt** file to the folder: **data/PRJNA238004**.
+Now you should copied the **factors.txt** file to the folder: **data/PRJNA338159**.
 
 After this process, **cookiecutter** should have created create two virtual environment for this workflow.
 
@@ -125,8 +125,8 @@ You can verify the environments running this command:
     #
     base                  *  /gfs/conda
     tempates                 /gfs/conda/envs/templates
-                             /home/veraalva/chipexo-fur/bin/bioconda
-                             /home/veraalva/chipexo-fur/bin/jupyter
+                             /home/veraalva/chipexo-single/bin/bioconda
+                             /home/veraalva/chipexo-single/bin/jupyter
 
     localhost:~>
 
@@ -141,8 +141,8 @@ For start using the workflow you need to activate the conda environments **bioco
 
 .. code-block:: bash
 
-    localhost:~> conda activate /home/veraalva/chipexo-fur/bin/bioconda
-    localhost:~> conda activate --stack /home/veraalva/chipexo-fur/bin/jupyter
+    localhost:~> conda activate /home/veraalva/chipexo-single/bin/bioconda
+    localhost:~> conda activate --stack /home/veraalva/chipexo-single/bin/jupyter
 
 Note the **--stack** option to have both environment working at the same time. Also, the order is important, **bioconda**
 should be activated before **jupyter**.
@@ -152,9 +152,9 @@ Test the conda envs:
 .. code-block:: bash
 
     localhost:~> which fastqc
-    /home/veraalva/chipexo-fur/bin/bioconda/bin/fastqc
+    /home/veraalva/chipexo-single/bin/bioconda/bin/fastqc
     localhost:~> which jupyter
-    /home/veraalva/chipexo-fur/bin/jupyter/bin/jupyter
+    /home/veraalva/chipexo-single/bin/jupyter/bin/jupyter
 
 Note that the **fastqc** tools is installed in the **bioconda** env and the **jupyter** command is installed in the
 **jupyter** env.
@@ -189,7 +189,7 @@ First step is to activate the Python virtual environment.
 
     localhost:~> source venv-templates/bin/activate
 
-Then, a YAML file (for this example I will call this file: **chipexo-fur.yaml**) with your project detail should
+Then, a YAML file (for this example I will call this file: **chipexo-single.yaml**) with your project detail should
 be created.
 
 .. code-block:: yaml
@@ -198,12 +198,12 @@ be created.
     default_context:
         author_name: "Roberto Vera Alvarez"
         user_email: "veraalva@ncbi.nlm.nih.gov"
-        project_name: "chipexo-fur"
-        dataset_name: "PRJNA238004"
+        project_name: "chipexo-single"
+        dataset_name: "PRJNA338159"
         is_data_in_SRA: "y"
         ngs_data_type: "ChIP-exo"
         sequencing_technology: "single-end"
-        create_demo: "y"
+        create_demo: "n"
         number_spots: "1000000"
         organism: "human"
         genome_dir: "/gfs/data/genomes/NCBI/Escherichia_coli/K-12/MG1655/"
@@ -230,12 +230,12 @@ be created.
 
 A full description of this parameters are :doc:`here </extra/cookiecutter_json>`.
 
-After the **chipexo-fur.yaml** is created the project structure should be created using this command obtaining the
+After the **chipexo-single.yaml** is created the project structure should be created using this command obtaining the
 following output.
 
 .. code-block:: bash
 
-    localhost:~> cookiecutter --no-input --config-file chipexo-fur.yaml https://github.com/ncbi/cookiecutter-jupyter-ngs.git
+    localhost:~> cookiecutter --no-input --config-file chipexo-single.yaml https://github.com/ncbi/cookiecutter-jupyter-ngs.git
     Checking ChIP-exo workflow dependencies .......... Done
     localhost:~>
 
@@ -243,13 +243,13 @@ This process should create a project organizational structure like this:
 
 .. code-block:: bash
 
-    localhost:~> tree chipexo-fur
-    chipexo-fur
+    localhost:~> tree chipexo-single
+    chipexo-single
     ├── bin
     ├── config
     │   └── init.py
     ├── data
-    │   └── PRJNA238004
+    │   └── PRJNA338159
     ├── index.html
     ├── LICENSE
     ├── notebooks
@@ -263,14 +263,14 @@ This process should create a project organizational structure like this:
     ├── requirements
     │   └── python.txt
     ├── results
-    │   └── PRJNA238004
+    │   └── PRJNA338159
     ├── src
     ├── tmp
     └── venv
 
     11 directories, 11 files
 
-Now you should copied the **factors.txt** file to the directory: **data/PRJNA238004**.
+Now you should copied the **factors.txt** file to the directory: **data/PRJNA338159**.
 
 After this process, **cookiecutter** should have pulled all docker images require by the project.
 
@@ -332,7 +332,7 @@ CWL workflows
 Test Project
 ------------
 
-A test project is available (read-only) at https://ftp.ncbi.nlm.nih.gov/pub/cookiecutter-jupyter-ngs/examples/chipexo-fur
+A test project is available (read-only) at https://ftp.ncbi.nlm.nih.gov/pub/cookiecutter-jupyter-ngs/examples/chipexo-single/
 
 Extra requirements
 ------------------
@@ -347,9 +347,9 @@ The **genome.fa** file should be copied to the genome directory.
 
 .. code-block:: bash
 
-    localhost:~> conda activate /home/veraalva/chipexo-fur/bin/bioconda
-    localhost:~> conda activate --stack /home/veraalva/chipexo-fur/bin/jupyter
-    localhost:~> cd chipexo-fur/data
+    localhost:~> conda activate /home/veraalva/chipexo-single/bin/bioconda
+    localhost:~> conda activate --stack /home/veraalva/chipexo-single/bin/jupyter
+    localhost:~> cd chipexo-single/data
     localhost:~> mkdir genome
     localhost:~> cd genome
     localhost:~> mkdir BWA
@@ -380,9 +380,9 @@ The **genes.gtf** file should be copied to the genome directory.
 
 .. code-block:: bash
 
-    localhost:~> conda activate /home/veraalva/chipexo-fur/bin/bioconda
-    localhost:~> conda activate --stack /home/veraalva/chipexo-fur/bin/jupyter
-    localhost:~> cd chipexo-fur/data
+    localhost:~> conda activate /home/veraalva/chipexo-single/bin/bioconda
+    localhost:~> conda activate --stack /home/veraalva/chipexo-single/bin/jupyter
+    localhost:~> cd chipexo-single/data
     localhost:~> mkdir genome
     localhost:~> cd genome
     localhost:~> cwl-runner --no-container ../../bin/cwl-ngs-workflows-cbb/workflows/UCSC/gtftobed.cwl --gtf genes.gtf
