@@ -22,15 +22,15 @@ def check_dependencies_path(config):
     Check dependencies from the Yaml config file
     :param config_yaml_file: Yaml config file with dependencies
     """
+    if USE_CONDA == 'y':
+        conda_dir = os.path.join(PROJECT_DIRECTORY, 'bin', 'bioconda', 'bin')
+        os.environ['PATH'] = '{0}:{1}'.format(conda_dir, os.environ['PATH'])
+        print('\nInserting conda bin in PATH: {0}\n'.format(os.environ['PATH']))
     for tool in config:
         print('.', end='')
         sys.stdout.flush()
         tool, value = tool.popitem()
-        if USE_CONDA == 'y':
-            conda_dir = os.path.join(PROJECT_DIRECTORY, 'bin', 'bioconda', 'bin')
-            tool_path = os.path.join(conda_dir, value['command'])
-        else:
-            tool_path = distutils.spawn.find_executable(value['command'])
+        tool_path = distutils.spawn.find_executable(value['command'])
         if not tool_path:
             if 'version' in value:
                 print('\nERROR: {0} version: {1} not available.'.format(tool, value['version']))

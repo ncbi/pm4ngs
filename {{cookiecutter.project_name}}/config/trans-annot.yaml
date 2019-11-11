@@ -2,6 +2,8 @@
 docker:
   docker_pull:
     - quay.io/biocontainers/blast:2.9.0--pl526h979a64d_3
+    - quay.io/biocontainers/transdecoder:5.5.0--pl526_1
+    - quay.io/biocontainers/hmmer:3.2.1--hf484d3e_1
 {% else %}
 tools:
   - Blast:
@@ -13,6 +15,11 @@ tools:
       command: TransDecoder.LongOrfs
       version: '5.5.0'
       option: --version
+      out: stdout
+  - Hmmer:
+      command: hmmscan
+      version: '3.2.1'
+      option: -h
       out: stdout
 
 {% endif %}
