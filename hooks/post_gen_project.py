@@ -54,7 +54,6 @@ def check_dependencies_path(config):
                     if value['version'] not in str(out.decode('UTF-8')).rstrip():
                         print('\nERROR: {0} version: {1} not available'.format(tool, value['version']))
                         print('Tools absolute path: {0}'.format(tool_path))
-                        print('Installed version:\n{0}'.format(out.decode('UTF-8')))
                         print('*************************************************\nCommand:')
                         print(commands)
                         print('*************************************************\nOutput:')
@@ -66,10 +65,11 @@ def check_dependencies_path(config):
                         print('\nERROR: {0} not available.'.format(tool))
                         print('Tools absolute path: {0}'.format(tool_path))
                         print('Expected output:\n{0}'.format(value['output']))
-                        print('Real output:\n{0}'.format(out.decode('UTF-8')))
                         print('*************************************************\nCommand:')
                         print(commands)
+                        print('*************************************************\nOutput:')
                         print(out.decode('UTF-8'))
+                        print('*************************************************')
                         sys.exit(-1)
 
 
