@@ -26,6 +26,9 @@ def check_dependencies_path(config):
         conda_dir = os.path.join(PROJECT_DIRECTORY, 'bin', 'bioconda', 'bin')
         os.environ['PATH'] = '{0}:{1}'.format(conda_dir, os.environ['PATH'])
         print('\nInserting conda bin in PATH: {0}\n'.format(os.environ['PATH']))
+
+    print('Checking {0} workflow dependencies '.format(NGS_DATA_TYPE), end='')
+    sys.stdout.flush()
     for tool in config:
         print('.', end='')
         sys.stdout.flush()
@@ -265,8 +268,6 @@ if __name__ == '__main__':
         elif USE_CONDA == 'y':
             create_conda_env(conda_env)
 
-        print('Checking {0} workflow dependencies '.format(NGS_DATA_TYPE), end='')
-        sys.stdout.flush()
         check_dependencies(config_path)
         print(' Done')
         config_path = os.path.join(PROJECT_DIRECTORY, 'config')
