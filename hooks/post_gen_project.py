@@ -46,17 +46,17 @@ def check_dependencies_path(config):
                     elif type(value['option']) == list:
                         for a in value['option']:
                             commands.append(a)
-                # print(commands)
+                print(commands)
                 process = subprocess.Popen(commands, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
                 out, err = process.communicate()
                 if 'stderr' in value['out']:
                     out = err
-                # print(out.decode('UTF-8'))
                 if 'version' in value:
                     if value['version'] not in str(out.decode('UTF-8')).rstrip():
                         print('\nERROR: {0} version: {1} not available'.format(tool, value['version']))
                         print('Tools absolute path: {0}'.format(tool_path))
                         print('Installed version:\n{0}'.format(out.decode('UTF-8')))
+                        print(out.decode('UTF-8'))
                         sys.exit(-1)
                 if 'output' in value:
                     if value['output'] not in str(out.decode('UTF-8')).rstrip():
@@ -64,6 +64,7 @@ def check_dependencies_path(config):
                         print('Tools absolute path: {0}'.format(tool_path))
                         print('Expected output:\n{0}'.format(value['output']))
                         print('Real output:\n{0}'.format(out.decode('UTF-8')))
+                        print(out.decode('UTF-8'))
                         sys.exit(-1)
 
 
