@@ -9,7 +9,7 @@ docker:
     - quay.io/biocontainers/phantompeakqualtools:1.2--1
     - quay.io/biocontainers/samtools:1.9--h91753b0_8
     - quay.io/biocontainers/rseqc:3.0.0--py_3
-    - quay.io/biocontainers/sra-tools:2.9.6--hf484d3e_0
+    - quay.io/biocontainers/sra-tools:2.10.0--pl526he1b5a44_0
     - quay.io/biocontainers/igvtools:2.5.3--0
     - quay.io/biocontainers/macs2:2.1.2--py27r351h14c3975_1
     - quay.io/biocontainers/homer:4.10--pl526hc9558a2_0
@@ -22,7 +22,7 @@ docker:
 tools:
   - SRA-Tools:
       command: fastq-dump
-      version: '2.9.6'
+      version: '2.10.0'
       option: --version
       out: stdout
   - Fastqc:
