@@ -3,7 +3,7 @@ docker:
   docker_pull:
     - quay.io/biocontainers/fastqc:0.11.8--1
     - quay.io/biocontainers/trimmomatic:0.39--1
-    - quay.io/biocontainers/star:2.7.1a--0
+    - quay.io/biocontainers/star:2.7.3a--0
     - quay.io/biocontainers/samtools:1.9--h91753b0_8
     - quay.io/biocontainers/rseqc:3.0.0--py_3
     - quay.io/biocontainers/tpmcalculator:0.0.3--hdbb99b9_0
@@ -33,7 +33,7 @@ tools:
       out: stdout
   - STAR:
       command: STAR
-      version: '2.7.1a'
+      version: '2.7.3a'
       option: --version
       out: stdout
   - Samtools:

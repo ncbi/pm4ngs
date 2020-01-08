@@ -20,7 +20,7 @@ Conda_ should be already installed and configured.
 
 .. code-block:: bash
 
-    localhost:~> wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
+    localhost:~> wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
     localhost:~> sh Miniconda3-latest-MacOSX-x86_64.sh
 
 A Conda virtual environment will be created with name **templates** using these instructions:
@@ -41,6 +41,14 @@ If Conda is installed with prefix **/gfs/conda** you should see the available en
     templates             *  /gfs/conda/envs/templates
 
     localhost:~>
+
+To activate the templates env
+
+.. code-block:: bash
+
+    localhost:~> conda activate templates
+    localhost:~>
+
 
 .. _Conda: https://github.com/conda/conda
 
