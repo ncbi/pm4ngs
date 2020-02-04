@@ -1,0 +1,66 @@
+# Base Image
+FROM continuumio/anaconda3
+
+# Metadata
+LABEL base.image="continuumio/anaconda3"
+LABEL version="1"
+LABEL software="RNASeq-DGA-Jupyter"
+LABEL software.version="0.0.1"
+LABEL description=""
+LABEL tags="RNASeq"
+LABEL website="https://github.com/ncbi/cookiecutter-jupyter-ngs"
+
+# Maintainer
+MAINTAINER Roberto Vera Alvarez <veraalva@ncbi.nlm.nih.gov>
+
+USER root
+
+RUN apt-get update && \
+    apt-get install -y apt-utils wget bzip2 sudo gcc make git parallel \
+    nodejs locales-all imagemagick && \
+    apt-get clean && \
+    apt-get purge && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# Updating Anaconda packages
+RUN /opt/conda/bin/conda update conda
+RUN /opt/conda/bin/conda update anaconda
+RUN /opt/conda/bin/conda update --all
+RUN conda config --add channels defaults && \
+    conda config --add channels bioconda && \
+    conda config --add channels conda-forge
+
+# Adding Bioconda packages
+RUN /opt/conda/bin/conda install --quiet --yes --file \
+    https://raw.githubusercontent.com/ncbi/cwl-ngs-workflows-cbb/develop/requirements/conda-rnaseq.txt
+
+# Add user ubuntu with no password, add to sudo group
+RUN adduser --disabled-password --gecos '' ubuntu
+RUN chmod a+rwx /home/ubuntu/
+RUN mkdir /home/ubuntu/bin
+RUN locale -a
+ENV LANGUAGE=en_US.UTF-8
+ENV LC_ALL=en_US.UTF-8
+ENV LANG=en_US.UTF-8
+
+ENV URL=https://github.com/ncbi/cookiecutter-jupyter-ngs
+ENV COOKIECUTTER_JUPYTER_NGS=/home/ubuntu/cookiecutter-jupyter-ngs
+
+RUN cd /home/ubuntu/ && \
+        git clone --single-branch --branch develop $URL && \
+        pip install -r $COOKIECUTTER_JUPYTER_NGS/requirements.txt && \
+	    pip install -r $COOKIECUTTER_JUPYTER_NGS/\{\{cookiecutter.project_name\}\}/requirements/python.txt
+
+RUN chown -R ubuntu /home/ubuntu
+USER ubuntu
+ENV PATH="/home/ubuntu/bin:${PATH}"
+ENV HOME=/home/ubuntu
+WORKDIR /data
+RUN sh -c 'echo "will cite" | parallel --citation'
+
+RUN echo "cd /data ; cookiecutter --no-input --overwrite-if-exists --config-file config.yaml $COOKIECUTTER_JUPYTER_NGS" > /home/ubuntu/bin/init.sh
+RUN chmod a+x /home/ubuntu/bin/init.sh
+
+EXPOSE 8888:8888
+
+CMD jupyter notebook --notebook-dir=/data --ip='0.0.0.0' --port 8888 --no-browser --allow-root
