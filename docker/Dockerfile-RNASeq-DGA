@@ -8,7 +8,7 @@ LABEL software="rnaseq-dga"
 LABEL software.version="0.0.1"
 LABEL description=""
 LABEL tags="RNASeq"
-LABEL website="https://github.com/ncbi/cookiecutter-jupyter-ngs"
+LABEL website="https://github.com/ncbi/pm4ngs"
 
 # Maintainer
 MAINTAINER Roberto Vera Alvarez <veraalva@ncbi.nlm.nih.gov>

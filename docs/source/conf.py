@@ -17,7 +17,7 @@ sys.path.insert(0, os.path.abspath('.'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'cookiecutter-jupyter-ngs'
+project = 'pm4ngs'
 copyright = '2019, National Center for Biotechnology Information, NLM/NIH'
 author = 'Roberto Vera Alvarez'
 

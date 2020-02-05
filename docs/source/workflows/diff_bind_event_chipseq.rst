@@ -69,7 +69,7 @@ following output.
 
 .. code-block:: bash
 
-    localhost:~> cookiecutter --no-input --config-file chipseq-hmgn1.yaml https://github.com/ncbi/cookiecutter-jupyter-ngs.git
+    localhost:~> cookiecutter --no-input --config-file chipseq-hmgn1.yaml https://github.com/ncbi/pm4ngs.git
     Checking ChIP-Seq workflow dependencies .......... Done
     localhost:~>
 
@@ -235,7 +235,7 @@ following output.
 
 .. code-block:: bash
 
-    localhost:~>  cookiecutter --no-input --config-file chipseq-paired.yaml https://github.com/ncbi/cookiecutter-jupyter-ngs.git
+    localhost:~>  cookiecutter --no-input --config-file chipseq-paired.yaml https://github.com/ncbi/pm4ngs.git
     Cloning Git repo: https://github.com/ncbi/cwl-ngs-workflows-cbb to /home/veraalva/chipseq-hmgn1/bin/cwl-ngs-workflows-cbb
     Creating a Python3.7 virtualenv
     Installing packages in: /home/veraalva/chipseq-hmgn1/venv using file /home/veraalva/chipseq-hmgn1/requirements/python.txt
@@ -362,7 +362,7 @@ CWL workflows
 Test Project
 ------------
 
-A test project is available (read-only) at https://ftp.ncbi.nlm.nih.gov/pub/cookiecutter-jupyter-ngs/examples/chipseq-hmgn1
+A test project is available (read-only) at https://ftp.ncbi.nlm.nih.gov/pub/pm4ngs/examples/chipseq-hmgn1
 
 Extra requirements
 ------------------

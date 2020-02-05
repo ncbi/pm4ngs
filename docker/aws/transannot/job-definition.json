@@ -1,0 +1,57 @@
+{
+    "jobDefinitionName": "cbb-research-dl-transannot-job",
+    "jobDefinitionArn": "arn:aws:batch:us-east-1:250813660784:job-definition/cbb-research-dl-transannot-job:4",
+    "revision": 4,
+    "status": "ACTIVE",
+    "type": "container",
+    "parameters": {},
+    "containerProperties": {
+        "image": "250813660784.dkr.ecr.us-east-1.amazonaws.com/cbb-research-dl-transannot:0.0.1",
+        "vcpus": 64,
+        "memory": 252000,
+        "command": [
+            "/usr/bin/pipeline.sh"
+        ],
+        "jobRoleArn": "arn:aws:iam::250813660784:role/cbb-research-db-batch-role",
+        "volumes": [
+            {
+                "host": {
+                    "sourcePath": "/data"
+                },
+                "name": "data"
+            }
+        ],
+        "environment": [
+            {
+                "name": "AWS_ACCESS_KEY_ID",
+                "value": ""
+            },
+            {
+                "name": "BATCH_S3_BUCKET_SAMPLE",
+                "value": "cbb-research-dl-transannot"
+            },
+            {
+                "name": "AWS_SECRET_ACCESS_KEY",
+                "value": ""
+            },
+            {
+                "name": "CPU",
+                "value": "64"
+            },
+            {
+                "name": "BATCH_S3_BUCKET_CDD",
+                "value": "cbb-research-dl-transannot"
+            }
+        ],
+        "mountPoints": [
+            {
+                "containerPath": "/data",
+                "sourceVolume": "data"
+            }
+        ],
+        "privileged": true,
+        "ulimits": [],
+        "user": "nobody",
+        "resourceRequirements": []
+    }
+}

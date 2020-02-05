@@ -1,7 +1,7 @@
-Cookiecutter based Jupyter Notebook Templates for NGS data analysis
-============================================================
+PM4NGS: Program manager for NGS data analysis
+=============================================
 
-cookiecutter-jupyter-ngs is designed to generate a standard organizational structure for Next-generation Sequencing
+PM4NGS is designed to generate a standard organizational structure for Next-generation Sequencing
 data analysis including a directory structure for the project, Jupyter notebooks for data management and CWL workflows
 for pipeline execution.
 
@@ -14,12 +14,12 @@ define a standard files and directories for the project. The second part are **J
 interfaces for data management and visualization. The third part are the **CWL workflows** that execute the data
 analysis.
 
-**cookiecutter-jupyter-ngs** source code includes the templates used by **cookiecutter** to generate the project
+**PM4NGS** source code includes the templates used by **cookiecutter** to generate the project
 organizational structure and the Jupyter notebooks. The CWL workflows are defined in a separate GitHub project named:
 [cwl-ngs-workflows-cbb](https://github.com/ncbi/cwl-ngs-workflows-cbb).
 
 All type of projects generated from these templates follow the same design principles explained in the
-[Background Information](https://cookiecutter-jupyter-ngs.readthedocs.io/en/latest/background_information.html).
+[Background Information](https://pm4ngs.readthedocs.io/en/latest/background_information.html).
 
 Powered by [Cookiecutter](https://github.com/audreyr/cookiecutter), 
 [Jupyter Notebook](https://jupyter.org/), [CWL](https://www.commonwl.org/), [Docker](https://www.docker.com), 
@@ -28,7 +28,7 @@ Powered by [Cookiecutter](https://github.com/audreyr/cookiecutter),
 Documentation
 -------------
 
-Go to https://cookiecutter-jupyter-ngs.readthedocs.io for more detail information.
+Go to https://pm4ngs.readthedocs.io for more detail information.
 
 Reference
 ---------

@@ -10,7 +10,7 @@ Install Cookiecutter and other basic Python packages using the **requirements.tx
 
     localhost:~> virtualenv venv-templates
     localhost:~> source venv-templates/bin/activate
-    localhost:~> pip install -r https://raw.githubusercontent.com/ncbi/cookiecutter-jupyter-ngs/master/requirements.txt
+    localhost:~> pip install -r https://raw.githubusercontent.com/ncbi/pm4ngs/master/requirements.txt
 
 
 Project Templates with Conda/BioConda
@@ -27,7 +27,7 @@ A Conda virtual environment will be created with name **templates** using these 
 
 .. code-block:: bash
 
-    localhost:~> wget https://raw.githubusercontent.com/ncbi/cookiecutter-jupyter-ngs/master/conda-requirements.yaml
+    localhost:~> wget https://raw.githubusercontent.com/ncbi/pm4ngs/master/conda-requirements.yaml
     localhost:~> conda env create -f conda-requirements.yaml
 
 If Conda is installed with prefix **/gfs/conda** you should see the available environments like in this block:

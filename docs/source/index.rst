@@ -1,7 +1,7 @@
-cookiecutter-jupyter-ngs
+PM4NGS
 ===================================================================
 
-`cookiecutter-jupyter-ngs`_ was designed to generate a standard organizational structure for Next Generation Sequencing
+`PM4NGS`_ was designed to generate a standard organizational structure for Next Generation Sequencing
 (ngs) data analysis. It includes a directory structure for the project, several Jupyter notebooks for data management
 and  CWL workflows for pipeline execution.
 
@@ -15,14 +15,14 @@ The project is composed of three main parts.
 #. Jupyter Notebooks as user interfaces for data management and visualization
 #. CWL workflows that execute the data analysis
 
-**cookiecutter-jupyter-ngs** source code includes the templates used by **cookiecutter** to generate the project
+**PM4NGS** source code includes the templates used by **cookiecutter** to generate the project
 organizational structure and the Jupyter notebooks. The CWL workflows are defined in a separate GitHub project named:
 `cwl-ngs-workflows-cbb`_.
 
 All projects generated from these templates follow the same design principles explained in the
 :doc:`Background Information </background_information>`.
 
-.. _cookiecutter-jupyter-ngs: https://github.com/ncbi/cookiecutter-jupyter-ngs
+.. _PM4NGS: https://github.com/ncbi/pm4ngs
 .. _A Quick Guide to Organizing Computational Biology Projects: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424
 .. _GNU Parallel: https://www.gnu.org/software/parallel/
 .. _cwl-ngs-workflows-cbb: https://github.com/ncbi/cwl-ngs-workflows-cbb

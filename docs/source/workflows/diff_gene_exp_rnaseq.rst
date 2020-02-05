@@ -69,7 +69,7 @@ following output.
 
 .. code-block:: bash
 
-    localhost:~> cookiecutter --no-input --config-file rnaseq-sra-paired.yaml https://github.com/ncbi/cookiecutter-jupyter-ngs.git
+    localhost:~> cookiecutter --no-input --config-file rnaseq-sra-paired.yaml https://github.com/ncbi/pm4ngs.git
     Checking RNA-Seq workflow dependencies .......... Done
     localhost:~>
 
@@ -237,7 +237,7 @@ following output.
 
 .. code-block:: bash
 
-    localhost:~> cookiecutter --no-input --config-file rnaseq-sra-paired.yaml https://github.com/ncbi/cookiecutter-jupyter-ngs.git
+    localhost:~> cookiecutter --no-input --config-file rnaseq-sra-paired.yaml https://github.com/ncbi/pm4ngs.git
     Cloning Git repo: https://github.com/ncbi/cwl-ngs-workflows-cbb to /home/veraalva/rnaseq-sra-paired/bin/cwl-ngs-workflows-cbb
     Creating a Python3.7 virtualenv
     Installing packages in: /home/veraalva/rnaseq-sra-paired/venv using file /home/veraalva/rnaseq-sra-paired/requirements/python.txt
@@ -358,7 +358,7 @@ CWL workflows
 Test Project
 ------------
 
-A test project is available (read-only) at https://ftp.ncbi.nlm.nih.gov/pub/cookiecutter-jupyter-ngs/examples/rnaseq-sra-paired
+A test project is available (read-only) at https://ftp.ncbi.nlm.nih.gov/pub/pm4ngs/examples/rnaseq-sra-paired
 
 Extra requirements
 ------------------

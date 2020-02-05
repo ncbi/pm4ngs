@@ -4,7 +4,7 @@ Background Information
 Project organizational structure
 --------------------------------
 
-**cookiecutter-jupyter-ngs** creates, from a configuration yaml file, a project organizational structure that allows
+**pm4ngs** creates, from a configuration yaml file, a project organizational structure that allows
 users organize the relevant files and directories in a standard way. The main idea behind this organizational
 structure is allow someone unfamiliar with the project understand how the data analysis process was executed and an
 easy localization of any file inside the project directories.

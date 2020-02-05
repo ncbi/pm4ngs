@@ -43,8 +43,8 @@ ENV LANGUAGE=en_US.UTF-8
 ENV LC_ALL=en_US.UTF-8
 ENV LANG=en_US.UTF-8
 
-ENV URL=https://github.com/ncbi/cookiecutter-jupyter-ngs
-ENV COOKIECUTTER_JUPYTER_NGS=/home/ubuntu/cookiecutter-jupyter-ngs
+ENV URL=https://github.com/ncbi/pm4ngs
+ENV COOKIECUTTER_JUPYTER_NGS=/home/ubuntu/pm4ngs
 
 RUN cd /home/ubuntu/ && \
         git clone --single-branch --branch develop $URL && \

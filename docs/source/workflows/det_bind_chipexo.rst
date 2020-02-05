@@ -69,7 +69,7 @@ following output.
 
 .. code-block:: bash
 
-    localhost:~> cookiecutter --no-input --config-file chipexo-single.yaml https://github.com/ncbi/cookiecutter-jupyter-ngs.git
+    localhost:~> cookiecutter --no-input --config-file chipexo-single.yaml https://github.com/ncbi/pm4ngs.git
     Checking ChIP-exo workflow dependencies .......... Done
     localhost:~>
 
@@ -235,7 +235,7 @@ following output.
 
 .. code-block:: bash
 
-    localhost:~> cookiecutter --no-input --config-file chipexo-single.yaml https://github.com/ncbi/cookiecutter-jupyter-ngs.git
+    localhost:~> cookiecutter --no-input --config-file chipexo-single.yaml https://github.com/ncbi/pm4ngs.git
     Checking ChIP-exo workflow dependencies .......... Done
     localhost:~>
 
@@ -332,7 +332,7 @@ CWL workflows
 Test Project
 ------------
 
-A test project is available (read-only) at https://ftp.ncbi.nlm.nih.gov/pub/cookiecutter-jupyter-ngs/examples/chipexo-single/
+A test project is available (read-only) at https://ftp.ncbi.nlm.nih.gov/pub/pm4ngs/examples/chipexo-single/
 
 Extra requirements
 ------------------

@@ -32,7 +32,7 @@ these commands:
 
 .. code-block:: bash
 
-    localhost:~> wget https://raw.githubusercontent.com/ncbi/cookiecutter-jupyter-ngs/master/%7B%7Bcookiecutter.project_name%7D%7D/requirements/python.txt
+    localhost:~> wget https://raw.githubusercontent.com/ncbi/pm4ngs/master/%7B%7Bcookiecutter.project_name%7D%7D/requirements/python.txt
     localhost:~> virtualenv -p `which python3` venv
     localhost:~> source venv/bin/activate
     localhost:~> pip install -r python.txt
@@ -46,4 +46,4 @@ For using the Python virtual environment
 
     localhost:~> source venv/bin/activate
 
-.. _requirements: https://raw.githubusercontent.com/ncbi/cookiecutter-jupyter-ngs/master/%7B%7Bcookiecutter.project_name%7D%7D/requirements/python.txt
+.. _requirements: https://raw.githubusercontent.com/ncbi/pm4ngs/master/%7B%7Bcookiecutter.project_name%7D%7D/requirements/python.txt
