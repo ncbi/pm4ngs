@@ -11,7 +11,7 @@ default_context:
   organism: "mouse"
   genome_dir: "/home/veraalva/mm9"
   genome_name: "mm9"
-  aligner_index_dir: "/home/veraalva/BWA/"
+  aligner_index_dir: "/home/veraalva/mm9/BWA/"
   genome_fasta: "{{ cookiecutter.genome_dir}}/genome.fa"
   genome_gtf: "{{ cookiecutter.genome_dir}}/genes.gtf"
   genome_gff: "{{ cookiecutter.genome_dir}}/genes.gff"
