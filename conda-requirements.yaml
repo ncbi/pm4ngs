@@ -6,7 +6,7 @@ channels:
 dependencies:
   - cookiecutter=1.6.0
   - docker-py=4.0.2
-  - gitpython=2.1.12
+  - gitpython=3.1.0
   - python=3.7.3
   - cwl_runner=1.0
   - cwltool=1.0.20190228155703
