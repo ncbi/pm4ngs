@@ -75,9 +75,33 @@ The structure has 8 directories: bin, config, data, notebooks, requirements, res
 
 Jupyter Notebooks
 -----------------
+PM4NGS uses Jupyter Notebooks for data and workflow management. The notebooks are designed with minimum Python code,
+making them simple to understand and execute. For a standard analysis, notebooks can be executed without any
+modification, just by clicking on the Jupyter Menu Cell and then on Run All. This action will execute the complete
+workflow implemented in that notebook. It is important to highlight that Jupyter Notebook was selected as the user
+interface in this project because it allows more advanced users the extension of the analysis with customized workflows.
 
+In addition, the entire workflow can be distributed in multiple notebooks, making it easy to understand and re-execute,
+if necessary. Further, making the workflow interactive allows a visualization and check of the intermediate results,
+saving time and resources in case errors are detected.
 
+All workflows include a notebook named 00 – Project Report. This notebook should be executed after each step is finished.
+It will automatically create tables and figures that users can use to validate the data-analysis process.
+This notebook also creates its own version in HTML format that could be used to share the results with collaborators
+or supervisors, see these examples for an `RNASeq project`_
 
-CWL workflows
+CWL Workflows
 -------------
 
+The tools and workflows included in this framework are published in a separate Git repository;
+see `cwl-ngs-workflows-cbb`_. This repository is comprised of three main directories. The first directory,
+named requirements, includes a set of Conda environment-definition files for the workflow execution.
+These files define the computational tools and exact a version used for the analysis. They can be used in any
+computational environment to recreate the same scenario in which the project was executed. If Docker is selected
+as an execution environment, each computational tool included in this repository contains a statement that defines
+the exact Docker image that will be used for the tool execution. The second directory, named tools, includes all
+computational tools used by the workflows. Finally, the third folder, named workflows, includes all workflows.
+
+
+.. _RNASeq project: https://ftp.ncbi.nlm.nih.gov/pub/pm4ngs/examples/rnaseq-sra-paired/
+.. _cwl-ngs-workflows-cbb: https://github.com/ncbi/cwl-ngs-workflows-cbb
