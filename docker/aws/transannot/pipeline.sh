@@ -20,47 +20,47 @@ if [ -z "${AWS_SECRET_ACCESS_KEY}" ]; then
   exit 1
 fi
 
-if [ -z "${CPU}" ]; then
-  echo "CPU not set"
+if [ -z "${CPUs}" ]; then
+  echo "CPUs not set"
   exit 1
 fi
 
-if [ -z "${BATCH_SAMPLE}" ]; then
-  echo "BATCH_SAMPLE not set"
+if [ -z "${SAMPLE}" ]; then
+  echo "SAMPLE not set"
   exit 1
 fi
 
-if [ -z "${BATCH_S3_BUCKET_SAMPLE}" ]; then
-  echo "BATCH_S3_BUCKET_SAMPLE not set. No object to download."
+if [ -z "${INBUCKET}" ]; then
+  echo "INBUCKET not set. No object to download."
   exit 1
 fi
 
-if [ -z "${BATCH_S3_BUCKET_CDD}" ]; then
-  echo "BATCH_S3_BUCKET_CDD not set. No object to download."
+if [ -z "${OUTBUCKET}" ]; then
+  echo "OUTBUCKET not set. No object to download."
   exit 1
 fi
 
 cd /data
 
 echo "Setting AWS credentials"
-aws2 configure set aws_access_key_id ${AWS_ACCESS_KEY_ID}
-aws2 configure set aws_secret_access_key ${AWS_SECRET_ACCESS_KEY}
+aws configure set aws_access_key_id ${AWS_ACCESS_KEY_ID}
+aws configure set aws_secret_access_key ${AWS_SECRET_ACCESS_KEY}
 
 echo "Creating working dir"
-mkdir -v /data/${BATCH_SAMPLE}
+mkdir -v /data/${SAMPLE}
 echo "Copying CDD blast database"
-time aws2 s3 cp --recursive s3://${BATCH_S3_BUCKET_CDD}/cdd /data/
+time aws s3 cp --recursive s3://${BATCH_S3_BUCKET_CDD}/cdd /data/
 
 echo "Copying BlastDB"
-time ( curl -sf https://s3.amazonaws.com/ncbi-dev-blast-data/COLO/MANIFEST | egrep 'nt|nr' | egrep -v 'idxn|_v5|piglist' | sed 's,s3://,https://s3.amazonaws.com/,' | parallel -j ${CPU} -t curl -Osf {} )
+time ( curl -sf https://s3.amazonaws.com/ncbi-dev-blast-data/COLO/MANIFEST | egrep 'nt|nr' | egrep -v 'idxn|_v5|piglist' | sed 's,s3://,https://s3.amazonaws.com/,' | parallel -j ${CPUs} -t curl -Osf {} )
 
 echo "Copying sample fasta"
-time aws2 s3 cp s3://${BATCH_S3_BUCKET_SAMPLE}/${BATCH_SAMPLE}.fa /data/
+time aws s3 cp s3://${INBUCKET}/${SAMPLE}.fa /data/
 
 echo "Running CWL workflow"
-time cwltool --no-container --on-error continue --tmpdir-prefix /data/ --tmp-outdir-prefix /data/ --outdir /data/${BATCH_SAMPLE} /home/nobody/cwl-ngs-workflows-cbb/workflows/Annotation/transcriptome_annotation.cwl --blast_db_dir /data --threads ${CPU} --evalue 1e-5 --blast_nt_db nt --blast_nr_db nr --blast_cdd_db cdd --fasta /data/${BATCH_SAMPLE}.fa
+time cwltool --no-container --on-error continue --tmpdir-prefix /data/ --tmp-outdir-prefix /data/ --outdir /data/${SAMPLE} /home/nobody/cwl-ngs-workflows-cbb/workflows/Annotation/transcriptome_annotation.cwl --blast_db_dir /data --threads ${CPUs} --evalue 1e-5 --blast_nt_db nt --blast_nr_db nr --blast_cdd_db cdd --fasta /data/${SAMPLE}.fa
 
 echo "Copying results to the S3"
-time aws2 s3 cp --recursive /data/${BATCH_SAMPLE} s3://${BATCH_S3_BUCKET_SAMPLE}/
+time aws s3 cp --recursive /data/${SAMPLE} s3://${OUTBUCKET}/
 
 exit 0

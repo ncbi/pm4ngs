@@ -14,7 +14,7 @@ LABEL website="https://github.com/ncbi/pm4ngs"
 MAINTAINER Roberto Vera Alvarez <veraalva@ncbi.nlm.nih.gov>
 
 RUN apt-get update && \
-    apt-get install -y wget parallel locales-all && \
+    apt-get install -y wget locales-all && \
     apt-get clean && \
     apt-get purge && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
@@ -29,12 +29,10 @@ RUN conda config --add channels defaults && \
     conda config --add channels conda-forge
 
 # Adding Bioconda packages
-RUN wget -O /tmp/conda-jupyter.yaml https://raw.githubusercontent.com/ncbi/cwl-ngs-workflows-cbb/master/requirements/conda-jupyter.yaml
-RUN conda env update -n base -f /tmp/conda-jupyter.yaml
-RUN conda install -c bioconda galaxy-lib
-RUN wget -O /tmp/conda-trans-annot.yaml https://raw.githubusercontent.com/ncbi/cwl-ngs-workflows-cbb/master/requirements/conda-trans-annot.yaml
+COPY conda-trans-annot.yaml /tmp/conda-trans-annot.yaml
 RUN conda env create -f /tmp/conda-trans-annot.yaml
-RUN rm -v /tmp/conda-jupyter.yaml /tmp/conda-trans-annot.yaml
+RUN conda clean --all
+RUN rm /tmp/conda-trans-annot.yaml /tmp/Miniconda3-latest-Linux-x86_64.sh
 
 # Add user ubuntu with no password, add to sudo group
 RUN locale -a
@@ -42,6 +40,9 @@ ENV LANGUAGE=en_US.UTF-8
 ENV LC_ALL=en_US.UTF-8
 ENV LANG=en_US.UTF-8
 ENV PATH="/usr/envs/transannot/bin:${PATH}"
+COPY aws-pipeline.sh /usr/envs/transannot/bin/
+RUN chmod a+x /usr/envs/transannot/bin/aws-pipeline.sh
+RUN vdb-config --report-cloud-identity yes --accept-gcp-charges no
 
 WORKDIR /data/
 

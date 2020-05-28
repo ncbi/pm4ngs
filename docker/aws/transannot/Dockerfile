@@ -35,8 +35,6 @@ RUN conda install -c bioconda galaxy-lib
 RUN wget -O /tmp/conda-trans-annot.yaml https://raw.githubusercontent.com/ncbi/cwl-ngs-workflows-cbb/master/requirements/conda-trans-annot.yaml
 RUN conda env create -f /tmp/conda-trans-annot.yaml
 RUN rm -v /tmp/conda-jupyter.yaml /tmp/conda-trans-annot.yaml
-RUN conda install -n transannot parallel
-RUN wget -O /usr/envs/transannot/bin/update_blastdb.pl ftp://ftp.ncbi.nlm.nih.gov/blast/temp/camacho/update_blastdb.pl
 RUN wget -O /tmp/awscliv2.zip https://d1vvhvl2y92vvt.cloudfront.net/awscli-exe-linux-x86_64.zip
 RUN cd /tmp && unzip awscliv2.zip && ./aws/install && rm -rf aws awscliv2.zip
 ADD pipeline.sh /usr/bin/pipeline.sh
