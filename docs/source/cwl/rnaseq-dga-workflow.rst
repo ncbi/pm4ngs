@@ -36,8 +36,8 @@ in the cell number 3 in the **05 - DGA.ipynb** notebook and manually create the 
     ]
 
 
-The R code used for running DESeq2 is embedded in `deseq2-2conditions.cwl`_ from line 14 to line 178.
-The R code used for running EdgeR is embedded in `edgeR-2conditions.cwl`_ from line 14 to line 165.
+The R code used for running DESeq2 is embedded in `deseq2-2conditions.cwl from line 25 to line 169`_.
+The R code used for running EdgeR is embedded in `edgeR-2conditions.cwl from line 25 to line 159`_.
 
 A table with DGA plots is generated for each condition in the **00 - Project Report.ipynb** as shown next.
 
@@ -48,5 +48,5 @@ A table with DGA plots is generated for each condition in the **00 - Project Rep
 
 .. _DESeq2: https://bioconductor.org/packages/release/bioc/html/DESeq2.html
 .. _EdgeR: https://bioconductor.org/packages/release/bioc/html/edgeR.html
-.. _deseq2-2conditions.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/R/deseq2-2conditions.cwl#L14
-.. _edgeR-2conditions.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/R/edgeR-2conditions.cwl#L14
+.. _deseq2-2conditions.cwl from line 25 to line 169: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/R/deseq2-2conditions.cwl#L14
+.. _edgeR-2conditions.cwl from line 25 to line 159: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/R/edgeR-2conditions.cwl#L14

@@ -68,40 +68,6 @@ provide key biological processes, molecular functions, and cellular components f
     +------------------------+---------------------------------------+----------------------------------------+-----------------+---------------+---------------------+----------------------------------+
 
 
-.. _01 - Pre-processing QC: https://github.com/ncbi/pm4ngs-rnaseq/blob/master/%7B%7Bcookiecutter.project_name%7D%7D/notebooks/01%20-%20Pre-processing%20QC.ipynb
-.. _download_quality_control.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/workflows/sra/download_quality_control.cwl
-.. _fastq-dump.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/sra-tools/fastq-dump.cwl
-.. _fastqc.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/fastqc/fastqc.cwl
-
-.. _02 - Samples trimming: https://github.com/ncbi/pm4ngs-rnaseq/blob/master/%7B%7Bcookiecutter.project_name%7D%7D/notebooks/02%20-%20Samples%20trimming.ipynb
-.. _trimmomatic-PE.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/trimmomatic/trimmomatic-PE.cwl
-.. _trimmomatic-SE.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/trimmomatic/trimmomatic-SE.cwl
-
-.. _03 - Alignments and Quantification: https://github.com/ncbi/pm4ngs-rnaseq/blob/master/%7B%7Bcookiecutter.project_name%7D%7D/notebooks/03%20-%20Alignments%20and%20Quantification.ipynb
-.. _rnaseq-alignment-quantification.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/workflows/RNA-Seq/rnaseq-alignment-quantification.cwl
-.. _igvtools-count.cw: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/igvtools/igvtools-count.cwl
-.. _rseqc-bam_stat.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/rseqc/rseqc-bam_stat.cwl
-.. _rseqc-infer_experiment.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/rseqc/rseqc-infer_experiment.cw
-.. _rseqc-junction_annotation.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/rseqc/rseqc-junction_annotation.cwl
-.. _rseqc-junction_saturation.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/rseqc/rseqc-junction_saturation.cwl
-.. _rseqc-read_distribution.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/rseqc/rseqc-read_distribution.cwl
-.. _rseqc-read_quality.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/rseqc/rseqc-read_quality.cwl
-.. _samtools-flagstat.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/tree/master/tools/samtools/samtools-flagstat.cwl
-.. _samtools-index.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/tree/master/tools/samtools/samtools-index.cwl
-.. _samtools-sort.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/tree/master/tools/samtools/samtools-sort.cwl
-.. _samtools-stats.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/tree/master/tools/samtools/samtools-stats.cwl
-.. _samtools-view.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/tree/master/tools/samtools/samtools-view.cwl
-.. _star.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/star/star.cwl
-.. _tpmcalculator.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/tpmcalculator/tpmcalculator.cwl
-
-.. _04 - DGA: https://github.com/ncbi/pm4ngs-rnaseq/blob/master/%7B%7Bcookiecutter.project_name%7D%7D/notebooks/04%20-%20DGA.ipynb
-.. _deseq2-2conditions.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/R/deseq2-2conditions.cwl
-.. _edgeR-2conditions.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/R/edgeR-2conditions.cwl
-
-.. _05 - GO enrichment: https://github.com/ncbi/pm4ngs-rnaseq/blob/master/%7B%7Bcookiecutter.project_name%7D%7D/notebooks/05%20-%20GO%20enrichment.ipynb
-.. _goenrichment: https://pypi.org/project/goenrichment/
-
-
 Input requirements
 ------------------
 
@@ -132,9 +98,9 @@ Creating the DGA and GO enrichment from RNA-Seq data project
 
 The **pm4ngs-rnaseq** command line executed with the **--sample-sheet** option will start asking for the projects metadata
 required for creating the project organizational structure. After all questions are answered, the CWL workflow files will be
-cloned from `https://github.com/ncbi/cwl-ngs-workflows-cbb`_ to the folder **bin/cwl**.
+cloned from the github repo `ncbi/cwl-ngs-workflows-cbb`_ to the folder **bin/cwl**.
 
-.. _https://github.com/ncbi/cwl-ngs-workflows-cbb: https://github.com/ncbi/cwl-ngs-workflows-cbb
+.. _ncbi/cwl-ngs-workflows-cbb: https://github.com/ncbi/cwl-ngs-workflows-cbb
 
 .. code-block:: bash
 
@@ -258,3 +224,35 @@ CWL workflows
 .. include:: /cwl/rnaseq-dga-workflow.rst
 .. include:: /cwl/rnaseq-GO-enrichment-workflow.rst
 
+.. _01 - Pre-processing QC: https://github.com/ncbi/pm4ngs-rnaseq/blob/master/%7B%7Bcookiecutter.project_name%7D%7D/notebooks/01%20-%20Pre-processing%20QC.ipynb
+.. _download_quality_control.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/workflows/sra/download_quality_control.cwl
+.. _fastq-dump.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/sra-tools/fastq-dump.cwl
+.. _fastqc.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/fastqc/fastqc.cwl
+
+.. _02 - Samples trimming: https://github.com/ncbi/pm4ngs-rnaseq/blob/master/%7B%7Bcookiecutter.project_name%7D%7D/notebooks/02%20-%20Samples%20trimming.ipynb
+.. _trimmomatic-PE.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/trimmomatic/trimmomatic-PE.cwl
+.. _trimmomatic-SE.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/trimmomatic/trimmomatic-SE.cwl
+
+.. _03 - Alignments and Quantification: https://github.com/ncbi/pm4ngs-rnaseq/blob/master/%7B%7Bcookiecutter.project_name%7D%7D/notebooks/03%20-%20Alignments%20and%20Quantification.ipynb
+.. _rnaseq-alignment-quantification.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/workflows/RNA-Seq/rnaseq-alignment-quantification.cwl
+.. _igvtools-count.cw: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/igvtools/igvtools-count.cwl
+.. _rseqc-bam_stat.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/rseqc/rseqc-bam_stat.cwl
+.. _rseqc-infer_experiment.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/rseqc/rseqc-infer_experiment.cw
+.. _rseqc-junction_annotation.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/rseqc/rseqc-junction_annotation.cwl
+.. _rseqc-junction_saturation.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/rseqc/rseqc-junction_saturation.cwl
+.. _rseqc-read_distribution.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/rseqc/rseqc-read_distribution.cwl
+.. _rseqc-read_quality.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/rseqc/rseqc-read_quality.cwl
+.. _samtools-flagstat.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/tree/master/tools/samtools/samtools-flagstat.cwl
+.. _samtools-index.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/tree/master/tools/samtools/samtools-index.cwl
+.. _samtools-sort.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/tree/master/tools/samtools/samtools-sort.cwl
+.. _samtools-stats.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/tree/master/tools/samtools/samtools-stats.cwl
+.. _samtools-view.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/tree/master/tools/samtools/samtools-view.cwl
+.. _star.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/star/star.cwl
+.. _tpmcalculator.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/tpmcalculator/tpmcalculator.cwl
+
+.. _04 - DGA: https://github.com/ncbi/pm4ngs-rnaseq/blob/master/%7B%7Bcookiecutter.project_name%7D%7D/notebooks/04%20-%20DGA.ipynb
+.. _deseq2-2conditions.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/R/deseq2-2conditions.cwl
+.. _edgeR-2conditions.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/R/edgeR-2conditions.cwl
+
+.. _05 - GO enrichment: https://github.com/ncbi/pm4ngs-rnaseq/blob/master/%7B%7Bcookiecutter.project_name%7D%7D/notebooks/05%20-%20GO%20enrichment.ipynb
+.. _goenrichment: https://pypi.org/project/goenrichment/
