@@ -1,0 +1,38 @@
+# Python compiled sources
+*.pyc
+
+# IDE files
+/.idea/
+
+# Project files
+/var/
+/.env
+venv/
+
+# Packaging
+/.cache/
+/.eggs/
+/build/
+/dist/
+/src/*.egg-info
+/wheelhouse/
+
+# Testing
+/.tox/
+
+# Python coverage
+/.coverage
+/coverage.xml
+/htmlcov/
+
+# AppLog
+/*.err
+/*.log
+/*.perf
+/*.trace
+
+# Docs
+/docs/build
+
+
+.DS_Store

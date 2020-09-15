@@ -1,0 +1,7 @@
+sample_name,file,condition,replicate
+SRR4011416,/net/rawdata/SRR4011416.fastq.gz,Exp_O2_growth_no_rifampicin,1
+SRR4011417,/net/rawdata/SRR4011417.fastq.gz,Exp_O2_growth_no_rifampicin,2
+SRR4011421,/net/rawdata/SRR4011421.fastq.gz,Exp_O2_growth_rifampicin,1
+SRR4011425,/net/rawdata/SRR4011425.fastq.gz,Exp_O2_growth_rifampicin,2
+SRR4011418,/net/rawdata/SRR4011418.fastq.gz,Stat_02_growth_no_rifampicin,1
+SRR4011419,/net/rawdata/SRR4011419.fastq.gz,Stat_02_growth_no_rifampicin,2

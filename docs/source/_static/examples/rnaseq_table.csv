@@ -1,0 +1,29 @@
+﻿Step,Jupyter Notebook,Workflow CWL,Tool,Version,Ref,Input,Output,CWL/Link to Package
+Sample Download and Quality Control,01 - Pre-processing QC,workflows/sra/download_quality_control.cwl,SRA-Tools<br>FastQC,2.10.0\0.11.8,[1]<br>[2],SRA accession<br>Fastq,Fastq<br>FastQC HTML and Zip,tools/sra-toolkit/fastq-dump.cwl<br>tools/fastqc/fastqc.cwl
+,,,,0.11.8,[2],Fastq,FastQC HTML and Zip,tools/fastqc/fastqc.cwl
+,,,,,,,,
+Trimming,02 - Samples trimming,,Trimmomatic,0.39,[3],Fastq,Fastq,tools/trimmomatic/trimmomatic.cwl
+Alignment,03 - Alignments,workflows/Alignments/star-alignment-PE.cwl,STAR,2.7.1a,[4],Fastq,BAM,tools/STAR/star.cwl
+,,,,,,,,tools/STAR/star-index.cwl
+,,,Samtools,1.9,[5],BAM,Sorted BAM and index,tools/samtools/samtools-view.cwl
+,,,,,,,,tools/samtools/samtools-index.cwl
+,,,,,,,,tools/samtools/samtools-sort.cwl
+,,,,,,,,tools/samtools/samtools-stats.cwl
+,,,,,,,,tools/samtools/samtools-flagstat.cwl
+Quantification,04 - Quantification,workflows/RNA-Seq/rnaseq-tpmcalculator.cwl,IGVtools,2.5.3,[6],BAM,TDF,tools/IGV/igvtools-count.cwl
+,,,,,,,,
+,,,RSeQC,3.0.0,[7],BAM,Alignment quality control (TXT and PDF),workflows/RSeQC/rseqc-bam-qc-SE.cwl
+,,,,,,,,tools/RSeQC/rseqc-bam_stat.cwl
+,,,,,,,,tools/RSeQC/rseqc-FPKM_count.cwl
+,,,,,,,,tools/RSeQC/rseqc-geneBody_coverage.cwl
+,,,,,,,,tools/RSeQC/rseqc-infer_experiment.cwl
+,,,,,,,,tools/RSeQC/rseqc-junction_annotation.cwl
+,,,,,,,,tools/RSeQC/rseqc-junction_saturation.cwl
+,,,,,,,,tools/RSeQC/rseqc-read_distribution.cwl
+,,,,,,,,tools/RSeQC/rseqc-read_quality.cwl
+,,,TPMCalculator,0.03,[8],BAM,Read counts (TSV),tools/TPMCalculator/tpmcalculator.cwl
+,,,,,,,TPM values (TSV),
+Differential Gene Analysis,05 - DGA,,Deseq2,1.22.1,[9],Read count,DGA genes (TSV),tools/R/deseq2-2conditions.cwl
+,,,,,,,Plots (PDF),
+,,,EdgeR,3.26.0,[10],Read count,DGA genes (TSV),tools/R/edgeR-2conditions.cwl
+,,,,,,,Plots (PDF),

@@ -1,0 +1,6 @@
+sample_name,file,condition,replicate
+SRR2126784,http://myserver.net/SRR2126784_1.fastq.gz|http://myserver.net/SRR2126784_2.fastq.gz,PRE_NACT,1
+SRR2126785,http://myserver.net/SRR2126785_1.fastq.gz|http://myserver.net/SRR2126785_2.fastq.gz,PRE_NACT,1
+SRR2126786,http://myserver.net/SRR2126786_1.fastq.gz|http://myserver.net/SRR2126786_2.fastq.gz,PRE_NACT,1
+SRR2126787,http://myserver.net/SRR2126787_1.fastq.gz|http://myserver.net/SRR2126787_2.fastq.gz,PRE_NACT,1
+SRR3383790,http://myserver.net/SRR3383790_1.fastq.gz|http://myserver.net/SRR3383790_2.fastq.gz,PRE_NACT,1
