@@ -53,5 +53,3 @@ def check_cwl_command_log(log_file):
                 print('Process no completed.\n'
                       'Please, do not proceed to next cells\n'
                       'Check log file: ' + log_file)
-
-

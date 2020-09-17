@@ -1,6 +1,8 @@
 import os
+
 from pm4ngs.jupyterngsplugin.image.pdftobase64 import pdftobase64
 from pm4ngs.jupyterngsplugin.image.pngtobase64 import imagetobase64
+
 
 def hide_code_str():
     """

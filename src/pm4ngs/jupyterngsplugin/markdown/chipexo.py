@@ -1,8 +1,10 @@
 import os
+
 import pandas
+
 from pm4ngs.jupyterngsplugin.markdown.utils import get_link_image
-from pm4ngs.jupyterngsplugin.utils.count_lines import count_lines
 from pm4ngs.jupyterngsplugin.markdown.utils import get_link_text
+from pm4ngs.jupyterngsplugin.utils.count_lines import count_lines
 
 
 def peak_calling_table_with_qc(factors, alignment_path, peak_calling_path, width, height):
@@ -57,6 +59,55 @@ def peak_calling_table_with_qc(factors, alignment_path, peak_calling_path, width
     return str_msg
 
 
+def meme_motif_table_condition(motif_path, c, d, width, height):
+    str_msg = ''
+    f = os.path.relpath(os.path.join(motif_path, c + '.border_pair_annot_' + d,
+                                     'summary.tsv'))
+    if os.path.exists(f) and os.path.getsize(f) != 0:
+        df = pandas.read_csv(f, sep='\t', comment='#')
+        if not df.empty:
+            n_motif = len(df)
+            source = df.iloc[0]['MOTIF_SOURCE']
+            consensus = df.iloc[0]['CONSENSUS']
+            w = df.iloc[0]['WIDTH']
+            sites = df.iloc[0]['SITES']
+            e_value = df.iloc[0]['E-VALUE']
+            lhtml = os.path.relpath(os.path.join(motif_path, c + '.border_pair_annot_' + d,
+                                                 'meme-chip.html'))
+            str_msg += '| ' + get_link_text(lhtml, c, ' --- ')
+            str_msg += '|'
+
+            str_msg += " {} | {} | {} | {} | {} | {} | ".format(n_motif, source, consensus,
+                                                                w, sites, e_value)
+            if source == 'MEME':
+                lpng = os.path.relpath(
+                    os.path.join(motif_path, c + '.border_pair_annot_' + d, 'meme_out',
+                                 'logo1.png'))
+                if os.path.exists(lpng) and os.path.getsize(lpng) != 0:
+                    str_msg += get_link_image(lpng, width, height, ' --- ')
+                    str_msg += ' |'
+                else:
+                    str_msg += ' --- |'
+            elif source == 'DREME':
+                lout = os.path.relpath(os.path.join(motif_path, c
+                                                    + '.border_pair_annot_'
+                                                    + d,
+                                                    'dreme_out'))
+                dreme_files = [f for ds, dr, files in os.walk(lout)
+                               for f in files if f.startswith('m01nc')]
+                for dm in dreme_files:
+                    loutfile = os.path.relpath(
+                        os.path.join(motif_path, c + '.border_pair_annot_' + d,
+                                     'dreme_out', dm))
+                    if os.path.exists(loutfile) and os.path.getsize(loutfile) != 0:
+                        str_msg += get_link_image(loutfile, width, height, ' --- ')
+                        str_msg += ' |'
+                    else:
+                        str_msg += ' --- |'
+            str_msg += '\n'
+    return str_msg
+
+
 def meme_motif_table(factors, motif_path, width, height):
     """
     Create a table for the MEME motif find results
@@ -68,7 +119,7 @@ def meme_motif_table(factors, motif_path, width, height):
     """
     conditions = factors['condition'].unique()
     memedbs = []
-    dirs = [ d for d in os.listdir(motif_path) if os.path.isdir(os.path.join(motif_path, d))]
+    dirs = [d for d in os.listdir(motif_path) if os.path.isdir(os.path.join(motif_path, d))]
     for d in dirs:
         if '.border_pair_annot_' in d:
             d = d.split('.border_pair_annot_')[1]
@@ -82,47 +133,6 @@ def meme_motif_table(factors, motif_path, width, height):
         str_msg += "| 1st motif<br>E-Value | 1st motif |\n"
         str_msg += "| --- | --- | --- | --- | --- | --- | --- | --- |\n"
         for c in conditions:
-            f = os.path.relpath(os.path.join(motif_path, c + '.border_pair_annot_' + d,
-                                             'summary.tsv'))
-            if os.path.exists(f) and os.path.getsize(f) != 0:
-                df = pandas.read_csv(f, sep='\t', comment='#')
-                if not df.empty:
-                    n_motif = len(df)
-                    source = df.iloc[0]['MOTIF_SOURCE']
-                    consensus = df.iloc[0]['CONSENSUS']
-                    w = df.iloc[0]['WIDTH']
-                    sites = df.iloc[0]['SITES']
-                    e_value = df.iloc[0]['E-VALUE']
-                    lhtml = os.path.relpath(os.path.join(motif_path, c + '.border_pair_annot_' + d,
-                                                         'meme-chip.html'))
-                    str_msg += '| ' + get_link_text(lhtml, c, ' --- ')
-                    str_msg += '|'
-
-                    str_msg += " {} | {} | {} | {} | {} | {} | ".format(n_motif, source, consensus,
-                                                                        w, sites, e_value)
-                    if source == 'MEME':
-                        lpng = os.path.relpath(
-                            os.path.join(motif_path, c + '.border_pair_annot_' + d, 'meme_out',
-                                         'logo1.png'))
-                        if os.path.exists(lpng) and os.path.getsize(lpng) != 0:
-                            str_msg += get_link_image(lpng, width, height, ' --- ')
-                            str_msg += ' |'
-                        else:
-                            str_msg += ' --- |'
-                    elif source == 'DREME':
-                        lout = os.path.relpath(os.path.join(motif_path, c + '.border_pair_annot_' + d,
-                                                            'dreme_out'))
-                        dreme_files = [f for ds, dr, files in os.walk(lout)
-                                       for f in files if f.startswith('m01nc')]
-                        for dm in dreme_files:
-                            loutfile = os.path.relpath(
-                                os.path.join(motif_path, c + '.border_pair_annot_' + d,
-                                             'dreme_out', dm))
-                            if os.path.exists(loutfile) and os.path.getsize(loutfile) != 0:
-                                str_msg += get_link_image(loutfile, width, height, ' --- ')
-                                str_msg += ' |'
-                            else:
-                                str_msg += ' --- |'
-                    str_msg += '\n'
+            str_msg += meme_motif_table_condition(motif_path, c, d, width, height)
         str_msg += '\n\n\n'
     return str_msg

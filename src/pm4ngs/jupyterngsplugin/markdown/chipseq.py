@@ -24,38 +24,52 @@ def diffbind_table(sample_table, result_dir, width, height):
         str_msg += '### Condition: {0} vs {1}\n\n'.format(c[0], c[1])
         str_msg += '| Deseq2 | EdgeR |\n'
         str_msg += '| --- | --- |\n'
-        f1 = os.path.relpath(os.path.join(result_dir, 'condition_' + comp + '_diffbind_deseq2_plot.png'))
-        f2 = os.path.relpath(os.path.join(result_dir, 'condition_' + comp + '_diffbind_edgeR_plot.png'))
+        f1 = os.path.relpath(os.path.join(result_dir, 'condition_'
+                                          + comp + '_diffbind_deseq2_plot.png'))
+        f2 = os.path.relpath(os.path.join(result_dir, 'condition_'
+                                          + comp + '_diffbind_edgeR_plot.png'))
         str_msg += '| ' + get_link_image(f1, width, height, ' --- ')
         str_msg += '| ' + get_link_image(f2, width, height, ' --- ')
         str_msg += '|\n'
-        f1 = os.path.relpath(os.path.join(result_dir, 'condition_' + comp + '_diffbind_deseq2_plotHeatmap.png'))
-        f2 = os.path.relpath(os.path.join(result_dir, 'condition_' + comp + '_diffbind_edgeR_plotHeatmap.png'))
+        f1 = os.path.relpath(os.path.join(result_dir, 'condition_'
+                                          + comp + '_diffbind_deseq2_plotHeatmap.png'))
+        f2 = os.path.relpath(os.path.join(result_dir, 'condition_'
+                                          + comp + '_diffbind_edgeR_plotHeatmap.png'))
         str_msg += '| ' + get_link_image(f1, width, height, ' --- ')
         str_msg += '| ' + get_link_image(f2, width, height, ' --- ')
         str_msg += '|\n'
-        f1 = os.path.relpath(os.path.join(result_dir, 'condition_' + comp + '_diffbind_deseq2_plotMA.png'))
-        f2 = os.path.relpath(os.path.join(result_dir, 'condition_' + comp + '_diffbind_edgeR_plotMA.png'))
+        f1 = os.path.relpath(os.path.join(result_dir, 'condition_'
+                                          + comp + '_diffbind_deseq2_plotMA.png'))
+        f2 = os.path.relpath(os.path.join(result_dir, 'condition_'
+                                          + comp + '_diffbind_edgeR_plotMA.png'))
         str_msg += '| ' + get_link_image(f1, width, height, ' --- ')
         str_msg += '| ' + get_link_image(f2, width, height, ' --- ')
         str_msg += '|\n'
-        f1 = os.path.relpath(os.path.join(result_dir, 'condition_' + comp + '_diffbind_deseq2_plotVolcano.png'))
-        f2 = os.path.relpath(os.path.join(result_dir, 'condition_' + comp + '_diffbind_edgeR_plotVolcano.png'))
+        f1 = os.path.relpath(os.path.join(result_dir, 'condition_'
+                                          + comp + '_diffbind_deseq2_plotVolcano.png'))
+        f2 = os.path.relpath(os.path.join(result_dir, 'condition_'
+                                          + comp + '_diffbind_edgeR_plotVolcano.png'))
         str_msg += '| ' + get_link_image(f1, width, height, ' --- ')
         str_msg += '| ' + get_link_image(f2, width, height, ' --- ')
         str_msg += '|\n'
-        f1 = os.path.relpath(os.path.join(result_dir, 'condition_' + comp + '_diffbind_deseq2_plotPCA.png'))
-        f2 = os.path.relpath(os.path.join(result_dir, 'condition_' + comp + '_diffbind_edgeR_plotPCA.png'))
+        f1 = os.path.relpath(os.path.join(result_dir, 'condition_'
+                                          + comp + '_diffbind_deseq2_plotPCA.png'))
+        f2 = os.path.relpath(os.path.join(result_dir, 'condition_'
+                                          + comp + '_diffbind_edgeR_plotPCA.png'))
         str_msg += '| ' + get_link_image(f1, width, height, ' --- ')
         str_msg += '| ' + get_link_image(f2, width, height, ' --- ')
         str_msg += '|\n'
-        f1 = os.path.relpath(os.path.join(result_dir, 'condition_' + comp + '_diffbind_deseq2_plotPCA_contrast.png'))
-        f2 = os.path.relpath(os.path.join(result_dir, 'condition_' + comp + '_diffbind_edgeR_plotPCA_contrast.png'))
+        f1 = os.path.relpath(os.path.join(result_dir, 'condition_'
+                                          + comp + '_diffbind_deseq2_plotPCA_contrast.png'))
+        f2 = os.path.relpath(os.path.join(result_dir, 'condition_'
+                                          + comp + '_diffbind_edgeR_plotPCA_contrast.png'))
         str_msg += '| ' + get_link_image(f1, width, height, ' --- ')
         str_msg += '| ' + get_link_image(f2, width, height, ' --- ')
         str_msg += '|\n'
-        f1 = os.path.relpath(os.path.join(result_dir, 'condition_' + comp + '_diffbind_deseq2_plotBox.png'))
-        f2 = os.path.relpath(os.path.join(result_dir, 'condition_' + comp + '_diffbind_edgeR_plotBox.png'))
+        f1 = os.path.relpath(os.path.join(result_dir, 'condition_'
+                                          + comp + '_diffbind_deseq2_plotBox.png'))
+        f2 = os.path.relpath(os.path.join(result_dir, 'condition_'
+                                          + comp + '_diffbind_edgeR_plotBox.png'))
         str_msg += '| ' + get_link_image(f1, width, height, ' --- ')
         str_msg += '| ' + get_link_image(f2, width, height, ' --- ')
         str_msg += '|\n\n'

@@ -1,0 +1,8 @@
+-r base.txt
+
+pytest
+pytest-cov
+sphinx-argparse
+mock
+sphinx-rtd-theme
+

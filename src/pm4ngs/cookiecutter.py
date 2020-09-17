@@ -26,6 +26,6 @@ def execute_cookiecutter(template, config_file, sample_table, copy_rawdata):
                          no_input=no_input,
                          extra_context=extra_context['default_context'])
         except FailedHookException as e:
-            print()
+            print(e)
     else:
         print('Sample table file {} not found.'.format(sample_table))

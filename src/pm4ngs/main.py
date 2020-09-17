@@ -2,7 +2,6 @@
 import argparse
 import os
 import subprocess
-import sys
 
 import requests
 
@@ -13,22 +12,35 @@ PIPELINES = {
     1: {
         'name': 'RNA-Seq',
         'url': 'https://github.com/ncbi/pm4ngs-rnaseq',
-        'example_yml': 'https://raw.githubusercontent.com/ncbi/pm4ngs-rnaseq/master/example/pm4ngs_rnaseq_demo_config.yaml',
-        'sample_sheet': 'https://raw.githubusercontent.com/ncbi/pm4ngs-rnaseq/master/example/pm4ngs_rnaseq_demo_sample_data.csv'
+        'example_yml':
+            'https://raw.githubusercontent.com/ncbi/pm4ngs-rnaseq/master'
+            '/example/pm4ngs_rnaseq_demo_config.yaml',
+        'sample_sheet':
+            'https://raw.githubusercontent.com/ncbi/pm4ngs-rnaseq/master'
+            '/example/pm4ngs_rnaseq_demo_sample_data.csv'
     },
     2: {
         'name': 'ChIP-Seq',
         'url': 'https://github.com/ncbi/pm4ngs-chipseq',
-        'example_yml': 'https://raw.githubusercontent.com/ncbi/pm4ngs-chipseq/master/example/pm4ngs_chipseq_demo_config.yaml',
-        'sample_sheet': 'https://raw.githubusercontent.com/ncbi/pm4ngs-chipseq/master/example/pm4ngs_chipseq_demo_sample_data.csv'
+        'example_yml':
+            'https://raw.githubusercontent.com/ncbi/pm4ngs-chipseq/master'
+            '/example/pm4ngs_chipseq_demo_config.yaml',
+        'sample_sheet':
+            'https://raw.githubusercontent.com/ncbi/pm4ngs-chipseq/master'
+            '/example/pm4ngs_chipseq_demo_sample_data.csv'
     },
     3: {
         'name': 'ChIP-exo',
         'url': 'https://github.com/ncbi/pm4ngs-chipexo',
-        'example_yml': 'https://raw.githubusercontent.com/ncbi/pm4ngs-chipexo/master/example/pm4ngs_chipexo_demo_config.yaml',
-        'sample_sheet': 'https://raw.githubusercontent.com/ncbi/pm4ngs-chipexo/master/example/pm4ngs_chipexo_demo_sample_data.csv'
+        'example_yml':
+            'https://raw.githubusercontent.com/ncbi/pm4ngs-chipexo/master'
+            '/example/pm4ngs_chipexo_demo_config.yaml',
+        'sample_sheet':
+            'https://raw.githubusercontent.com/ncbi/pm4ngs-chipexo/master'
+            '/example/pm4ngs_chipexo_demo_sample_data.csv'
     },
 }
+
 
 def command_line(pipeline, is_general=False):
     if pipeline > 0:
@@ -127,11 +139,13 @@ def start_server_main():
                         action='store_true',
                         required=False)
     parser.add_argument('--ip',
-                        help='The IP address the notebook server will listen on. Default: localhost',
+                        help='The IP address the notebook server will listen on. '
+                             'Default: localhost',
                         type=str,
                         required=False)
     parser.add_argument('--port',
-                        help='The port the notebook server will listen on. Default: 8888',
+                        help='The port the notebook server will listen on. '
+                             'Default: 8888',
                         type=int,
                         required=False)
 

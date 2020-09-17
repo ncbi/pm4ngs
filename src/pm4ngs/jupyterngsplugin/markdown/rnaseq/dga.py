@@ -1,4 +1,5 @@
 import os
+
 import pandas
 
 from pm4ngs.jupyterngsplugin.markdown.utils import get_link_image
@@ -94,14 +95,16 @@ def dga_gene_list_union(conditions, data_path, organism):
 
             over_df = pandas.read_csv(o)
             if len(over_df) > 0:
-                over_df[['Gene_Id', 'Chr', 'Start_pos']] = over_df['Gene_Id'].str.split('_', n=2, expand=True)
+                over_df[['Gene_Id', 'Chr', 'Start_pos']] = \
+                    over_df['Gene_Id'].str.split('_', n=2, expand=True)
                 over_df = over_df.drop(columns=['Chr', 'Start_pos'])
             over_count = len(over_df)
             str_msg += ' | ' + str(over_count) + ' | '
 
             under_df = pandas.read_csv(u)
             if len(under_df) > 0:
-                under_df[['Gene_Id', 'Chr', 'Start_pos']] = under_df['Gene_Id'].str.split('_', n=2, expand=True)
+                under_df[['Gene_Id', 'Chr', 'Start_pos']] = \
+                    under_df['Gene_Id'].str.split('_', n=2, expand=True)
                 under_df = under_df.drop(columns=['Chr', 'Start_pos'])
             under_count = len(under_df)
             str_msg += str(under_count) + ' |\n\n'
