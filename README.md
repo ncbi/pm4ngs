@@ -23,7 +23,7 @@ All type of projects generated from these templates follow the same design princ
 
 Powered by [Cookiecutter](https://github.com/audreyr/cookiecutter), 
 [Jupyter Notebook](https://jupyter.org/), [CWL](https://www.commonwl.org/), [Docker](https://www.docker.com), 
-[Conda]().
+[Conda](https://pm4ngs.readthedocs.io/) and [Bioconda](https://pm4ngs.readthedocs.io/).
 
 Documentation
 -------------
@@ -47,7 +47,7 @@ Features
 External dependencies
 ---------------------
 
- * GNU Parallel
+ * poppler
     
 Public Domain notice
 ====================

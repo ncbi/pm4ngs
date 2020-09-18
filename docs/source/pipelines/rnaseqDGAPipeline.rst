@@ -96,8 +96,9 @@ The RNASeq based project can be created using the following command line:
 Creating the DGA and GO enrichment from RNA-Seq data project
 ------------------------------------------------------------
 
-The **pm4ngs-rnaseq** command line executed with the **--sample-sheet** option will start asking for the projects metadata
-required for creating the project organizational structure. After all questions are answered, the CWL workflow files will be
+The **pm4ngs-rnaseq** command line executed with the **--sample-sheet** option will let you type the different variables
+required for creating and configuring the project. The default value for each variable is shown in the brackets. After
+all questions are answered, the CWL workflow files will be
 cloned from the github repo `ncbi/cwl-ngs-workflows-cbb`_ to the folder **bin/cwl**.
 
 .. _ncbi/cwl-ngs-workflows-cbb: https://github.com/ncbi/cwl-ngs-workflows-cbb
@@ -122,8 +123,8 @@ cloned from the github repo `ncbi/cwl-ngs-workflows-cbb`_ to the folder **bin/cw
     genome_dir [hg38]:
     aligner_index_dir [hg38/STAR]:
     genome_fasta [hg38/genome.fa]:
-    genome_gtf [hg38/genome.gtf]:
-    genome_bed [hg38/genome.bed]:
+    genome_gtf [hg38/genes.gtf]:
+    genome_bed [hg38/genes.bed]:
     fold_change [2.0]:
     fdr [0.05]:
     use_docker [y]:
@@ -197,6 +198,103 @@ The **pm4ngs-rnaseq** command line will create a project structure as:
     └── tmp
 
     61 directories, 239 files
+
+.. note:: **RNASeq based project variables**
+
+    * **author_name**:
+        Default: [Roberto Vera Alvarez]
+    * **email**:
+        Default: [veraalva@ncbi.nlm.nih.gov]
+    * **project_name**:
+        Name of the project with no space nor especial characters. This will be used as project folder's name.
+
+        Default: [my_ngs_project]
+    * **dataset_name**:
+        Dataset to process name with no space nor especial characters. This will be used as folder name to group the
+        data. This folder will be created under the **data/{{dataset_name}}** and **results/{{dataset_name}}**.
+
+        Default: [my_dataset_name]
+    * **is_data_in_SRA**:
+        If the data is in the SRA set this to y. A CWL workflow to download the data from the SRA database to the
+        folder **data/{{dataset_name}}** and execute FastQC on it will be included in the **01 - Pre-processing QC.ipynb** notebook.
+
+        Set this option to **n**, if the fastq files names and location are included in the sample sheet.
+
+        Default: [y]
+    * **Select sequencing_technology**:
+        Select one of the available sequencing technologies in your data.
+
+        Values:
+        1 - single-end
+        2 - paired-end
+    * **create_demo**:
+        If the data is downloaded from the SRA and this option is set to y, only the number of spots specified
+        in the next variable will be downloaded. Useful to test the workflow.
+
+        Default: [y]: y
+    * **number_spots**:
+        Number of sport to download from the SRA database. It is ignored is the **create_demo** is set to **n**.
+
+        Default: [1000000]
+    * **organism**:
+        Organism to process, e.g. human. This is used to link the selected genes to the NCBI gene database.
+
+        Default: [human]
+    * **genome_name**:
+        Genome name , e.g. hg38 or mm10.
+
+        Default: [hg38]
+    * **genome_dir**:
+        Absolute path to the directory with the genome annotation (genome.fa, genes.gtf) to be used by the workflow
+        or the name of the genome.
+
+        If the name of the genome is used, PM4NGS will include a cell in the
+        **03 - Alignments and Quantification.ipynb** notebook to download the genome files.
+        The genome data will be at **data/{{dataset_name}}/{{genome_name}}/**
+
+        Default: [hg38]
+    * **aligner_index_dir**:
+        Absolute path to the directory with the genome indexes for STAR.
+
+        If **{{genome_name}}/STAR** is used, PM4NGS will include a cell in the
+        **03 - Alignments and Quantification.ipynb** notebook to create the genome indexes for STAR.
+
+        Default: [hg38/STAR]
+    * **genome_fasta**:
+        Absolute path to the genome fasta file
+
+        If **{{genome_name}}/genome.fa** is used, PM4NGS will use the downloaded fasta file.
+
+        Default: [hg38/genome.fa]
+    * **genome_gtf**:
+        Absolute path to the genome GTF file
+
+        If **{{genome_name}}/genes.gtf** is used, PM4NGS will use the downloaded GTF file.
+
+        Default: [hg38/gene.gtf]
+    * **genome_bed**:
+        Absolute path to the genome BED file
+
+        If **{{genome_name}}/genes.bed** is used, PM4NGS will use the downloaded BED file.
+
+        Default: [hg38/genes.bed]
+    * **fold_change**:
+        A real number used as fold change cutoff value for the DG analysis, e.g. 2.0.
+
+        Default: [2.0]
+    * **fdr**:
+        Adjusted P-Value to be used as cutoff in the DG analysis, e.g. 0.05.
+
+        Default: [0.05]
+    * **use_docker**:
+        Set this to y if you will be using Docker. Otherwise Conda needs to be installed in the computer.
+
+        Default: [y]
+    * **max_number_threads**:
+        Number of threads available in the computer.
+
+        Default: [16]
+
 
 Jupyter server
 --------------

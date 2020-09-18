@@ -58,7 +58,7 @@ Python 3.6 or above should be installed.
 
     localhost:~> python -m venv venv
     localhost:~> source venv/bin/activate
-    localhost:~> pip install -r pm4ngs
+    localhost:~> pip install pm4ngs
 
 PM4NGS python env activation
 ============================
