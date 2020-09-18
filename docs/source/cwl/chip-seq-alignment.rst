@@ -4,7 +4,7 @@ BWA based alignment and quality control workflow
 This workflow use `BWA`_ as base aligner. It also use `SAMtools`_ and `bedtools`_ for file conversion and statistics
 report. Finally, `Phantompeakqualtools`_ is used to generate quality control report for the processed samples.
 
-.. image:: /img/chip-seq-alignment-workflow.png
+.. image:: /_images/chip-seq-alignment-workflow.png
     :width: 800px
     :align: center
     :alt: BWA based alignment and quality control workflow

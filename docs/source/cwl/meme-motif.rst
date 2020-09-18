@@ -3,7 +3,7 @@ MEME Motif detection workflow
 
 Motif detection is executed using the `MEME`_ suite.
 
-.. image:: /img/MEME-motif-workflow.png
+.. image:: /_images/MEME-motif-workflow.png
     :width: 800px
     :align: center
     :alt: MEME Motif detection workflow

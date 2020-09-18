@@ -4,7 +4,7 @@ Peak caller workflow using MACE
 This workflow uses `MACE`_ as peak caller tool. The annotation is created from the GTF file using a *in-house* python
 script available `here`_. `BAMscale`_ is used for the quantification of the resulting peaks.
 
-.. image:: /img/peak-caller-mace-workflow.png
+.. image:: /_images/peak-caller-mace-workflow.png
     :width: 800px
     :align: center
     :alt: BWA based alignment and quality control workflow

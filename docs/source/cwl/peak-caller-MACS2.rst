@@ -4,7 +4,7 @@ Peak caller workflow using MACS2
 This workflow uses `MACS2`_ as peak caller tool. The annotation is created using `Homer`_ and TDF files are created
 with `igvtools`_.
 
-.. image:: /img/peak-caller-macs2-workflow.png
+.. image:: /_images/peak-caller-macs2-workflow.png
     :width: 800px
     :align: center
     :alt: BWA based alignment and quality control workflow
@@ -12,7 +12,7 @@ with `igvtools`_.
 `MACS2`_ is executed two times. First, the **cutoff-analysis** option is used to execute a cutoff value analysis which
 is used to estimate a proper value for the p-value used by MACS2 (for more detailed explanation read this `thread`_).
 
-.. image:: /img/macs2-cutoff-analysis.png
+.. image:: /_images/macs2-cutoff-analysis.png
     :width: 500px
     :align: center
     :alt: MACS2 cutoff analysis

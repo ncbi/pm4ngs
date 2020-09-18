@@ -224,9 +224,7 @@ The **pm4ngs-rnaseq** command line will create a project structure as:
     * **Select sequencing_technology**:
         Select one of the available sequencing technologies in your data.
 
-        Values:
-        1 - single-end
-        2 - paired-end
+        Values: 1 - single-end, 2 - paired-end
     * **create_demo**:
         If the data is downloaded from the SRA and this option is set to y, only the number of spots specified
         in the next variable will be downloaded. Useful to test the workflow.
