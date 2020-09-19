@@ -2,7 +2,7 @@ import json
 import os
 
 import yaml
-from cookiecutter.exceptions import FailedHookException
+from cookiecutter.exceptions import FailedHookException, OutputDirExistsException
 from cookiecutter.main import cookiecutter
 
 
@@ -26,6 +26,8 @@ def execute_cookiecutter(template, config_file, sample_table, copy_rawdata):
                          no_input=no_input,
                          extra_context=extra_context['default_context'])
         except FailedHookException as e:
+            print(e)
+        except OutputDirExistsException as e:
             print(e)
     else:
         print('Sample table file {} not found.'.format(sample_table))

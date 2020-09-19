@@ -173,7 +173,7 @@ The **pm4ngs-chipseq** command line will create a project structure as:
 
     12 directories, 11 files
 
-.. note:: **RNASeq based project variables**
+.. note:: **ChIP-Seq based project variables**
 
     * **author_name**:
         Default: [Roberto Vera Alvarez]
@@ -221,7 +221,7 @@ The **pm4ngs-chipseq** command line will create a project structure as:
         or the name of the genome.
 
         If the name of the genome is used, PM4NGS will include a cell in the
-        **03 - Alignments and Quantification.ipynb** notebook to download the genome files.
+        **03 - Alignments.ipynb** notebook to download the genome files.
         The genome data will be at **data/{{dataset_name}}/{{genome_name}}/**
 
         Default: [hg38]
@@ -229,7 +229,7 @@ The **pm4ngs-chipseq** command line will create a project structure as:
         Absolute path to the directory with the genome indexes for BWA.
 
         If **{{genome_name}}/BWA** is used, PM4NGS will include a cell in the
-        **03 - Alignments and Quantification.ipynb** notebook to create the genome indexes for BWA.
+        **03 - Alignments.ipynb** notebook to create the genome indexes for BWA.
 
         Default: [hg38/BWA]
     * **genome_fasta**:

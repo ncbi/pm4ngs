@@ -11,6 +11,7 @@ PM4NGS
    :align: center
 
 .. toctree::
+   :numbered:
    :maxdepth: 3
    :hidden:
 
@@ -19,7 +20,8 @@ PM4NGS
    pipelines/rnaseqDGAPipeline
    pipelines/chipseqPipeline
    pipelines/chipexoPipeline
-   pipelines/starIndexes
+   pipelines/utils
+   pipelines/genomes
 
 Introduction
 ------------
