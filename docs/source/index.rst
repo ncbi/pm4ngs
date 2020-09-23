@@ -36,7 +36,7 @@ understanding of the guiding principles of our project.
 
 The project is composed of three main parts.
 
-#. a project organizational structure which define a standard files and directories for the project
+#. A project organizational structure which define a standard files and directories for the project
 #. Jupyter Notebooks as user interfaces for data management and visualization
 #. CWL workflows that execute the data analysis
 
