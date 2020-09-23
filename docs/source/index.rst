@@ -27,8 +27,8 @@ Introduction
 ------------
 
 `PM4NGS`_ was designed to generate a standard organizational structure for Next Generation Sequencing
-(ngs) data analysis. It includes a directory structure for the project, several Jupyter notebooks for data management
-and  CWL workflows for pipeline execution.
+(NGS) data analysis. It includes a directory structure for the project, several Jupyter notebooks for data management
+and CWL workflows for pipeline execution.
 
 Our work was inspired by a manuscript by Prof. William Noble in 2009:
 `A Quick Guide to Organizing Computational Biology Projects`_. We recommend reading this paper for a better
@@ -36,7 +36,7 @@ understanding of the guiding principles of our project.
 
 The project is composed of three main parts.
 
-#. A project organizational structure which define a standard files and directories for the project
+#. A project organizational structure which define standard files and directories for the project
 #. Jupyter Notebooks as user interfaces for data management and visualization
 #. CWL workflows that execute the data analysis
 
