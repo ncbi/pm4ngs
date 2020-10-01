@@ -124,23 +124,20 @@ block.
 
 .. code-block::
    :caption: See example `bwa-mem.cwl`_
-   :emphasize-lines: 2,3
 
-    hints:
-        - $import: bwa-docker.yml
-        - $import: bwa-bioconda.yml
-
-
+   hints:
+      - $import: bwa-docker.yml
+      - $import: bwa-bioconda.yml
 
 As it is indicated by its names, the **bioconda.yml** files stores the software requirements for executing the
 CWL tool using Conda. The files specify the package name and version. The CWL runner will create a Conda environment
 and install the package, if it doesnt exists, at runtime.
 
 .. code-block::
-    :caption: See example `bwa-bioconda.yml`_
+   :caption: See example `bwa-bioconda.yml`_
 
-    class: SoftwareRequirement
-    packages:
+   class: SoftwareRequirement
+   packages:
       - package: 'bwa'
         version:
           - '0.7.17'
@@ -151,11 +148,10 @@ The docker.yml file defines the Biocontainers docker image to be used. This imag
 by the CWL runner at runtime.
 
 .. code-block::
-    :caption: See example `bwa-docker.yml`_
+   :caption: See example `bwa-docker.yml`_
 
-    class: DockerRequirement
-    dockerPull: quay.io/biocontainers/bwa:0.7.17--h84994c4_5
-
+   class: DockerRequirement
+   dockerPull: quay.io/biocontainers/bwa:0.7.17--h84994c4_5
 
 PM4NGS uses the `Biocontainers Registry`_ through its python interface named bioconda2biocontainer_  to keep
 CWL docker images defined in the **docker.yml** file updated to its latest tag. The Bioconda package name and version
