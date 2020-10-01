@@ -8,6 +8,7 @@ Installation
 Requirements
 ************
 
+ 1. Poppler (https://poppler.freedesktop.org/)
 
 ****************************************
 PM4NGS with Conda/BioConda (Recommended)

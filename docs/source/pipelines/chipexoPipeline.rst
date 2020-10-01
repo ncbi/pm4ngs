@@ -84,6 +84,7 @@ cloned from the github repo `ncbi/cwl-ngs-workflows-cbb`_ to the folder **bin/cw
 
 .. code-block:: bash
 
+    localhost:~> pm4ngs-chipexo  --sample-sheet my-sample-sheet.tsv
     Generating ChIP-exo data analysis project
     author_name [Roberto Vera Alvarez]:
     email [veraalva@ncbi.nlm.nih.gov]:

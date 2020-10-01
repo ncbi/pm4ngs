@@ -90,7 +90,7 @@ cloned from the github repo `ncbi/cwl-ngs-workflows-cbb`_ to the folder **bin/cw
 
 .. code-block:: bash
 
-    pm4ngs-chipseq --sample-sheet my-sample-sheet.tsv
+    localhost:~> pm4ngs-chipseq --sample-sheet my-sample-sheet.tsv
     Generating ChIP-Seq data analysis project
     author_name [Roberto Vera Alvarez]:
     email [veraalva@ncbi.nlm.nih.gov]:

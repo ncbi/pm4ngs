@@ -18,9 +18,6 @@ analysis.
 organizational structure and the Jupyter notebooks. The CWL workflows are defined in a separate GitHub project named:
 [cwl-ngs-workflows-cbb](https://github.com/ncbi/cwl-ngs-workflows-cbb).
 
-All type of projects generated from these templates follow the same design principles explained in the
-[Background Information](https://pm4ngs.readthedocs.io/en/latest/background_information.html).
-
 Powered by [Cookiecutter](https://github.com/audreyr/cookiecutter), 
 [Jupyter Notebook](https://jupyter.org/), [CWL](https://www.commonwl.org/), [Docker](https://www.docker.com), 
 [Conda](https://pm4ngs.readthedocs.io/) and [Bioconda](https://pm4ngs.readthedocs.io/).
