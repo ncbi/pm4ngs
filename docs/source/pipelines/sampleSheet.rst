@@ -72,7 +72,7 @@ Sample sheet column names and description
       **SRR4053795_1.fastq.gz|SRR4053795_2.fastq.gz** must exist.
 
       The data files will be copied to the folder **data/{{dataset_name}}/**.
-    * **condition**: Conditions to analyze or group the samples. Avoid using non alphanumeric characters.
+    * **condition**: Conditions to group the samples. Use only alphanumeric characters.
 
       For RNASeq projects the differential gene expression will be generated comparing these conditions. If there are
       multiple conditions all comparisons will be generated. It must be at least two conditions.

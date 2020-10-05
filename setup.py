@@ -20,7 +20,7 @@ setup(
     },
     data_files=[('', ['README.md'])],
     use_scm_version=True,
-    setup_requires=['setuptools_scm'],
+    setup_requires=['wheel', 'setuptools_scm'],
     description='PM4NGS generates a standard organizational structure for Next '
                 'Generation Sequencing (ngs) data analysis ',
     long_description=readme(),
@@ -50,7 +50,6 @@ setup(
                       'seaborn',
                       'statsmodels',
                       'urllib3',
-                      'Wand',
                       'xmltodict'],
     classifiers=[
         'Development Status :: 4 - Beta',
