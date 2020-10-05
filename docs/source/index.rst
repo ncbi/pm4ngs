@@ -22,6 +22,8 @@ PM4NGS
    pipelines/chipexoPipeline
    pipelines/creatingNewPipeline
    pipelines/utils
+   pipelines/ubuntu
+   pipelines/windowssl
    pipelines/genomes
 
 Introduction
