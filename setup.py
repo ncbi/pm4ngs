@@ -44,7 +44,7 @@ setup(
                       'networkx',
                       'numpy',
                       'pandas',
-                      'pdf2image'
+                      'pdf2image',
                       'PyYAML',
                       'requests',
                       'scipy',
