@@ -1,6 +1,8 @@
 PM4NGS: Program manager for NGS data analysis
 =============================================
 
+![Python package](https://github.com/ncbi/pm4ngs/workflows/Python%20package/badge.svg)
+
 PM4NGS is designed to generate a standard organizational structure for Next-generation Sequencing
 data analysis including a directory structure for the project, Jupyter notebooks for data management and CWL workflows
 for pipeline execution.
