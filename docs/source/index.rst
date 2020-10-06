@@ -6,6 +6,15 @@
 PM4NGS
 ======
 
+.. image:: https://github.com/ncbi/pm4ngs/workflows/Python%20package/badge.svg
+   :target: https://github.com/ncbi/pm4ngs/actions?query=workflow%3A%22Python+package%22
+
+.. image:: https://github.com/ncbi/pm4ngs/workflows/Python%20application/badge.svg
+   :target: https://github.com/ncbi/pm4ngs/actions?query=workflow%3A%22Python+application%22
+
+.. image:: https://github.com/ncbi/pm4ngs/workflows/Upload%20Python%20Package/badge.svg
+   :target: https://github.com/ncbi/pm4ngs/actions?query=workflow%3A%22Upload+Python+Package%22
+
 .. image:: _images/logo.png
    :width: 200px
    :align: center
