@@ -59,6 +59,7 @@ Python 3.6 or above should be installed.
 
     localhost:~> python -m venv venv
     localhost:~> source venv/bin/activate
+    localhost:~> pip install wheel
     localhost:~> pip install pm4ngs
 
 PM4NGS python env activation
@@ -70,4 +71,4 @@ For activating the virtual env:
 
     localhost:~> source venv/bin/activate
     localhost:~> pm4ngs-create -v
-    PM4NGS version: 0.1.dev0+d20200819
+    PM4NGS version: 0.0.4

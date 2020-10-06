@@ -53,7 +53,7 @@ setup(
                       'urllib3',
                       'xmltodict'],
     classifiers=[
-        'Development Status :: 4 - Beta',
+        'Development Status :: 3 - Alpha',
         'Intended Audience :: Science/Research',
         'License :: Public Domain',
         'Natural Language :: English',

@@ -81,7 +81,7 @@ Runs these commands on the Ubuntu terminal to get PM4NGS installed
 .. code-block:: bash
 
     veraalva@perseo:~$ sudo apt-get update
-    veraalva@perseo:~$ sudo apt install python3 python3-pip python3-venv python3-dev poppler-utils gcc nodejs
+    veraalva@perseo:~$ sudo apt install python3 python3-pip python3-venv python3-dev poppler-utils gcc nodejs docker.io
     veraalva@perseo:~$ sudo usermod -aG docker $USER
 
 Close and reopen the terminal to set the docker group in the user.

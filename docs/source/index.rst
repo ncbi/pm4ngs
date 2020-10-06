@@ -16,14 +16,14 @@ PM4NGS
    :hidden:
 
    pipelines/installation
+   pipelines/ubuntu
+   pipelines/windowssl
    pipelines/sampleSheet
    pipelines/rnaseqDGAPipeline
    pipelines/chipseqPipeline
    pipelines/chipexoPipeline
    pipelines/creatingNewPipeline
    pipelines/utils
-   pipelines/ubuntu
-   pipelines/windowssl
    pipelines/genomes
 
 Introduction
