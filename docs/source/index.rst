@@ -27,6 +27,7 @@ PM4NGS
    pipelines/installation
    pipelines/ubuntu
    pipelines/windowssl
+   pipelines/pm4ngsgcp
    pipelines/sampleSheet
    pipelines/rnaseqDGAPipeline
    pipelines/chipseqPipeline

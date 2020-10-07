@@ -76,7 +76,7 @@ Lunch Ubuntu
 Installing PM4NGS
 -----------------
 
-Runs these commands on the Ubuntu terminal to get PM4NGS installed
+Runs these commands on the Ubuntu terminal to to prepare the instance to run PM4NGS
 
 .. code-block:: bash
 

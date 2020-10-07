@@ -4,12 +4,12 @@
 PM4NGS on Ubuntu
 ################
 
-Runs these commands on a terminal to get PM4NGS installed
+Runs these commands on a terminal to to prepare the instance to run PM4NGS
 
 .. code-block:: bash
 
     veraalva@perseo:~$ sudo apt-get update
-    veraalva@perseo:~$ sudo apt install python3 python3-pip python3-venv python3-dev poppler-utils gcc nodejs
+    veraalva@perseo:~$ sudo apt install docker.io python3 python3-pip python3-venv python3-dev poppler-utils gcc nodejs tree
     veraalva@perseo:~$ sudo usermod -aG docker $USER
 
 Close and reopen the terminal to set the docker group in the user.
