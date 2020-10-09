@@ -338,7 +338,7 @@ Once it finish, start the jupyter server and execute the notebooks as it is indi
 
 .. code-block:: bash
 
-    localhost:~> jupyter notebook --no-browser
+    localhost:~> jupyter notebook
     [I 14:12:52.956 NotebookApp] Serving notebooks from local directory: /home/veraalva
     [I 14:12:52.956 NotebookApp] Jupyter Notebook 6.1.4 is running at:
     [I 14:12:52.956 NotebookApp] http://localhost:8888/?token=eae6a8d42ad12d6ace23f5d0923bcec14d0f798127750122
