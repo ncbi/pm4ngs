@@ -81,7 +81,7 @@ Runs these commands on the Ubuntu terminal to to prepare the instance to run PM4
 .. code-block:: bash
 
     veraalva@perseo:~$ sudo apt-get update
-    veraalva@perseo:~$ sudo apt install python3 python3-pip python3-venv python3-dev poppler-utils gcc nodejs docker.io
+    veraalva@perseo:~$ sudo apt-get install python3 python3-pip python3-venv python3-dev poppler-utils gcc nodejs docker.io
     veraalva@perseo:~$ sudo usermod -aG docker $USER
 
 Close and reopen the terminal to set the docker group in the user.
@@ -92,8 +92,8 @@ Creates a Python virtual environment named: **pm4ngs_venv** for installing PM4NG
 
     veraalva@perseo:~$ python3 -m venv pm4ngs_venv
     veraalva@perseo:~$ source pm4ngs_venv/bin/activate
-    veraalva@perseo:~$ pip install wheel
-    veraalva@perseo:~$ pip install pm4ngs
+    (pm4ngs_venv) veraalva@perseo:~$ pip install wheel
+    (pm4ngs_venv) veraalva@perseo:~$ pip install pm4ngs
 
 Using PM4NGS on WSL
 -------------------

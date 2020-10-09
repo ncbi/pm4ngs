@@ -40,7 +40,7 @@ Runs these commands on a terminal to prepare the instance to run PM4NGS
 .. code-block:: bash
 
     veraalva@instance-1:~$ sudo apt-get update
-    veraalva@instance-1:~$ sudo apt install docker.io python3 python3-pip python3-venv python3-dev poppler-utils gcc nodejs tree
+    veraalva@instance-1:~$ sudo apt-get install docker.io python3 python3-pip python3-venv python3-dev poppler-utils gcc nodejs tree
     veraalva@instance-1:~$ sudo usermod -aG docker $USER
     veraalva@instance-1:~$ logout
 
@@ -56,8 +56,8 @@ Creates a Python virtual environment named: **pm4ngs_venv** for installing PM4NG
 
     veraalva@instance-1:~$ python3 -m venv pm4ngs_venv
     veraalva@instance-1:~$ source pm4ngs_venv/bin/activate
-    veraalva@instance-1:~$ pip install wheel
-    veraalva@instance-1:~$ pip install pm4ngs
+    (pm4ngs_venv) veraalva@instance-1:~$ pip install wheel
+    (pm4ngs_venv) veraalva@instance-1:~$ pip install pm4ngs
 
 Using PM4NGS
 ------------
