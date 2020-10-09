@@ -320,6 +320,43 @@ CWL workflows
 .. include:: /cwl/rnaseq-dga-workflow.rst
 .. include:: /cwl/rnaseq-GO-enrichment-workflow.rst
 
+Demo
+----
+
+PM4NGS includes a demo project that users can use to test the framework. It is pre-configured to use Docker as execution
+environment.
+
+The RNASeq based demo process samples from the BioProject PRJNA290924_.
+
+Use this command to create the project structure in your local computer
+
+.. code-block:: bash
+
+    localhost:~> pm4ngs-rnaseq-demo
+
+Once it finish, start the jupyter server and execute the notebooks as it is indicated on them
+
+.. code-block:: bash
+
+    localhost:~> jupyter notebook --no-browser
+    [I 14:12:52.956 NotebookApp] Serving notebooks from local directory: /home/veraalva
+    [I 14:12:52.956 NotebookApp] Jupyter Notebook 6.1.4 is running at:
+    [I 14:12:52.956 NotebookApp] http://localhost:8888/?token=eae6a8d42ad12d6ace23f5d0923bcec14d0f798127750122
+    [I 14:12:52.956 NotebookApp]  or http://127.0.0.1:8888/?token=eae6a8d42ad12d6ace23f5d0923bcec14d0f798127750122
+    [I 14:12:52.956 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmatio
+    n).
+    [C 14:12:52.959 NotebookApp]
+
+        To access the notebook, open this file in a browser:
+            file:///home/veraalva/.local/share/jupyter/runtime/nbserver-23251-open.html
+        Or copy and paste one of these URLs:
+            http://localhost:8888/?token=eae6a8d42ad12d6ace23f5d0923bcec14d0f798127750122
+         or http://127.0.0.1:8888/?token=eae6a8d42ad12d6ace23f5d0923bcec14d0f798127750122
+
+
+The results of this analysis is `https://ftp.ncbi.nlm.nih.gov/pub/pm4ngs/examples/rnaseq-sra-paired/`_
+
+
 .. _01 - Pre-processing QC: https://github.com/ncbi/pm4ngs-rnaseq/blob/master/%7B%7Bcookiecutter.project_name%7D%7D/notebooks/01%20-%20Pre-processing%20QC.ipynb
 .. _download_quality_control.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/workflows/sra/download_quality_control.cwl
 .. _fastq-dump.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/sra-tools/fastq-dump.cwl
@@ -352,3 +389,6 @@ CWL workflows
 
 .. _05 - GO enrichment: https://github.com/ncbi/pm4ngs-rnaseq/blob/master/%7B%7Bcookiecutter.project_name%7D%7D/notebooks/05%20-%20GO%20enrichment.ipynb
 .. _goenrichment: https://pypi.org/project/goenrichment/
+
+.. _PRJNA290924: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA290924
+.. _`https://ftp.ncbi.nlm.nih.gov/pub/pm4ngs/examples/rnaseq-sra-paired/`: https://ftp.ncbi.nlm.nih.gov/pub/pm4ngs/examples/rnaseq-sra-paired/
