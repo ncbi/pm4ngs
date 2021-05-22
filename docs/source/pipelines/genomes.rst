@@ -9,7 +9,7 @@ will include in the alignment notebook a cell to download, uncompress the genome
 
 .. note::
 
-    We recommend to move our of the first project the generated genome folder **data/{{dataset_name}}/{{genome_name}}/**
+    We recommend to move our of the first project the generated genome folder **data/{{genome_name}}/**
     to a different folder so it can be reutilized for other projects. This will avoid the extra time for the index
     creation and will save space.
 
