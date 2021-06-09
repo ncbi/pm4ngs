@@ -5,18 +5,19 @@ PM4NGS: Program manager for NGS data analysis
 ![Python application](https://github.com/ncbi/pm4ngs/workflows/Python%20application/badge.svg)
 ![Upload Python Package](https://github.com/ncbi/pm4ngs/workflows/Upload%20Python%20Package/badge.svg)
 
-PM4NGS is designed to generate a standard organizational structure for Next-generation Sequencing
-data analysis including a directory structure for the project, Jupyter notebooks for data management and CWL workflows
-for pipeline execution.
+PM4NGS is designed to generate a standard organizational structure for Next Generation Sequencing (NGS) data 
+analysis including directory structures for the project, Jupyter notebooks for data management and CWL workflows 
+for the pipeline execution.
 
 Our work was inspired for a paper published by Prof. William Noble in 2009:
 [A Quick Guide to Organizing Computational Biology Projects](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424). 
-We strongly recommend reading this paper for a better understanding of the guiding principles of this project.
+We recommend reading this manuscript for a better understanding of the guiding principles of the PM4NGS project.
 
-The projects are composed of three main parts. The first one is the **project organizational structure** which
-define a standard files and directories for the project. The second part are **Jupyter Notebooks** as user
-interfaces for data management and visualization. The third part are the **CWL workflows** that execute the data
-analysis.
+The project is composed of three parts:
+
+ * the project organizational structure which defines standard files and directories for the project
+ * the Jupyter Notebook which is a user interface for the data management and the visualization of results
+ * the CWL workflow that executes the data analysis
 
 **PM4NGS** source code includes the templates used by **cookiecutter** to generate the project
 organizational structure and the Jupyter notebooks. The CWL workflows are defined in a separate GitHub project named:
@@ -34,7 +35,9 @@ Go to https://pm4ngs.readthedocs.io for more detail information.
 Reference
 ---------
 
-Vera Alvarez R, Pongor LS, Mariño-Ramírez L and Landsman D. [Containerized open-source framework for NGS data analysis and management](https://f1000research.com/posters/8-1229) [version 1; not peer reviewed]. F1000Research 2019, 8(ISCB Comm J):1229 (poster) (doi: 10.7490/f1000research.1117155.1)
+ * Vera Alvarez R, Pongor LS, Mariño-Ramírez L and Landsman D. PM4NGS, a project management framework for next-generation sequencing data analysis, GigaScience, Volume 10, Issue 1, January 2021, giaa141, https://doi.org/10.1093/gigascience/giaa141 
+ * Vera Alvarez R, Mariño-Ramírez L and Landsman D. Transcriptome annotation in the cloud: complexity, best practices, and cost, GigaScience, Volume 10, Issue 2, February 2021, giaa163, https://doi.org/10.1093/gigascience/giaa163
+ * Vera Alvarez R, Pongor LS, Mariño-Ramírez L and Landsman D. [Containerized open-source framework for NGS data analysis and management](https://f1000research.com/posters/8-1229) [version 1; not peer reviewed]. F1000Research 2019, 8(ISCB Comm J):1229 (poster) (doi: 10.7490/f1000research.1117155.1)
 
 Features
 ---------

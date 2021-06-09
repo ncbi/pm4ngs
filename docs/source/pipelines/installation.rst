@@ -17,12 +17,15 @@ PM4NGS with Conda/BioConda (Recommended)
 Conda installation
 ==================
 
-Conda_ should be already installed and configured.
+Conda_ should be already installed and configured using these commands:
 
 .. code-block:: bash
 
     localhost:~> wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
     localhost:~> sh Miniconda3-latest-Linux-x86_64.sh
+    localhost:~> conda config --add channels defaults
+    localhost:~> conda config --add channels bioconda
+    localhost:~> conda config --add channels conda-forge	
 
 PM4NGS conda installation
 =========================
