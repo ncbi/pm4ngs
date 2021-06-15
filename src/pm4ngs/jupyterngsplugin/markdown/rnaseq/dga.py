@@ -63,7 +63,7 @@ def dga_table(conditions, tools, data_path, width, height):
     return str_msg
 
 
-def dga_gene_list_union(conditions, data_path, organism):
+def dga_gene_list_intersection(conditions, data_path, organism):
     str_msg = ''
     table_header = '''
     <table>
@@ -78,11 +78,11 @@ def dga_gene_list_union(conditions, data_path, organism):
     '''
     for c in conditions:
         f = os.path.relpath(os.path.join(data_path,
-                                         'condition_' + c + '_union.csv'))
+                                         'condition_' + c + '_intersection.csv'))
         o = os.path.relpath(os.path.join(data_path,
-                                         'condition_' + c + '_union_over-expressed.csv'))
+                                         'condition_' + c + '_intersection_over-expressed.csv'))
         u = os.path.relpath(os.path.join(data_path,
-                                         'condition_' + c + '_union_under-expressed.csv'))
+                                         'condition_' + c + '_intersection_under-expressed.csv'))
         if os.path.exists(f) and os.path.getsize(f) != 0:
             str_msg += '\n\n### Condition: ' + c.replace('_vs_', ' vs ') + '\n\n'
             str_msg += 'Full list of genes <a href="'
