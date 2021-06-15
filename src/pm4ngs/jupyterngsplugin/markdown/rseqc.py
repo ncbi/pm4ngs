@@ -14,36 +14,12 @@ def rseqc_plot_table(sample_list, data_path, width, height):
     :return:
     """
     str_msg = 'Click on figure to retrieve original PDF file\n\n'
-    str_msg += '| Sample | Boxplot | HeatMap | Splice Events | Junction Saturation '
-    str_msg += '|\n| --- | --- | --- | --- | --- '
+    str_msg += '| Sample | Splice Events | Junction Saturation '
+    str_msg += '|\n| --- | --- | --- '
     str_msg += '|\n'
     for s in sample_list:
         str_msg += '| ' + s
         str_msg += '| '
-        files = [f for ds, dr, files in os.walk(data_path) for f in files if
-                 f.startswith(s) and f.endswith('rseqc.qual.boxplot.pdf')
-                 and os.path.getsize(os.path.join(data_path, f)) != 0]
-        if len(files) == 1:
-            f = os.path.relpath(os.path.join(data_path, files[0]))
-            str_msg += ' <a href="'
-            str_msg += f.replace(' ', '%20')
-            str_msg += '" target="_blank">'
-            str_msg += '<img src="data:image/png;base64,' + pdftobase64(f, width, height) + '">'
-            str_msg += '</a> |'
-        else:
-            str_msg += ' --- |'
-        files = [f for ds, dr, files in os.walk(data_path) for f in files if
-                 f.startswith(s) and f.endswith('rseqc.qual.heatmap.pdf')
-                 and os.path.getsize(os.path.join(data_path, f)) != 0]
-        if len(files) == 1:
-            f = os.path.relpath(os.path.join(data_path, files[0]))
-            str_msg += ' <a href="'
-            str_msg += f.replace(' ', '%20')
-            str_msg += '" target="_blank">'
-            str_msg += '<img src="data:image/png;base64,' + pdftobase64(f, width, height) + '">'
-            str_msg += '</a> |'
-        else:
-            str_msg += ' --- |'
         files = [f for ds, dr, files in os.walk(data_path) for f in files if
                  f.startswith(s) and f.endswith('rseqc.splice_events.pdf')
                  and os.path.getsize(os.path.join(data_path, f)) != 0]
