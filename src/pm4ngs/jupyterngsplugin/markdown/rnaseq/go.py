@@ -11,7 +11,7 @@ def go_plots_table(conditions, data_path, width, height):
 
         str_msg += '\n\n| Biological process | Molecular Function | Cellular Component |\n'
         str_msg += '| --- | --- | --- |\n'
-        f = os.path.relpath(os.path.join(data_path, 'go_biological_process_' + c + '_union.png'))
+        f = os.path.relpath(os.path.join(data_path, 'go_biological_process_' + c + '_intersection.png'))
         if os.path.exists(f) and os.path.getsize(f) != 0:
             str_msg += '| <a href="'
             str_msg += f.replace(' ', '%20')
@@ -20,7 +20,7 @@ def go_plots_table(conditions, data_path, width, height):
             str_msg += '</a> |'
         else:
             str_msg += '| --- |'
-        f = os.path.relpath(os.path.join(data_path, 'go_molecular_function_' + c + '_union.png'))
+        f = os.path.relpath(os.path.join(data_path, 'go_molecular_function_' + c + '_intersection.png'))
         if os.path.exists(f) and os.path.getsize(f) != 0:
             str_msg += ' <a href="'
             str_msg += f.replace(' ', '%20')
@@ -29,7 +29,7 @@ def go_plots_table(conditions, data_path, width, height):
             str_msg += '</a> |'
         else:
             str_msg += ' --- |'
-        f = os.path.relpath(os.path.join(data_path, 'go_cellular_component_' + c + '_union.png'))
+        f = os.path.relpath(os.path.join(data_path, 'go_cellular_component_' + c + '_intersection.png'))
         if os.path.exists(f) and os.path.getsize(f) != 0:
             str_msg += ' <a href="'
             str_msg += f.replace(' ', '%20')
@@ -46,13 +46,13 @@ def print_count_table(c, namespaces, data_path):
     str_msg = ''
     for n in namespaces:
         str_msg += '|' + n.replace('_', ' ') + '|'
-        f = os.path.relpath(os.path.join(data_path, 'go_over_' + n + '_' + c + '_union.csv'))
+        f = os.path.relpath(os.path.join(data_path, 'go_over_' + n + '_' + c + '_intersection.csv'))
         if os.path.exists(f) and os.path.getsize(f) != 0:
             df = pandas.read_csv(f)
             str_msg += ' {0} |'.format(len(df))
         else:
             str_msg += '--- |'
-        f = os.path.relpath(os.path.join(data_path, 'go_under_' + n + '_' + c + '_union.csv'))
+        f = os.path.relpath(os.path.join(data_path, 'go_under_' + n + '_' + c + '_intersection.csv'))
         if os.path.exists(f) and os.path.getsize(f) != 0:
             df = pandas.read_csv(f)
             str_msg += ' {0} |'.format(len(df))
@@ -109,7 +109,7 @@ def go_html_table(conditions, data_path):
     for c in conditions:
         str_msg += '\n\n### Condition: ' + c.replace('_vs_', ' vs ') + '\n\n'
         str_msg += '#### GO terms per name space \n\n'
-        namespaces = [f.replace('go_over_', '').replace('_' + c + '_union.csv', '')
+        namespaces = [f.replace('go_over_', '').replace('_' + c + '_intersection.csv', '')
                       for d, ds, files in
                       os.walk(data_path) for f in files
                       if f.startswith('go_over_') and f.endswith('.csv') and c in f]
@@ -122,9 +122,9 @@ def go_html_table(conditions, data_path):
             str_msg += '<div><h3>Top 30 GO terms for ' + n.replace('_', ' ') + '</h3>'
             str_msg += '<div style="display: table;width: 100%;">'
             str_msg += '<div style="display: table-row;">'
-            f = os.path.relpath(os.path.join(data_path, 'go_over_' + n + '_' + c + '_union.csv'))
+            f = os.path.relpath(os.path.join(data_path, 'go_over_' + n + '_' + c + '_intersection.csv'))
             str_msg += print_table_cell(f, 'Over-expressed')
-            f = os.path.relpath(os.path.join(data_path, 'go_under_' + n + '_' + c + '_union.csv'))
+            f = os.path.relpath(os.path.join(data_path, 'go_under_' + n + '_' + c + '_intersection.csv'))
             str_msg += print_table_cell(f, 'Under-expressed')
             str_msg += '</div></div></div>'
         str_msg += '\n'
