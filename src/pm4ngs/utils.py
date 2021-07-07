@@ -115,9 +115,14 @@ def copy_sample_table(sample_table_file, dataset_dir):
     copyfile(sample_table_file, os.path.join(dataset_dir, 'sample_table.csv'))
 
 
-def main_hook_standard_template(sample_table_file, copy_rawdata,
-                                work_dir, dataset, project_directory,
-                                cwl_workflow_repo):
+def main_hook_standard_template(dataset,
+                                cwl_workflow_repo='https://github.com/ncbi/cwl-ngs-workflows-cbb'):
+
+    sample_table_file = os.environ.get('PM4NGS_SAMPLE_TABLE', None)
+    copy_rawdata = os.environ.get('PM4NGS_COPY_RAWDATA', None)
+    work_dir = os.environ.get('PM4NGS_WORK_DIR', None)
+    project_directory = os.path.realpath(os.path.curdir)
+
     if sample_table_file and copy_rawdata and work_dir:
         dataset_dir = os.path.join(project_directory, 'data', dataset)
         conda_dependencies = os.path.join(project_directory, 'requirements', 'conda-env-dependencies.yaml')
