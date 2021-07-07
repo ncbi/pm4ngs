@@ -6,6 +6,8 @@ from shutil import copytree, copyfile, Error
 
 import numpy as np
 import pandas
+import yaml
+from bioconda2biocontainer.update_cwl_docker_image import update_cwl_docker_from_tool_name
 from git import Repo
 
 
@@ -56,17 +58,17 @@ def download_file(src, dest):
     return status.returncode
 
 
-def rawdata_file_manager(file, WORK_DIR, DATASET_DIR):
+def rawdata_file_manager(file, work_dir, dataset_dir):
     if file.startswith('/') and os.path.exists(file):
-        return copy_file(file, DATASET_DIR)
+        return copy_file(file, dataset_dir)
     elif file.startswith('http') or file.startswith('ftp'):
-        return download_file(file, DATASET_DIR)
-    return copy_file(os.path.join(WORK_DIR, file), DATASET_DIR)
+        return download_file(file, dataset_dir)
+    return copy_file(os.path.join(work_dir, file), dataset_dir)
 
 
-def copy_rawdata_to_project(COPY_RAWDATA, DATASET_DIR):
-    if COPY_RAWDATA == 'True':
-        sample_table_file = os.path.join(DATASET_DIR, 'sample_table.csv')
+def copy_rawdata_to_project(copy_rawdata, dataset_dir):
+    if copy_rawdata == 'True':
+        sample_table_file = os.path.join(dataset_dir, 'sample_table.csv')
         sample_table = pandas.read_csv(sample_table_file, skip_blank_lines=True)
         sample_table = sample_table.replace(np.nan, '', regex=True)
         sample_table = sample_table[['sample_name', 'file', 'condition', 'replicate']]
@@ -83,3 +85,54 @@ def copy_rawdata_to_project(COPY_RAWDATA, DATASET_DIR):
                 if s != 0:
                     print('Error copying raw data to project')
                     sys.exit(-1)
+
+
+def copy_cwl_repo(repo, dest_dir):
+    if 'github.com' in repo:
+        clone_git_repo(repo, dest_dir)
+    elif os.path.exists(repo):
+        print('Copying CWL directory {} to {}'.format(repo, dest_dir))
+        copy_directory(repo, dest_dir)
+    else:
+        print('CWL_WORKFLOW_REPO = {} not available.'.format(repo))
+        print('Use Github URL or absolute path')
+        sys.exit(-1)
+
+
+def update_cwl_biocontainers(conda_dependencies, dest_dir):
+    print('Updating CWLs dockerPull and SoftwareRequirement from: ' + conda_dependencies)
+    with open(conda_dependencies) as fin:
+        conda_env = yaml.load(fin, Loader=yaml.FullLoader)
+        if 'dependencies' in conda_env:
+            for d in conda_env['dependencies']:
+                update_cwl_docker_from_tool_name(d, dest_dir)
+
+
+def copy_sample_table(sample_table_file, dataset_dir):
+    print('Copying file {}  to {}'.format(
+        sample_table_file, os.path.join(dataset_dir, 'sample_table.csv')
+    ))
+    copyfile(sample_table_file, os.path.join(dataset_dir, 'sample_table.csv'))
+
+
+def main_hook_standard_template(sample_table_file, copy_rawdata,
+                                work_dir, dataset, project_directory,
+                                cwl_workflow_repo):
+    if sample_table_file and copy_rawdata and work_dir:
+        dataset_dir = os.path.join(project_directory, 'data', dataset)
+        conda_dependencies = os.path.join(project_directory, 'requirements', 'conda-env-dependencies.yaml')
+        if os.path.exists(conda_dependencies):
+            copy_cwl_repo(cwl_workflow_repo, os.path.join(project_directory, 'bin', 'cwl'))
+            update_cwl_biocontainers(conda_dependencies, os.path.join(project_directory, 'bin', 'cwl'))
+            copy_sample_table(sample_table_file, dataset_dir)
+            copy_rawdata_to_project(copy_rawdata, dataset_dir)
+            print(' Done')
+        else:
+            print('No conda env dependency file in {0}'.format(conda_dependencies))
+            sys.exit(-1)
+    else:
+        print('Error reading user env')
+        print('PM4NGS_SAMPLE_TABLE: ' + str(sample_table_file))
+        print('PM4NGS_COPY_RAWDATA: ' + str(copy_rawdata))
+        print('PM4NGS_WORK_DIR: ' + str(work_dir))
+        sys.exit(-1)
