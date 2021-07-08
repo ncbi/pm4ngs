@@ -32,6 +32,7 @@ PM4NGS
    pipelines/rnaseqDGAPipeline
    pipelines/chipseqPipeline
    pipelines/chipexoPipeline
+   pipelines/transcriptomeAnnotationPipeline
    pipelines/creatingNewPipeline
    pipelines/utils
    pipelines/genomes

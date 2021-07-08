@@ -39,6 +39,16 @@ PIPELINES = {
             'https://raw.githubusercontent.com/ncbi/pm4ngs-chipexo/master'
             '/example/pm4ngs_chipexo_demo_sample_data.csv'
     },
+    4: {
+        'name': 'Transcriptome-Annotation',
+        'url': 'https://github.com/ncbi/pm4ngs-transcriptome-annotation',
+        'example_yml':
+            'https://raw.githubusercontent.com/ncbi/pm4ngs-transcriptome-annotation/master'
+            '/example/pm4ngs_transcriptome_demo_config.yaml',
+        'sample_sheet':
+            'https://raw.githubusercontent.com/ncbi/pm4ngs-transcriptome-annotation/master'
+            '/example/pm4ngs_transcriptome_demo_sample_data.csv'
+    }
 }
 
 
@@ -95,6 +105,14 @@ def chipexo():
 
 def chipexo_demo():
     generate_demo(3)
+
+
+def transcriptome_annotation():
+    create_predefined(4)
+
+
+def transcriptome_annotation_demo():
+    generate_demo(4)
 
 
 def create_predefined(pipeline):

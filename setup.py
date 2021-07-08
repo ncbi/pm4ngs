@@ -78,7 +78,9 @@ setup(
             'pm4ngs-chipseq = pm4ngs.main:chipseq',
             'pm4ngs-chipseq-demo = pm4ngs.main:chipseq_demo',
             'pm4ngs-chipexo = pm4ngs.main:chipexo',
-            'pm4ngs-chipexo-demo = pm4ngs.main:chipexo_demo'
+            'pm4ngs-chipexo-demo = pm4ngs.main:chipexo_demo',
+            'pm4ngs-transcriptome-annotation = pm4ngs.main:transcriptome_annotation',
+            'pm4ngs-transcriptome-annotation-demo = pm4ngs.main:transcriptome_annotation_demo'
         ],
     }
 )
