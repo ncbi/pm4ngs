@@ -84,6 +84,10 @@ required for creating and configuring the project. The default value for each va
     email [veraalva@ncbi.nlm.nih.gov]:
     project_name [my_ngs_project]: nopal-annotation
     dataset_name [my_dataset_name]: PRJNA320545
+    Select sequencing_technology:
+    1 - single-end
+    2 - paired-end
+    Choose from 1, 2 [1]: 1
     Copying file /home/veraalva/my-sample-sheet.tsv  to /home/veraalva/nopal-annotation/data/PRJNA320545/sample_table.csv
      Done
 
@@ -152,6 +156,10 @@ The **pm4ngs-rnaseq** command line will create a project structure as:
         data. This folder will be created under the **data/{{dataset_name}}** and **results/{{dataset_name}}**.
 
         Default: [my_dataset_name]
+    * **Select sequencing_technology**:
+        Select one of the available sequencing technologies in your data.
+
+        Values: 1 - single-end, 2 - paired-end
 
 Jupyter server
 --------------
