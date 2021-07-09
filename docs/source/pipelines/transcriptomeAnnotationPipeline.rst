@@ -111,6 +111,7 @@ The **pm4ngs-rnaseq** command line will create a project structure as:
     │       ├── pipeline-transcriptome-cleanup.json
     │       ├── pipeline-transcriptome-fastq-cleanup.json
     │       ├── pipeline-trimming-fastq-pe.json
+    │       ├── pipeline-trimming-fastq-se.json
     │       └── pipeline-trinity.json
     ├── config
     │   └── init.py
