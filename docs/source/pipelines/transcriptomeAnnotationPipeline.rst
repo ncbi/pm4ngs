@@ -6,7 +6,7 @@ Transcriptome Annotation pipeline for non-model organisms
 
 .. ATTENTION::
 
-    This annotation pipeline uses Google Cloud platform for all computing demand tasks. Users should have installed
+    This annotation pipeline uses Google Cloud platform for all computing tasks. Users should have installed
     and configured `Cloud SDK`_.
 
 GCP configuration
@@ -27,23 +27,6 @@ It can be installed:
 .. code-block:: bash
 
     localhost:~>  gcloud components install kubectl
-
-Elastic-Blast
--------------
-
-Elastic-blast should be aslo installed in the host machine.
-
-It can be installed in a Python virtual environment:
-
-.. code-block:: bash
-
-    localhost:~>  pip install elastic-blast
-
-Or using Conda:
-
-.. code-block:: bash
-
-    localhost:~>  conda install elastic-blast
 
 Input requirements
 ------------------
@@ -123,7 +106,7 @@ The **pm4ngs-rnaseq** command line will create a project structure as:
     │   ├── 01 - Download and pre-processing quality control.ipynb
     │   ├── 02 - Sample Trimming.ipynb
     │   ├── 03 - Vector removal.ipynb
-    │   ├── 04 - Detecting Contamination with Elastic-Blast.ipynb
+    │   ├── 04 - Detecting Contamination.ipynb
     │   ├── 05 - Trinity assembly.ipynb
     │   ├── 06 - Vector Detection and data Partitioning.ipynb
     │   ├── 07 - Transcriptome annotation.ipynb
