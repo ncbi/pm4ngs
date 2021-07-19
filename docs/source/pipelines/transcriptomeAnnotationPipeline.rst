@@ -4,6 +4,11 @@
 Transcriptome Annotation pipeline for non-model organisms
 #########################################################
 
+Annotation Workflow
+-------------------
+
+.. image:: /_images/transcriptome-annotation.png
+
 .. ATTENTION::
 
     This annotation pipeline uses Google Cloud platform for all computing tasks. Users should have installed
