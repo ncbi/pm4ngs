@@ -85,7 +85,7 @@ Citation
 Help and Support
 ----------------
 
-For query/questions regarding snakePipes, please write on biostars with the tag **#PM4NGS**
+For query/questions regarding PM4NGS, please write veraalva@ncbi.nlm.nih.gov
 
 For feature requests or bug reports, please open an issue on `our GitHub Repository <https://github.com/ncbi/pm4ngs>`__.
 
