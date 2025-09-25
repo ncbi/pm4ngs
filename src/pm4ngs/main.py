@@ -2,11 +2,14 @@
 import argparse
 import os
 import subprocess
-
 import requests
-
-from pm4ngs import __version__
+from importlib.metadata import version, PackageNotFoundError
 from pm4ngs.cookiecutter import execute_cookiecutter
+
+try:
+    __version__ = version("pm4ngs")
+except PackageNotFoundError:
+    __version = "0.0.0"
 
 PIPELINES = {
     1: {

@@ -125,10 +125,12 @@ def main_hook_standard_template(dataset,
 
     if sample_table_file and copy_rawdata and work_dir:
         dataset_dir = os.path.join(project_directory, 'data', dataset)
-        conda_dependencies = os.path.join(project_directory, 'requirements', 'conda-env-dependencies.yaml')
+        conda_dependencies = os.path.join(project_directory,
+                                          'requirements', 'conda-env-dependencies.yaml')
         if os.path.exists(conda_dependencies):
             copy_cwl_repo(cwl_workflow_repo, os.path.join(project_directory, 'bin', 'cwl'))
-            update_cwl_biocontainers(conda_dependencies, os.path.join(project_directory, 'bin', 'cwl'))
+            update_cwl_biocontainers(conda_dependencies,
+                                     os.path.join(project_directory, 'bin', 'cwl'))
             copy_sample_table(sample_table_file, dataset_dir)
             copy_rawdata_to_project(copy_rawdata, dataset_dir)
             print(' Done')
