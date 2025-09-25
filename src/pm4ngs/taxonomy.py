@@ -168,8 +168,8 @@ class Taxonomy:
         inserted = set()
         nodes = self.tax.nodes(data=True)
         for k in self.taxonomy_groups:
-            self.taxonomy_groups[k]['nodes'] = self.get_successors(self.taxonomy_groups[k]['taxid']).difference(
-                inserted)
+            self.taxonomy_groups[k]['nodes'] = self.get_successors(
+                self.taxonomy_groups[k]['taxid']).difference(inserted)
             inserted.update(self.taxonomy_groups[k]['nodes'])
             self.add_sequences_sizefrom_gtax_idx(k)
             for node_id in self.taxonomy_groups[k]['nodes']:
@@ -200,7 +200,8 @@ class Taxonomy:
         if step < deep and size >= min_size_child:
             for t in self.tax.successors(node[1]['id']):
                 if t != node[1]['id']:
-                    self.print_size(self.find_node(t)[0]['name'], deep, step, min_size, min_size_child)
+                    self.print_size(self.find_node(t)[0]['name'],
+                                    deep, step, min_size, min_size_child)
 
     def resume(self):
         data = []
@@ -214,5 +215,8 @@ class Taxonomy:
                          taxas,
                          len(self.taxonomy_groups[k]['sequences']),
                          round(self.taxonomy_groups[k]['size'] / 1e+9, 2)])
-        return pandas.DataFrame(data, columns=['Taxonomy', 'Taxas', 'Taxas with sequences', 'Sequences', 'Size (GB)'])
-
+        return pandas.DataFrame(data, columns=[
+            'Taxonomy', 'Taxas',
+            'Taxas with sequences',
+            'Sequences', 'Size (GB)'
+        ])
