@@ -34,14 +34,12 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = ">=3.7,<4.0"
-docutils = "*"
+python = ">=3.9,<4.0"
 bioconda2biocontainer = "*"
 biopython = "*"
 cookiecutter = "*"
 cwltool = "*"
 docker = "*"
-galaxy-tool-util = "*"
 GitPython = "*"
 goenrichment = "*"
 jupyter = "*"
